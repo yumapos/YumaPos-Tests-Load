@@ -1,0 +1,3 @@
+[submodule "Submodule.YumaPos.Shared"]
+	path = Submodule.YumaPos.Shared
+	url = git@github.com:yumapos/YumaPos-Shared.git

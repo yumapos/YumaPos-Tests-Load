@@ -1,0 +1,23 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension="g.cs" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ include file="..\..\Submodule.YumaPos.Shared\YumaPos.Shared.Tools\Generation\MapHelper.tt" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+using System;
+using System.Linq;
+using YumaPos.Shared.API.Enums;
+
+<#
+    MapHelper.MapExtensionNameSpace = "YumaPos.Tests.Load.Test.Logic";
+    MapHelper.MapExtensionClassName = "MapExtensions"; 
+    MapHelper.MapAttribute = "Map";
+    MapHelper.MapIgnoreAttribute = "MapIgnore";
+    MapHelper.DtoSuffix = "Dto";    
+    MapHelper.DoProjects.Add("YumaPos.Tests.Load.Data");
+    MapHelper.DtoProjects.Add("YumaPos.Tests.Load.Infrastucture");
+	MapHelper.DOSkipAttribute=false;
+	MapHelper.DTOSkipAttribute=false;
+
+    GenerateMap(MapHelper);
+#>
