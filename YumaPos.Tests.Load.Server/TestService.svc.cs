@@ -1,53 +1,72 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+using Autofac;
 using YumaPos.Tests.Load.Infrastucture;
 using YumaPos.Tests.Load.Infrastucture.Dto;
+using YumaPos.Tests.Load.Server.Data.DataObjects;
+using YumaPos.Tests.Load.Server.Interfaces;
 
 namespace YumaPos.Tests.Load.Server
 {
-    public class TestService : IService
+    public class TestService : ITestService
     {
+        public ILifetimeScope Scope { get; private set; }
 
-        public string Register(string clientId)
+        public TestService(ILifetimeScope scope)
         {
-            // TODO: Register client and set it inactive, save ip
-            return "new_client_token";
+            Scope = scope;
         }
 
-        public TestTaskDto[] GetTasks(string clientToken, int maxInstance)
+        public async Task<Guid> Register(Guid clientId, string name)
         {
-            // TODO: check if client is active
-            // check available job to do
-            // check free terminals and employees
-            // create new if need
-            // reserve terminals and employees for this client
-            // return array of task
+            return await Scope.Resolve<IClientService>().RegisterClient(clientId, HttpContext.Current.Request.UserHostAddress, name);
+        }
 
-            return new TestTaskDto[]
+        public async Task<IEnumerable<TestTaskDto>> GetTasks(Guid clientToken, int maxInstance)
+        {
+            var clientService = Scope.Resolve<IClientService>();
+            var jobService = Scope.Resolve<IJobService>();
+            var taskService = Scope.Resolve<ITaskService>();
+
+            var client = await clientService.GetByToken(clientToken);
+            if (!client.IsActive) throw new FaultException("client is not activated");
+            // check available job to do
+            var job = await jobService.GetNextJob();
+            if (job != null && client.TasksCount < maxInstance)
             {
-                new TestTaskDto()
+                var res = new List<TestTaskDto>();
+                // check free terminals and employees
+                // create new if need
+                // reserve terminals and employees for this client
+                Tuple<Terminal, Employee> tu = await jobService.ReserveEmployeeAndTerminal(job);
+                var terminal = tu.Item1;
+                var employee = tu.Item2;
+                TestTask tt = await taskService.CreateTask(job, terminal, employee, client);
+                
+                // return array of task
+                res.Add(new TestTaskDto()
                 {
-                    TaskId = new Random().Next(),
-                    ClientIsRegistered = false,
-                    AuthorizationAddress = "http://localhost:39607",
-                    ServiceAddress = "http://localhost:1999/Service.svc",
-                    TenantAlias = "localhost",
-                    TerminalId = "2003",
-                    TerminalToken = "10000000-0000-0000-0000-000000000001",
-                    EmployeeLogin = "admin",
-                    EmployeePassword = "admin",
-                    Start = DateTime.UtcNow,
-                    Duration = TimeSpan.FromMinutes(1),
-                    MinInterval = TimeSpan.FromSeconds(1),
-                    MaxInterval = TimeSpan.FromMinutes(1),
-                    Scenarios = new string[] {"YumaPos.Tests.Load.Scenarios.EmployeeLoginScenario"}
-                }
-            };
+                    TaskId = tt.TestId,
+                    TerminalIsRegistered = false,
+                    AuthorizationAddress = job.Server.AuthorizationAddress,
+                    ServiceAddress = job.Server.ServiceAddress,
+                    TenantAlias = terminal.Tenant.TenantAlias,
+                    TerminalId = terminal.TerminalId,
+                    TerminalToken = terminal.TerminalId,
+                    EmployeeLogin = employee.Login,
+                    EmployeePassword = employee.Password,
+                    Start = job.Start,
+                    Duration = job.Duration,
+                    MinInterval = job.MinInterval,
+                    MaxInterval = job.MaxInterval,
+                    Scenarios = job.Scenarios
+                });
+                return res;
+            }
+            return null;
         }
 
         public void Report(int clientId, ReportDto report)

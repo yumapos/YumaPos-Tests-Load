@@ -1,1 +1,1 @@
-<%@ ServiceHost Language="C#" Debug="true" Service="YumaPos.Tests.Load.Server.TestService" CodeBehind="TestService.svc.cs" %>
+<%@ ServiceHost Language="C#" Debug="true" Service="YumaPos.Tests.Load.Server.TestService, YumaPos.Tests.Load.Server" CodeBehind="TestService.svc.cs"  Factory="Autofac.Integration.Wcf.AutofacServiceHostFactory, Autofac.Integration.Wcf" %>

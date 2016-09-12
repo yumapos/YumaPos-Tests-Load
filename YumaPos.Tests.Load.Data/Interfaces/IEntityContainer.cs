@@ -1,7 +1,7 @@
-﻿namespace YumaPos.Tests.Load.Data.Interfaces
+﻿namespace YumaPos.Tests.Load.Client.Data.Interfaces
 {
     public interface IEntityContainer
     {
-        TestDbContext Context { get; }
+        TestClientDbContext Context { get; }
     }
 }

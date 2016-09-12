@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using YumaPos.Tests.Load.Client.Data.Interfaces;
+using YumaPos.Tests.Load.Client.Data.Models;
 using YumaPos.Tests.Load.Client.Interfaces;
 using YumaPos.Tests.Load.Client.Logic;
-using YumaPos.Tests.Load.Data.Interfaces;
-using YumaPos.Tests.Load.Data.Models;
 using YumaPos.Tests.Load.Infrastucture.Dto;
-using YumaPos.Tests.Load.Test.Logic;
 
 namespace YumaPos.Tests.Load.Client
 {
@@ -38,7 +37,7 @@ namespace YumaPos.Tests.Load.Client
             _cancellationTokenSource = new CancellationTokenSource();
             if (!_config.ClientIsRegistered)
             {
-                var token = await _testApi.RegisterClient(_config.ClientId);
+                var token = await _testApi.RegisterClient(_config.ClientId, System.Environment.MachineName);
                 _config.ClientToken = token;
             }
             while (_run)

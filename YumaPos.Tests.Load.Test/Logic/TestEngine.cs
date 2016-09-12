@@ -3,10 +3,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
 using YumaPos.Common.Infrastructure.Enums;
-using YumaPos.Tests.Load.Data.Models;
 using YumaPos.Tests.Load.Scenarios;
 using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Shared.Core.Reciept.Contracts;
+using YumaPos.Tests.Load.Client.Data.Models;
 
 namespace YumaPos.Tests.Load.Client.Logic
 {
@@ -37,7 +37,8 @@ namespace YumaPos.Tests.Load.Client.Logic
             _terminalContext.ClientIsRegistered = TestTask.ClientIsRegistered;
 
             ApiConfig config = (ApiConfig) _scope.Resolve<IAPIConfig>();
-            config.TerminalId = TestTask.TerminalId;
+            config.TerminalId = TestTask.TerminalId.ToString();
+            config.Token = TestTask.TerminalToken.ToString();
             config.Tenant = TestTask.TenantAlias;
             config.AuthorizationAddress = TestTask.AuthorizationAddress;
             config.ServiceAddress = TestTask.ServiceAddress;

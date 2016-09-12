@@ -1,4 +1,4 @@
-﻿namespace YumaPos.Tests.Load.Data.Interfaces
+﻿namespace YumaPos.Tests.Load.Client.Data.Interfaces
 {
     public interface IReportRepository
     {

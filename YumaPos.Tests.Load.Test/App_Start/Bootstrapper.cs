@@ -44,7 +44,7 @@ namespace YumaPos.Tests.Load.Client
         {
             //AutoFacHelper.Register<YumaPos.Common.Tools.Registrator>(Builder);
             AutoFacHelper.Register<Registrator>(Builder);
-            AutoFacHelper.Register<YumaPos.Tests.Load.Data.Registrator>(Builder);
+            AutoFacHelper.Register<Data.Registrator>(Builder);
             AutoFacHelper.Register<YumaPos.Tests.Load.Scenarios.Registrator>(Builder);
 
         }

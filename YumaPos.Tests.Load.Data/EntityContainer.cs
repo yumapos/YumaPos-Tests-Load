@@ -1,17 +1,17 @@
 using System.Configuration;
-using YumaPos.Tests.Load.Data.Interfaces;
+using YumaPos.Tests.Load.Client.Data.Interfaces;
 
-namespace YumaPos.Tests.Load.Data
+namespace YumaPos.Tests.Load.Client.Data
 {
     public class EntityContainer : IEntityContainer
     {
-        private TestDbContext _context;
+        private TestClientDbContext _context;
 
-        public TestDbContext Context
+        public TestClientDbContext Context
         {
             get
             {
-                return _context ?? (_context = new TestDbContext(ConnectionString));
+                return _context ?? (_context = new TestClientDbContext(ConnectionString));
             }
         }
 

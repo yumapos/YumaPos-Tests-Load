@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using YumaPos.Shared.Attributes;
 
-namespace YumaPos.Tests.Load.Data.Models
+namespace YumaPos.Tests.Load.Client.Data.Models
 {
     [Map]
     public class Report

@@ -1,10 +1,10 @@
-﻿using YumaPos.Tests.Load.Data.Interfaces;
+﻿using YumaPos.Tests.Load.Client.Data.Interfaces;
 
-namespace YumaPos.Tests.Load.Data.Repositories
+namespace YumaPos.Tests.Load.Client.Data.Repositories
 {
     public class ReportRepository : IReportRepository
     {
-        private readonly TestDbContext _dbContext;
+        private readonly TestClientDbContext _dbContext;
 
         public ReportRepository(IEntityContainer container)
         {

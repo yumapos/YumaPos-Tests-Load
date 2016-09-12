@@ -9,14 +9,14 @@ using YumaPos.Tests.Load.Infrastucture.Dto;
 namespace YumaPos.Tests.Load.Infrastucture
 {
     [ServiceContract]
-    public interface IService
+    public interface ITestService
     {
 
         [OperationContract]
-        string Register(string clientId);
+        Task<Guid> Register(Guid clientId, string name);
 
         [OperationContract]
-        TestTaskDto[] GetTasks(string clientToken, int maxInstance);
+        Task<IEnumerable<TestTaskDto>> GetTasks(Guid clientToken, int maxInstance);
 
         [OperationContract]
         void Report(int clientId, ReportDto report);

@@ -12,68 +12,68 @@ namespace YumaPos.Tests.Load.Client.TestServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TestServiceReference.IService")]
-    public interface IService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TestServiceReference.ITestService")]
+    public interface ITestService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Register", ReplyAction="http://tempuri.org/IService/RegisterResponse")]
-        string Register(string clientId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Register", ReplyAction="http://tempuri.org/ITestService/RegisterResponse")]
+        System.Guid Register(System.Guid clientId, string name);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Register", ReplyAction="http://tempuri.org/IService/RegisterResponse")]
-        System.Threading.Tasks.Task<string> RegisterAsync(string clientId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Register", ReplyAction="http://tempuri.org/ITestService/RegisterResponse")]
+        System.Threading.Tasks.Task<System.Guid> RegisterAsync(System.Guid clientId, string name);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetTasks", ReplyAction="http://tempuri.org/IService/GetTasksResponse")]
-        YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[] GetTasks(string clientToken, int maxInstance);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/GetTasks", ReplyAction="http://tempuri.org/ITestService/GetTasksResponse")]
+        YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[] GetTasks(System.Guid clientToken, int maxInstance);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetTasks", ReplyAction="http://tempuri.org/IService/GetTasksResponse")]
-        System.Threading.Tasks.Task<YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[]> GetTasksAsync(string clientToken, int maxInstance);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/GetTasks", ReplyAction="http://tempuri.org/ITestService/GetTasksResponse")]
+        System.Threading.Tasks.Task<YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[]> GetTasksAsync(System.Guid clientToken, int maxInstance);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Report", ReplyAction="http://tempuri.org/IService/ReportResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Report", ReplyAction="http://tempuri.org/ITestService/ReportResponse")]
         void Report(int clientId, [System.ServiceModel.MessageParameterAttribute(Name="report")] YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report1);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Report", ReplyAction="http://tempuri.org/IService/ReportResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Report", ReplyAction="http://tempuri.org/ITestService/ReportResponse")]
         System.Threading.Tasks.Task ReportAsync(int clientId, YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceChannel : YumaPos.Tests.Load.Client.TestServiceReference.IService, System.ServiceModel.IClientChannel {
+    public interface ITestServiceChannel : YumaPos.Tests.Load.Client.TestServiceReference.ITestService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceClient : System.ServiceModel.ClientBase<YumaPos.Tests.Load.Client.TestServiceReference.IService>, YumaPos.Tests.Load.Client.TestServiceReference.IService {
+    public partial class TestServiceClient : System.ServiceModel.ClientBase<YumaPos.Tests.Load.Client.TestServiceReference.ITestService>, YumaPos.Tests.Load.Client.TestServiceReference.ITestService {
         
-        public ServiceClient() {
+        public TestServiceClient() {
         }
         
-        public ServiceClient(string endpointConfigurationName) : 
+        public TestServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public TestServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public TestServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public TestServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public string Register(string clientId) {
-            return base.Channel.Register(clientId);
+        public System.Guid Register(System.Guid clientId, string name) {
+            return base.Channel.Register(clientId, name);
         }
         
-        public System.Threading.Tasks.Task<string> RegisterAsync(string clientId) {
-            return base.Channel.RegisterAsync(clientId);
+        public System.Threading.Tasks.Task<System.Guid> RegisterAsync(System.Guid clientId, string name) {
+            return base.Channel.RegisterAsync(clientId, name);
         }
         
-        public YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[] GetTasks(string clientToken, int maxInstance) {
+        public YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[] GetTasks(System.Guid clientToken, int maxInstance) {
             return base.Channel.GetTasks(clientToken, maxInstance);
         }
         
-        public System.Threading.Tasks.Task<YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[]> GetTasksAsync(string clientToken, int maxInstance) {
+        public System.Threading.Tasks.Task<YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[]> GetTasksAsync(System.Guid clientToken, int maxInstance) {
             return base.Channel.GetTasksAsync(clientToken, maxInstance);
         }
         

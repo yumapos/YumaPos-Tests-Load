@@ -15,24 +15,26 @@ namespace YumaPos.Tests.Load.Client
 
         public MyApplicationContext()
         {
-            Application.ApplicationExit += new EventHandler(this.OnApplicationExit);
+            Application.ApplicationExit += OnApplicationExit;
             InitializeComponent();
             TrayIcon.Visible = true;
         }
 
         private void InitializeComponent()
         {
-            TrayIcon = new NotifyIcon();
+            TrayIcon = new NotifyIcon
+            {
+                BalloonTipIcon = ToolTipIcon.Info,
+                BalloonTipText = "I noticed that you double-clicked me! What can I do for you?",
+                BalloonTipTitle = "You called Master?",
+                Text = "Yumapos test client",
+                Icon = Resources.Resource.TrayIcon
+            };
 
-            TrayIcon.BalloonTipIcon = ToolTipIcon.Info;
-            TrayIcon.BalloonTipText = "I noticed that you double-clicked me! What can I do for you?";
-            TrayIcon.BalloonTipTitle = "You called Master?";
-            TrayIcon.Text = "Yumapos test client";
 
 
             //The icon is added to the project resources.
             //Here I assume that the name of the file is 'TrayIcon.ico'
-            TrayIcon.Icon = Resources.Resource.TrayIcon;
 
             //Optional - handle doubleclicks on the icon:
             TrayIcon.DoubleClick += TrayIcon_DoubleClick;
@@ -45,8 +47,7 @@ namespace YumaPos.Tests.Load.Client
             // 
             // TrayIconContextMenu
             // 
-            this.TrayIconContextMenu.Items.AddRange(new ToolStripItem[] {
-                this.CloseMenuItem});
+            this.TrayIconContextMenu.Items.AddRange(new ToolStripItem[] {CloseMenuItem});
             this.TrayIconContextMenu.Name = "TrayIconContextMenu";
             this.TrayIconContextMenu.Size = new Size(153, 70);
             // 

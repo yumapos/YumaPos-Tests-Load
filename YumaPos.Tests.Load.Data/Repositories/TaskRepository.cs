@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.SqlServer;
 using System.Linq;
 using System.Threading.Tasks;
-using YumaPos.Tests.Load.Data.Interfaces;
-using YumaPos.Tests.Load.Data.Models;
+using YumaPos.Tests.Load.Client.Data.Interfaces;
+using YumaPos.Tests.Load.Client.Data.Models;
 
-namespace YumaPos.Tests.Load.Data.Repositories
+namespace YumaPos.Tests.Load.Client.Data.Repositories
 {
     public class TaskRepository : ITaskRepository
     {
-        private readonly TestDbContext _dbContext;
+        private readonly TestClientDbContext _dbContext;
 
         public TaskRepository(IEntityContainer container)
         {

@@ -154,9 +154,9 @@
       <Project>{2be0d1ce-dfa0-476b-a2b5-b16ed56610c4}</Project>
       <Name>YumaPos.Shared.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\YumaPos.Tests.Load.Data\YumaPos.Tests.Load.Data.csproj">
+    <ProjectReference Include="..\YumaPos.Tests.Load.Data\YumaPos.Tests.Load.Client.Data.csproj">
       <Project>{CC83D8D3-A110-4EAB-B738-2065732B8DE1}</Project>
-      <Name>YumaPos.Tests.Load.Data</Name>
+      <Name>YumaPos.Tests.Load.Client.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\YumaPos.Tests.Load.Infrastucture\YumaPos.Tests.Load.Infrastucture.csproj">
       <Project>{E2718F0F-700F-4CFA-8D2E-DCA33105EB2B}</Project>

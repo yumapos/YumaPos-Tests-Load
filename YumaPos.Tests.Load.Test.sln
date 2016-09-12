@@ -32,9 +32,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Tests.Load.Infrastu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Tests.Load.Scenarios", "YumaPos.Tests.Load.Scenarios\YumaPos.Tests.Load.Scenarios.csproj", "{92307441-2AEC-43A2-A7B7-1B03AA25C533}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Tests.Load.Data", "YumaPos.Tests.Load.Data\YumaPos.Tests.Load.Data.csproj", "{CC83D8D3-A110-4EAB-B738-2065732B8DE1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Tests.Load.Client.Data", "YumaPos.Tests.Load.Data\YumaPos.Tests.Load.Client.Data.csproj", "{CC83D8D3-A110-4EAB-B738-2065732B8DE1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Common.Tools", "Submodule.YumaPos.Shared\YumaPos.Common.Tools\YumaPos.Common.Tools.csproj", "{27F89F4A-8AF5-4E61-8CF2-136388269B3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Tests.Load.Server.Data", "YumaPos.Tests.Load.Server.Data\YumaPos.Tests.Load.Server.Data.csproj", "{942DB82A-C1D2-4F27-9030-372F8E927113}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +111,12 @@ Global
 		{27F89F4A-8AF5-4E61-8CF2-136388269B3D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{27F89F4A-8AF5-4E61-8CF2-136388269B3D}.ServiceDebug|Any CPU.ActiveCfg = ServiceDebug|Any CPU
 		{27F89F4A-8AF5-4E61-8CF2-136388269B3D}.ServiceDebug|Any CPU.Build.0 = ServiceDebug|Any CPU
+		{942DB82A-C1D2-4F27-9030-372F8E927113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{942DB82A-C1D2-4F27-9030-372F8E927113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{942DB82A-C1D2-4F27-9030-372F8E927113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{942DB82A-C1D2-4F27-9030-372F8E927113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{942DB82A-C1D2-4F27-9030-372F8E927113}.ServiceDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{942DB82A-C1D2-4F27-9030-372F8E927113}.ServiceDebug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

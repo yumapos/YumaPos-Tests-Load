@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using YumaPos.Shared.Attributes;
 
-namespace YumaPos.Tests.Load.Data.Models
+namespace YumaPos.Tests.Load.Client.Data.Models
 {
     [Map]
     public class TestTask
@@ -15,8 +14,8 @@ namespace YumaPos.Tests.Load.Data.Models
         public string AuthorizationAddress { get; set; }
         public string ServiceAddress { get; set; }
         public string TenantAlias { get; set; }
-        public string TerminalId { get; set; }
-        public string TerminalToken { get; set; }
+        public Guid TerminalId { get; set; }
+        public Guid TerminalToken { get; set; }
         public string EmployeeLogin { get; set; }
         public string EmployeePassword { get; set; }
         public DateTime Start { get; set; }

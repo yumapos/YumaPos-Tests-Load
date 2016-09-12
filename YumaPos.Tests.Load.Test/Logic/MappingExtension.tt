@@ -9,12 +9,12 @@ using System.Linq;
 using YumaPos.Shared.API.Enums;
 
 <#
-    MapHelper.MapExtensionNameSpace = "YumaPos.Tests.Load.Test.Logic";
+    MapHelper.MapExtensionNameSpace = "YumaPos.Tests.Load.Client.Logic";
     MapHelper.MapExtensionClassName = "MapExtensions"; 
     MapHelper.MapAttribute = "Map";
     MapHelper.MapIgnoreAttribute = "MapIgnore";
     MapHelper.DtoSuffix = "Dto";    
-    MapHelper.DoProjects.Add("YumaPos.Tests.Load.Data");
+    MapHelper.DoProjects.Add("YumaPos.Tests.Load.Client.Data");
     MapHelper.DtoProjects.Add("YumaPos.Tests.Load.Infrastucture");
 	MapHelper.DOSkipAttribute=false;
 	MapHelper.DTOSkipAttribute=false;

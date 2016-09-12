@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using YumaPos.Tests.Load.Data.Models;
+using YumaPos.Tests.Load.Client.Data.Models;
 
-namespace YumaPos.Tests.Load.Data.Interfaces
+namespace YumaPos.Tests.Load.Client.Data.Interfaces
 {
     public interface ITaskRepository
     {
