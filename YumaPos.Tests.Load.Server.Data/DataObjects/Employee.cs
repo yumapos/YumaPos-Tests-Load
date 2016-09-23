@@ -9,6 +9,7 @@ namespace YumaPos.Tests.Load.Server.Data.DataObjects
         public Guid EmployeeId { get; set; }
         public Guid TenantId { get; set; }
         public Guid? ClientId { get; set; }
+        public Guid? StoreId { get; set; }
 
         public string Login { get; set; }
         public string Password { get; set; }

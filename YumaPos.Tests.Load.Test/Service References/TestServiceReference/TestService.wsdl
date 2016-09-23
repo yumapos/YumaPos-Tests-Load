@@ -20,6 +20,12 @@
   <wsdl:message name="ITestService_GetTasks_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTasksResponse" />
   </wsdl:message>
+  <wsdl:message name="ITestService_CancelMyTasks_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelMyTasks" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_CancelMyTasks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelMyTasksResponse" />
+  </wsdl:message>
   <wsdl:message name="ITestService_Report_InputMessage">
     <wsdl:part name="parameters" element="tns:Report" />
   </wsdl:message>
@@ -34,6 +40,10 @@
     <wsdl:operation name="GetTasks">
       <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetTasks" message="tns:ITestService_GetTasks_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetTasksResponse" message="tns:ITestService_GetTasks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelMyTasks">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/CancelMyTasks" message="tns:ITestService_CancelMyTasks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/CancelMyTasksResponse" message="tns:ITestService_CancelMyTasks_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Report">
       <wsdl:input wsaw:Action="http://tempuri.org/ITestService/Report" message="tns:ITestService_Report_InputMessage" />
@@ -53,6 +63,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetTasks">
       <soap:operation soapAction="http://tempuri.org/ITestService/GetTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelMyTasks">
+      <soap:operation soapAction="http://tempuri.org/ITestService/CancelMyTasks" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

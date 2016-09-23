@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using YumaPos.Tests.Load.Client.Data.Interfaces;
 using YumaPos.Tests.Load.Client.Data.Models;
 using YumaPos.Tests.Load.Client.Interfaces;
@@ -30,6 +32,11 @@ namespace YumaPos.Tests.Load.Client
         public void Stop()
         {
             _run = false;
+            _cancellationTokenSource.Cancel();
+            foreach (var testEngine in _runningInstances)
+            {
+                testEngine.Stop();
+            }
         }
 
         public async void Start()
@@ -39,20 +46,32 @@ namespace YumaPos.Tests.Load.Client
             {
                 var token = await _testApi.RegisterClient(_config.ClientId, System.Environment.MachineName);
                 _config.ClientToken = token;
+                _config.ClientIsRegistered = true;
             }
+            await _testApi.CancelMyTasks(_config.ClientToken);
             while (_run)
             {
                 await CheckNewTask();
                 await CheckTaskForExecute();
-                await Task.Delay(TimeSpan.FromMinutes(1), _cancellationTokenSource.Token);
+                await Task.Delay(TimeSpan.FromMinutes(10), _cancellationTokenSource.Token);
             }
-            StopAllTasks();
         }
 
         private async Task CheckNewTask()
         {
-            TestTaskDto[] tasks = await _testApi.GetTasks(_config.ClientToken, _config.MaxInstanceCount);
-            if (tasks.Length > 0)
+            TestTaskDto[] tasks;
+            try
+            {
+                tasks = await _testApi.GetTasks(_config.ClientToken, _config.MaxInstanceCount);
+            }
+            catch(FaultException e)
+            {
+                _run = false;
+                _cancellationTokenSource.Cancel();
+                MessageBox.Show(e.Message);
+                return;
+            }
+            if (tasks != null && tasks.Length > 0)
             {
                 await _taskRepository.AddRange(tasks.Select(p => p.MapFromDto()));
             }
@@ -83,13 +102,5 @@ namespace YumaPos.Tests.Load.Client
             engine.Dispose();
         }
 
-        private void StopAllTasks()
-        {
-            _cancellationTokenSource.Cancel();
-            foreach (var testEngine in _runningInstances)
-            {
-                testEngine.Stop();
-            }
-        }
     }
 }

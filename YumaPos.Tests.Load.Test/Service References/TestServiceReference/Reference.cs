@@ -27,6 +27,12 @@ namespace YumaPos.Tests.Load.Client.TestServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/GetTasks", ReplyAction="http://tempuri.org/ITestService/GetTasksResponse")]
         System.Threading.Tasks.Task<YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[]> GetTasksAsync(System.Guid clientToken, int maxInstance);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/CancelMyTasks", ReplyAction="http://tempuri.org/ITestService/CancelMyTasksResponse")]
+        void CancelMyTasks(System.Guid clientToken);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/CancelMyTasks", ReplyAction="http://tempuri.org/ITestService/CancelMyTasksResponse")]
+        System.Threading.Tasks.Task CancelMyTasksAsync(System.Guid clientToken);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Report", ReplyAction="http://tempuri.org/ITestService/ReportResponse")]
         void Report(int clientId, [System.ServiceModel.MessageParameterAttribute(Name="report")] YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report1);
         
@@ -75,6 +81,14 @@ namespace YumaPos.Tests.Load.Client.TestServiceReference {
         
         public System.Threading.Tasks.Task<YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[]> GetTasksAsync(System.Guid clientToken, int maxInstance) {
             return base.Channel.GetTasksAsync(clientToken, maxInstance);
+        }
+        
+        public void CancelMyTasks(System.Guid clientToken) {
+            base.Channel.CancelMyTasks(clientToken);
+        }
+        
+        public System.Threading.Tasks.Task CancelMyTasksAsync(System.Guid clientToken) {
+            return base.Channel.CancelMyTasksAsync(clientToken);
         }
         
         public void Report(int clientId, YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report1) {

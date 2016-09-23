@@ -54,6 +54,7 @@
     <Compile Include="DataObjects\Client.cs" />
     <Compile Include="DataObjects\Employee.cs" />
     <Compile Include="DataObjects\Job.cs" />
+    <Compile Include="DataObjects\Server.cs" />
     <Compile Include="DataObjects\Store.cs" />
     <Compile Include="DataObjects\Tenant.cs" />
     <Compile Include="DataObjects\Terminal.cs" />

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 
 namespace YumaPos.Tests.Load.Server.Data.DataObjects
 {
@@ -33,15 +32,5 @@ namespace YumaPos.Tests.Load.Server.Data.DataObjects
         }
 
         public virtual Server Server { get; set; }
-    }
-
-    public class Server
-    {
-        [Key]
-        public int ServerId { get; set; }
-        public string AuthorizationAddress { get; set; }
-        public string ServiceAddress { get; set; }
-        public string DataConnectionString { get; set; }
-         
     }
 }

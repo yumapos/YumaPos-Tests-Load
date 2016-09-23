@@ -32,7 +32,8 @@ namespace YumaPos.Tests.Load.Server
             var taskService = Scope.Resolve<ITaskService>();
 
             var client = await clientService.GetByToken(clientToken);
-            if (!client.IsActive) throw new FaultException("client is not activated");
+            if (client == null) throw new FaultException(ErrorStrings.ClientNotFound);
+            if (!client.IsActive) throw new FaultException(ErrorStrings.ClientNotActivated);
             // check available job to do
             var job = await jobService.GetNextJob();
             if (job != null && client.TasksCount < maxInstance)
@@ -41,7 +42,7 @@ namespace YumaPos.Tests.Load.Server
                 // check free terminals and employees
                 // create new if need
                 // reserve terminals and employees for this client
-                Tuple<Terminal, Employee> tu = await jobService.ReserveEmployeeAndTerminal(job);
+                Tuple<Terminal, Employee> tu = await jobService.ReserveEmployeeAndTerminal(job, client.ClientId);
                 var terminal = tu.Item1;
                 var employee = tu.Item2;
                 TestTask tt = await taskService.CreateTask(job, terminal, employee, client);
@@ -55,7 +56,7 @@ namespace YumaPos.Tests.Load.Server
                     ServiceAddress = job.Server.ServiceAddress,
                     TenantAlias = terminal.Tenant.TenantAlias,
                     TerminalId = terminal.TerminalId,
-                    TerminalToken = terminal.TerminalId,
+                    TerminalToken = terminal.Token,
                     EmployeeLogin = employee.Login,
                     EmployeePassword = employee.Password,
                     Start = job.Start,
@@ -64,9 +65,24 @@ namespace YumaPos.Tests.Load.Server
                     MaxInterval = job.MaxInterval,
                     Scenarios = job.Scenarios
                 });
+                await jobService.IncreaseTaskCount(job.JobId);
+                await clientService.IncreaseTaskCount(client.ClientId);
                 return res;
             }
             return null;
+        }
+
+        public async Task CancelMyTasks(Guid clientToken)
+        {
+            var clientService = Scope.Resolve<IClientService>();
+            var jobService = Scope.Resolve<IJobService>();
+            var taskService = Scope.Resolve<ITaskService>();
+
+            var client = await clientService.GetByToken(clientToken);
+            if (client == null) throw new FaultException(ErrorStrings.ClientNotFound);
+            if (!client.IsActive) throw new FaultException(ErrorStrings.ClientNotActivated);
+            var tasks = await taskService.GetTasksByClientId(client.ClientId);
+            await jobService.Cancel(tasks);
         }
 
         public void Report(int clientId, ReportDto report)

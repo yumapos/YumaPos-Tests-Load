@@ -23,5 +23,12 @@ namespace YumaPos.Tests.Load.Client.Logic
                 return await client.GetTasksAsync(clientToken, maxInstanceCount);
             }
         }
+        public async Task CancelMyTasks(Guid clientToken)
+        {
+            using (var client = new TestServiceReference.TestServiceClient())
+            {
+                await client.CancelMyTasksAsync(clientToken);
+            }
+        }
     }
 }

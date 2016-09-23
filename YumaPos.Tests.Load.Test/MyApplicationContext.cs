@@ -65,8 +65,6 @@ namespace YumaPos.Tests.Load.Client
             Task.Factory.StartNew(App.Start, TaskCreationOptions.LongRunning);
         }
 
-        public Thread AppThread { get; set; }
-
         public App App { get; set; }
 
         private void OnApplicationExit(object sender, EventArgs e)

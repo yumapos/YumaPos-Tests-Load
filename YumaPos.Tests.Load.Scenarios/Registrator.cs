@@ -19,6 +19,8 @@ namespace YumaPos.Tests.Load.Scenarios
 
             Register<EmployeeLoginScenario>(typeof(EmployeeLoginScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<EmployeeLoginScenario>();
             Register<RegisterTerminalScenario>(typeof(RegisterTerminalScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<RegisterTerminalScenario>();
+            Register<LoadFullMenuScenario>(typeof(LoadFullMenuScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<LoadFullMenuScenario>();
+            Register<SimpleOrderScenario>(typeof(SimpleOrderScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<SimpleOrderScenario>();
         }
     }
 }

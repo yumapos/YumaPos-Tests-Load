@@ -27,27 +27,31 @@ namespace YumaPos.Tests.Load.Client.Logic
         {
             _cancellationTokenSource = new CancellationTokenSource();
             _terminalContext = _scope.Resolve<TerminalContext>();
-            _terminalContext.AuthServer = TestTask.AuthorizationAddress;
-            _terminalContext.TerminalServer = TestTask.ServiceAddress;
-            _terminalContext.TenantAlias = TestTask.TenantAlias;
-            _terminalContext.TerminalId = TestTask.TerminalId;
-            _terminalContext.TerminalToken = TestTask.TerminalToken;
-            _terminalContext.EmployeeLogin = TestTask.EmployeeLogin;
-            _terminalContext.EmployeePassword = TestTask.EmployeePassword;
+            _terminalContext.AuthServer         = TestTask.AuthorizationAddress;
+            _terminalContext.TerminalServer     = TestTask.ServiceAddress;
+            _terminalContext.TenantAlias        = TestTask.TenantAlias;
+            _terminalContext.TerminalId         = TestTask.TerminalId;
+            _terminalContext.TerminalToken      = TestTask.TerminalToken;
+            _terminalContext.EmployeeLogin      = TestTask.EmployeeLogin;
+            _terminalContext.EmployeePassword   = TestTask.EmployeePassword;
             _terminalContext.ClientIsRegistered = TestTask.ClientIsRegistered;
 
             ApiConfig config = (ApiConfig) _scope.Resolve<IAPIConfig>();
-            config.TerminalId = TestTask.TerminalId.ToString();
-            config.Token = TestTask.TerminalToken.ToString();
-            config.Tenant = TestTask.TenantAlias;
-            config.AuthorizationAddress = TestTask.AuthorizationAddress;
-            config.ServiceAddress = TestTask.ServiceAddress;
+            config.TerminalId                   = TestTask.TerminalId.ToString();
+            config.Token                        = TestTask.TerminalToken.ToString();
+            config.Tenant                       = TestTask.TenantAlias;
+            config.AuthorizationAddress         = TestTask.AuthorizationAddress;
+            config.ServiceAddress               = TestTask.ServiceAddress;
 
             if (_terminalContext.ClientIsRegistered)
             {
-                var regiterScenario = _scope.Resolve<RegisterTerminalScenario>();
+                var regiterScenario = _scope.ResolveKeyed<RegisterTerminalScenario>(typeof(RegisterTerminalScenario).FullName);
                 await regiterScenario.StartAsync();
             }
+            var loginScenario = _scope.ResolveKeyed<EmployeeLoginScenario>(typeof(EmployeeLoginScenario).FullName);
+            await loginScenario.StartAsync();
+            var initScenario = _scope.ResolveKeyed<LoadFullMenuScenario>(typeof(LoadFullMenuScenario).FullName);
+            await initScenario.StartAsync();
 
             foreach (string scenarioTypeName in TestTask.Scenarios)
             {
@@ -61,6 +65,7 @@ namespace YumaPos.Tests.Load.Client.Logic
         public void Stop()
         {
             _run = false;
+            _cancellationTokenSource.Cancel();
         }
 
         public TestTask TestTask { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using YumaPos.Tests.Load.Server.Data;
 using YumaPos.Tests.Load.Server.Data.DataObjects;
@@ -18,19 +19,20 @@ namespace YumaPos.Tests.Load.Server.Services
         }
         public async Task<Guid> RegisterClient(Guid clientId, string userHostAddress, string name)
         {
-            var token = Guid.NewGuid();
-            var client = new Client()
+            var client = await _db.Clients.FindAsync(clientId);
+            if (client == null)
             {
-                ClientId =  clientId,
-                Name = name,
-                Token = token,
-                UserHostAddress = userHostAddress,
-                IsActive = false,
-                LastActivity = DateTimeOffset.Now
-            };
-            _db.Clients.Add(client);
+                client = new Client();
+                _db.Clients.Add(client);
+            }
+            client.ClientId = clientId;
+            client.Name = name;
+            client.Token = Guid.NewGuid();
+            client.UserHostAddress = userHostAddress;
+            client.IsActive = false;
+            client.LastActivity = DateTimeOffset.Now;
             await _db.SaveChangesAsync();
-            return token;
+            return client.Token;
         }
 
         public async Task ActivateClient(Guid clientId)
@@ -41,7 +43,13 @@ namespace YumaPos.Tests.Load.Server.Services
 
         public Task<Client> GetByToken(Guid token)
         {
-            return _db.Clients.SingleAsync(p => p.Token == token);
+            return _db.Clients.SingleOrDefaultAsync(p => p.Token == token);
+        }
+
+        public async Task IncreaseTaskCount(Guid clientId)
+        {
+            (await _db.Clients.FindAsync(clientId)).TasksCount++;
+            await _db.SaveChangesAsync();
         }
     }
 }

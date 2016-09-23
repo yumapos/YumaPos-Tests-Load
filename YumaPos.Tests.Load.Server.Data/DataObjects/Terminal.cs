@@ -12,7 +12,7 @@ namespace YumaPos.Tests.Load.Server.Data.DataObjects
         public Guid TenantId { get; set; }
         public Guid? ClientId { get; set; }
 
-        public string Token { get; set; }
+        public Guid Token { get; set; }
 
         public virtual Store Store { get; set; }
         public virtual Client Client { get; set; }
