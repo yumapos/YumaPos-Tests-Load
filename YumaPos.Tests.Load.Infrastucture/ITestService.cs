@@ -17,11 +17,12 @@ namespace YumaPos.Tests.Load.Infrastucture
 
         [OperationContract]
         Task<IEnumerable<TestTaskDto>> GetTasks(Guid clientToken, int maxInstance);
+
         [OperationContract]
         Task CancelMyTasks(Guid clientToken);
 
         [OperationContract]
-        void Report(int clientId, ReportDto report);
+        Task Report(Guid clientToken, ReportDto report);
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using YumaPos.Tests.Load.Client.Interfaces;
 using YumaPos.Tests.Load.Infrastucture.Dto;
@@ -7,12 +8,11 @@ namespace YumaPos.Tests.Load.Client.Logic
 {
     public class TestApi:ITestApi
     {
-
         public async Task<Guid> RegisterClient(Guid clientId, string name)
         {
             using (var client = new TestServiceReference.TestServiceClient())
             {
-                return await client.RegisterAsync(clientId, name );
+                return await client.RegisterAsync(clientId, name);
             }
         }
 
@@ -28,6 +28,13 @@ namespace YumaPos.Tests.Load.Client.Logic
             using (var client = new TestServiceReference.TestServiceClient())
             {
                 await client.CancelMyTasksAsync(clientToken);
+            }
+        }
+        public async Task Report(Guid clientToken, ReportDto report)
+        {
+            using (var client = new TestServiceReference.TestServiceClient())
+            {
+                await client.ReportAsync(clientToken, report);
             }
         }
     }

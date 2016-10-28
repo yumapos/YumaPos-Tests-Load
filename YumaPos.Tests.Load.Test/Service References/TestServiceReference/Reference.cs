@@ -34,10 +34,10 @@ namespace YumaPos.Tests.Load.Client.TestServiceReference {
         System.Threading.Tasks.Task CancelMyTasksAsync(System.Guid clientToken);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Report", ReplyAction="http://tempuri.org/ITestService/ReportResponse")]
-        void Report(int clientId, [System.ServiceModel.MessageParameterAttribute(Name="report")] YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report1);
+        void Report(System.Guid clientToken, [System.ServiceModel.MessageParameterAttribute(Name="report")] YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report1);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Report", ReplyAction="http://tempuri.org/ITestService/ReportResponse")]
-        System.Threading.Tasks.Task ReportAsync(int clientId, YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report);
+        System.Threading.Tasks.Task ReportAsync(System.Guid clientToken, YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -91,12 +91,12 @@ namespace YumaPos.Tests.Load.Client.TestServiceReference {
             return base.Channel.CancelMyTasksAsync(clientToken);
         }
         
-        public void Report(int clientId, YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report1) {
-            base.Channel.Report(clientId, report1);
+        public void Report(System.Guid clientToken, YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report1) {
+            base.Channel.Report(clientToken, report1);
         }
         
-        public System.Threading.Tasks.Task ReportAsync(int clientId, YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report) {
-            return base.Channel.ReportAsync(clientId, report);
+        public System.Threading.Tasks.Task ReportAsync(System.Guid clientToken, YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report) {
+            return base.Channel.ReportAsync(clientToken, report);
         }
     }
 }

@@ -7,6 +7,7 @@ using YumaPos.Tests.Load.Scenarios;
 using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Shared.Core.Reciept.Contracts;
 using YumaPos.Tests.Load.Client.Data.Models;
+using YumaPos.Tests.Load.Infrastucture.Dto;
 
 namespace YumaPos.Tests.Load.Client.Logic
 {
@@ -85,6 +86,14 @@ namespace YumaPos.Tests.Load.Client.Logic
             Finished = null;
             _scope.Dispose();
             _scope = null;
+        }
+
+        public ReportDto GetReport()
+        {
+            return new ReportDto()
+            {
+                TaskId = TestTask.TaskId
+            };
         }
     }
 

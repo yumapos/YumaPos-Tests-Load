@@ -80,6 +80,10 @@
       <Project>{F14EDFE8-35D8-4E60-A321-1C0E729EBC38}</Project>
       <Name>YumaPos.Common.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.FrontEnd.Infrastructure\YumaPos.FrontEnd.Infrastructure.csproj">
+      <Project>{8B25790F-00B2-4406-ADD4-6E13E8ACF3EE}</Project>
+      <Name>YumaPos.FrontEnd.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Shared.Core\YumaPos.Shared.Core.csproj">
       <Project>{7534A74B-5C4E-4BB1-BB07-25976647E465}</Project>
       <Name>YumaPos.Shared.Core</Name>

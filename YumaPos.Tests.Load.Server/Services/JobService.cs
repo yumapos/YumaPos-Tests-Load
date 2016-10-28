@@ -86,16 +86,26 @@ namespace YumaPos.Tests.Load.Server.Services
             await _db.SaveChangesAsync();
         }
 
-        public async Task Cancel(List<TestTask> tasks)
+        public async Task CancelByClientId(Guid clientId)
         {
+            var tasks = await _db.TestTasks.Where(p => p.ClientId == clientId).ToListAsync();
             foreach (TestTask task in tasks)
             {
-                var clientId = task.ClientId;
                 (await _db.Jobs.FindAsync(task.JobId)).TasksCount--;
-                (await _db.Employees.Where(p => p.ClientId == clientId).ToListAsync()).ForEach(p => p.ClientId = null);
-                (await _db.Terminals.Where(p => p.ClientId == clientId).ToListAsync()).ForEach(p => p.ClientId = null);
             }
+            (await _db.Employees.Where(p => p.ClientId == clientId).ToListAsync()).ForEach(p => p.ClientId = null);
+            (await _db.Terminals.Where(p => p.ClientId == clientId).ToListAsync()).ForEach(p => p.ClientId = null);
             _db.TestTasks.RemoveRange(tasks);
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task CancelByTaskId(int taskId)
+        {
+            var task = await _db.TestTasks.FindAsync(taskId);
+            (await _db.Jobs.FindAsync(task.JobId)).TasksCount--;
+            (await _db.Employees.FindAsync(task.EmployeeId)).ClientId = null;
+            (await _db.Terminals.FindAsync(task.TerminalId)).ClientId = null;
+            _db.TestTasks.Remove(task);
             await _db.SaveChangesAsync();
         }
     }

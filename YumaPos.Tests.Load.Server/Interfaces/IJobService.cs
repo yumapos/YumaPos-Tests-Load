@@ -10,7 +10,8 @@ namespace YumaPos.Tests.Load.Server.Interfaces
         Task<Job> GetNextJob();
         Task<Tuple<Terminal, Employee>> ReserveEmployeeAndTerminal(Job job, Guid clientId);
         Task IncreaseTaskCount(int jobId);
-        Task Cancel(List<TestTask> tasks);
+        Task CancelByClientId(Guid clientId);
+        Task CancelByTaskId(int taskId);
     }
 
     public interface ITaskService

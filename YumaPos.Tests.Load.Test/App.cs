@@ -41,36 +41,41 @@ namespace YumaPos.Tests.Load.Client
 
         public async void Start()
         {
-            _cancellationTokenSource = new CancellationTokenSource();
-            if (!_config.ClientIsRegistered)
+            try
             {
-                var token = await _testApi.RegisterClient(_config.ClientId, System.Environment.MachineName);
-                _config.ClientToken = token;
-                _config.ClientIsRegistered = true;
+                _cancellationTokenSource = new CancellationTokenSource();
+                if (!_config.ClientIsRegistered)
+                {
+                    var token = await _testApi.RegisterClient(_config.ClientId, System.Environment.MachineName);
+                    _config.ClientToken = token;
+                    _config.ClientIsRegistered = true;
+                }
+                await _testApi.CancelMyTasks(_config.ClientToken);
+                while (_run)
+                {
+                    await CheckNewTask();
+                    await CheckTaskForExecute();
+                    await Task.Delay(TimeSpan.FromMinutes(10), _cancellationTokenSource.Token);
+                }
             }
-            await _testApi.CancelMyTasks(_config.ClientToken);
-            while (_run)
+            catch (Exception exception)
             {
-                await CheckNewTask();
-                await CheckTaskForExecute();
-                await Task.Delay(TimeSpan.FromMinutes(10), _cancellationTokenSource.Token);
+                if (exception is AggregateException) exception = ((AggregateException) exception).Flatten();
+                MessageBox.Show(exception.Message);
+                Application.Exit();
+            }
+            finally
+            {
+                _cancellationTokenSource.Cancel();
+                _run = false;
+                Stop();
             }
         }
 
         private async Task CheckNewTask()
         {
             TestTaskDto[] tasks;
-            try
-            {
-                tasks = await _testApi.GetTasks(_config.ClientToken, _config.MaxInstanceCount);
-            }
-            catch(FaultException e)
-            {
-                _run = false;
-                _cancellationTokenSource.Cancel();
-                MessageBox.Show(e.Message);
-                return;
-            }
+            tasks = await _testApi.GetTasks(_config.ClientToken, _config.MaxInstanceCount);
             if (tasks != null && tasks.Length > 0)
             {
                 await _taskRepository.AddRange(tasks.Select(p => p.MapFromDto()));
@@ -94,11 +99,12 @@ namespace YumaPos.Tests.Load.Client
             }
         }
 
-        private void OnTestEngineFinished(object sender, EventArgs e)
+        private async void OnTestEngineFinished(object sender, EventArgs e)
         {
             var engine = (TestEngine) sender;
             _runningInstances.Remove(engine);
             engine.Finished -= OnTestEngineFinished;
+            await _testApi.Report(_config.ClientToken, engine.GetReport());
             engine.Dispose();
         }
 

@@ -62,7 +62,14 @@ namespace YumaPos.Tests.Load.Client
             TrayIcon.ContextMenuStrip = TrayIconContextMenu;
 
             App = Bootstrapper.GetObjectInstance<App>();
+            TaskScheduler.UnobservedTaskException += ErrorHandler;
             Task.Factory.StartNew(App.Start, TaskCreationOptions.LongRunning);
+        }
+
+        private void ErrorHandler(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
+        {
+            var ex = unobservedTaskExceptionEventArgs.Exception.Flatten();
+            MessageBox.Show(ex.Message);
         }
 
         public App App { get; set; }
