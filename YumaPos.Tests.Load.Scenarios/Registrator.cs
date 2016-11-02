@@ -4,6 +4,7 @@ using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Shared.API;
 using YumaPos.Shared.Core.Reciept.Contracts;
 using YumaPos.Shared.Infrastructure;
+using YumaPos.Tests.Load.Scenarios.MenuHelper;
 
 namespace YumaPos.Tests.Load.Scenarios
 {
@@ -21,6 +22,16 @@ namespace YumaPos.Tests.Load.Scenarios
             Register<RegisterTerminalScenario> (typeof(RegisterTerminalScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<RegisterTerminalScenario>();
             Register<LoadFullMenuScenario>     (typeof(LoadFullMenuScenario).FullName,     Lifecycles.PerScope).As<IScenario>().As<LoadFullMenuScenario>();
             Register<SimpleOrderScenario>      (typeof(SimpleOrderScenario).FullName,      Lifecycles.PerScope).As<IScenario>().As<SimpleOrderScenario>();
+            Register<SplittingOrderScenario>(typeof(SplittingOrderScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<SplittingOrderScenario>();
+            Register<PayAndRefundOrderScenario>(typeof(PayAndRefundOrderScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<PayAndRefundOrderScenario>();
+            Register<OrderWithRelatedModifiersScenario>(typeof(OrderWithRelatedModifiersScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<OrderWithRelatedModifiersScenario>();
+            Register<OrderWithCommonModifiersScenario>(typeof(OrderWithCommonModifiersScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<OrderWithCommonModifiersScenario>();
+            Register<UpdateModifiersScenario>(typeof(UpdateModifiersScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<UpdateModifiersScenario>();
+            Register<OrderDiscountScenario>(typeof(OrderDiscountScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<OrderDiscountScenario>();
+            Register<OrderTaxExemptScenario>(typeof(OrderTaxExemptScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<OrderTaxExemptScenario>();
+            Register<UpdateOrderCustomerScenario>(typeof(UpdateOrderCustomerScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<UpdateOrderCustomerScenario>();
+            
+            Register<MenuAvailabilityHelper, IMenuAvailabilityHelper>(Lifecycles.PerScope);
         }
     }
 }

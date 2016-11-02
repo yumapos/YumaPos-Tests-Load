@@ -58,12 +58,22 @@
   <ItemGroup>
     <Compile Include="APIConfig.cs" />
     <Compile Include="Interfaces\IScenario.cs" />
+    <Compile Include="MenuHelper\IMenuAvailabilityHelper.cs" />
+    <Compile Include="MenuHelper\MenuAvailabilityHelper.cs" />
     <Compile Include="Registrator.cs" />
     <Compile Include="Scenarios\EmployeeLoginScenario.cs" />
     <Compile Include="Scenarios\LoadFullMenuScenario.cs" />
     <Compile Include="Models\MenuCacheModel.cs" />
+    <Compile Include="Scenarios\UpdateOrderCustomerScenario.cs" />
+    <Compile Include="Scenarios\OrderTaxExemptScenario.cs" />
+    <Compile Include="Scenarios\OrderWithCommonModifiersScenario.cs" />
+    <Compile Include="Scenarios\OrderDiscountScenario.cs" />
+    <Compile Include="Scenarios\UpdateModifiersScenario.cs" />
     <Compile Include="Scenarios\RegisterTerminalScenario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenarios\PayAndRefundOrderScenario.cs" />
+    <Compile Include="Scenarios\OrderWithRelatedModifiersScenario.cs" />
+    <Compile Include="Scenarios\SplittingOrderScenario.cs" />
     <Compile Include="Scenarios\SimpleOrderScenario.cs" />
     <Compile Include="TerminalContext.cs" />
   </ItemGroup>
