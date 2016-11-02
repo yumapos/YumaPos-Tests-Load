@@ -13,14 +13,14 @@ namespace YumaPos.Tests.Load.Scenarios
         {
             Register<ApiConfig, IAPIConfig>(Lifecycles.Singleton);
             Register<AuthorizationApi, IAuthorizationApi>(Lifecycles.Singleton);
-            Register<TerminalApi, ITerminalApi>(Lifecycles.Singleton);
+            Register<TerminalApi, ITerminalApi>(Lifecycles.PerScope);
 
             Register<TerminalContext>(Lifecycles.PerScope);
 
-            Register<EmployeeLoginScenario>(typeof(EmployeeLoginScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<EmployeeLoginScenario>();
-            Register<RegisterTerminalScenario>(typeof(RegisterTerminalScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<RegisterTerminalScenario>();
-            Register<LoadFullMenuScenario>(typeof(LoadFullMenuScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<LoadFullMenuScenario>();
-            Register<SimpleOrderScenario>(typeof(SimpleOrderScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<SimpleOrderScenario>();
+            Register<EmployeeLoginScenario>    (typeof(EmployeeLoginScenario).FullName,    Lifecycles.PerScope).As<IScenario>().As<EmployeeLoginScenario>();
+            Register<RegisterTerminalScenario> (typeof(RegisterTerminalScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<RegisterTerminalScenario>();
+            Register<LoadFullMenuScenario>     (typeof(LoadFullMenuScenario).FullName,     Lifecycles.PerScope).As<IScenario>().As<LoadFullMenuScenario>();
+            Register<SimpleOrderScenario>      (typeof(SimpleOrderScenario).FullName,      Lifecycles.PerScope).As<IScenario>().As<SimpleOrderScenario>();
         }
     }
 }

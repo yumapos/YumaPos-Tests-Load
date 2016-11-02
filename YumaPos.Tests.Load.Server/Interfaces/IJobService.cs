@@ -19,4 +19,10 @@ namespace YumaPos.Tests.Load.Server.Interfaces
         Task<TestTask> CreateTask(Job job, Terminal terminal, Employee employee, Client client);
         Task<List<TestTask>> GetTasksByClientId(Guid clientId);
     }
+
+    public interface IPosfDatService
+    {
+        Task<Terminal> CreateNewTerminal(Guid tenantId, Guid storeId, string dataConnectionString);
+        Task<Employee> CreateNewEmployee(Guid tenantId, Guid storeId, string dataConnectionString);
+    }
 }

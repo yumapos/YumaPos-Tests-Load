@@ -49,6 +49,10 @@
       <HintPath>..\packages\Autofac.Wcf.4.0.0\lib\net45\Autofac.Integration.Wcf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -99,6 +103,7 @@
     <Compile Include="Interfaces\IJobService.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\JobService.cs" />
+    <Compile Include="Services\PosfDatService.cs" />
     <Compile Include="Services\TaskService.cs" />
     <Compile Include="TestService.svc.cs">
       <DependentUpon>TestService.svc</DependentUpon>
@@ -106,6 +111,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Client.WCF\YumaPos.Client.WCF.csproj">
+      <Project>{A562EDF2-7C9F-479D-B370-4DF6236301FF}</Project>
+      <Name>YumaPos.Client.WCF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Common.Infrastructure\YumaPos.Common.Infrastructure.csproj">
       <Project>{F14EDFE8-35D8-4E60-A321-1C0E729EBC38}</Project>
       <Name>YumaPos.Common.Infrastructure</Name>
@@ -114,9 +123,17 @@
       <Project>{27F89F4A-8AF5-4E61-8CF2-136388269B3D}</Project>
       <Name>YumaPos.Common.Tools</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Shared.Infrastructure\YumaPos.Shared.Infrastructure.csproj">
+      <Project>{2BE0D1CE-DFA0-476B-A2B5-B16ED56610C4}</Project>
+      <Name>YumaPos.Shared.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YumaPos.Tests.Load.Infrastucture\YumaPos.Tests.Load.Infrastucture.csproj">
       <Project>{e2718f0f-700f-4cfa-8d2e-dca33105eb2b}</Project>
       <Name>YumaPos.Tests.Load.Infrastucture</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YumaPos.Tests.Load.Scenarios\YumaPos.Tests.Load.Scenarios.csproj">
+      <Project>{92307441-2AEC-43A2-A7B7-1B03AA25C533}</Project>
+      <Name>YumaPos.Tests.Load.Scenarios</Name>
     </ProjectReference>
     <ProjectReference Include="..\YumaPos.Tests.Load.Server.Data\YumaPos.Tests.Load.Server.Data.csproj">
       <Project>{942DB82A-C1D2-4F27-9030-372F8E927113}</Project>

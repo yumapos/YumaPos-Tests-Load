@@ -54,11 +54,16 @@ namespace YumaPos.Tests.Load.Client.Logic
             var initScenario = _scope.ResolveKeyed<LoadFullMenuScenario>(typeof(LoadFullMenuScenario).FullName);
             await initScenario.StartAsync();
 
-            foreach (string scenarioTypeName in TestTask.Scenarios)
+            var endTime = TestTask.Start + TestTask.Duration;
+
+            while (endTime > DateTime.UtcNow)
             {
-                IScenario scenario = _scope.ResolveKeyed<IScenario>(scenarioTypeName);
-                await scenario.StartAsync();
-                if (!_run) break;
+                foreach (string scenarioTypeName in TestTask.Scenarios)
+                {
+                    IScenario scenario = _scope.ResolveKeyed<IScenario>(scenarioTypeName);
+                    await scenario.StartAsync();
+                    if (!_run) break;
+                }
             }
             OnFinished();
         }

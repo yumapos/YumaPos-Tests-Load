@@ -13,15 +13,19 @@ namespace YumaPos.Tests.Load.Server.Services
     public class JobService : IJobService
     {
         private readonly LoadTestDbContext _db;
+        private readonly IPosfDatService _posfdatService;
 
-        public JobService(IEntityContainer container)
+        public JobService(IEntityContainer container, IPosfDatService posfdatService)
         {
+            _posfdatService = posfdatService;
             _db = container.Context;
         }
 
         public Task<Job> GetNextJob()
         {
-            return _db.Jobs.Include(p=>p.Server).AsNoTracking().OrderBy(p => p.Start).ThenBy(p => p.TasksCount).FirstOrDefaultAsync(p => p.TasksCount < p.MaxTasksCount);
+            return _db.Jobs.Include(p=>p.Server).AsNoTracking()
+                .Where(p => DbFunctions.AddMilliseconds(p.Start, DbFunctions.DiffMilliseconds(TimeSpan.Zero, p.Duration)) >= DateTime.UtcNow)
+                .OrderBy(p => p.Start).ThenBy(p => p.TasksCount).FirstOrDefaultAsync(p => p.TasksCount < p.MaxTasksCount);
         }
 
         public async Task<Tuple<Terminal, Employee>> ReserveEmployeeAndTerminal(Job job, Guid clientId)
@@ -64,14 +68,12 @@ namespace YumaPos.Tests.Load.Server.Services
             var terminal = await _db.Terminals.Include(p=>p.Tenant).FirstOrDefaultAsync(t => t.StoreId == store.StoreId && t.ClientId == null);
             if (terminal == null)
             {
-                // TODO: create new terminal
-                throw new NotImplementedException();
+                terminal = await _posfdatService.CreateNewTerminal(tenant.TenantId, store.StoreId, job.Server.DataConnectionString);
             }
             var employee = await _db.Employees.FirstOrDefaultAsync(e => e.StoreId == store.StoreId && e.ClientId == null);
             if (employee == null)
             {
-                // TODO: create new employee
-                throw new NotImplementedException();
+                employee = await _posfdatService.CreateNewEmployee(tenant.TenantId, store.StoreId, job.Server.DataConnectionString);
             }
             terminal.ClientId = clientId;
             employee.ClientId = clientId;
