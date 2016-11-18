@@ -123,6 +123,14 @@
       <Project>{27F89F4A-8AF5-4E61-8CF2-136388269B3D}</Project>
       <Name>YumaPos.Common.Tools</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.FrontEnd.Infrastructure\YumaPos.FrontEnd.Infrastructure.csproj">
+      <Project>{8B25790F-00B2-4406-ADD4-6E13E8ACF3EE}</Project>
+      <Name>YumaPos.FrontEnd.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Shared.Core\YumaPos.Shared.Core.csproj">
+      <Project>{7534A74B-5C4E-4BB1-BB07-25976647E465}</Project>
+      <Name>YumaPos.Shared.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Shared.Infrastructure\YumaPos.Shared.Infrastructure.csproj">
       <Project>{2BE0D1CE-DFA0-476B-A2B5-B16ED56610C4}</Project>
       <Name>YumaPos.Shared.Infrastructure</Name>

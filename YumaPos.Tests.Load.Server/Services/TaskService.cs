@@ -18,7 +18,7 @@ namespace YumaPos.Tests.Load.Server.Services
         {
             _db = container.Context;
         }
-        public async Task<TestTask> CreateTask(Job job, Terminal terminal, Employee employee, Client client)
+        public async Task<TestTask> CreateTask(Job job, Terminal terminal, Employee employee, Data.DataObjects.Client client)
         {
             var t = new TestTask()
             {

@@ -22,7 +22,7 @@ namespace YumaPos.Tests.Load.Server.Services
             var client = await _db.Clients.FindAsync(clientId);
             if (client == null)
             {
-                client = new Client();
+                client = new Data.DataObjects.Client();
                 _db.Clients.Add(client);
             }
             client.ClientId = clientId;
@@ -41,7 +41,7 @@ namespace YumaPos.Tests.Load.Server.Services
             await _db.SaveChangesAsync();
         }
 
-        public Task<Client> GetByToken(Guid token)
+        public Task<Data.DataObjects.Client> GetByToken(Guid token)
         {
             return _db.Clients.SingleOrDefaultAsync(p => p.Token == token);
         }

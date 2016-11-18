@@ -8,7 +8,7 @@ namespace YumaPos.Tests.Load.Server.Interfaces
     {
         Task<Guid> RegisterClient(Guid clientId, string userHostAddress, string name);
         Task ActivateClient(Guid clientId);
-        Task<Client> GetByToken(Guid token);
+        Task<Data.DataObjects.Client> GetByToken(Guid token);
         Task IncreaseTaskCount(Guid clientId);
     }
 }

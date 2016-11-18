@@ -13,7 +13,7 @@ using YumaPos.Tests.Load.Server.Interfaces;
 
 namespace YumaPos.Tests.Load.Server.Services
 {
-    public class PosfDatService : IPosfDatService
+    public class PosDataService : IPosDataService
     {
         private readonly IBackOfficeApi _backOfficeApi;
         private readonly IAuthorizationApi _authorizationApi;
@@ -21,7 +21,7 @@ namespace YumaPos.Tests.Load.Server.Services
 
         private LoadTestDbContext _db;
 
-        public PosfDatService(IEntityContainer container, IBackOfficeApi backOfficeApi, IAuthorizationApi authorizationApi, ITerminalApi terminalApi)
+        public PosDataService(IEntityContainer container, IBackOfficeApi backOfficeApi, IAuthorizationApi authorizationApi, ITerminalApi terminalApi)
         {
             _backOfficeApi = backOfficeApi;
             _authorizationApi = authorizationApi;
@@ -54,7 +54,7 @@ namespace YumaPos.Tests.Load.Server.Services
             return terminal;
         }
 
-        public async Task<Employee> CreateNewEmployee(Guid tenantId, Guid storeId, string dataConnectionString)
+        public async Task<Employee> CreateNewEmployee(Guid tenantId, Guid storeId)
         {
             var userToken = await _authorizationApi.Login("admin", "admin");
             _backOfficeApi.SetUserToken(userToken);
@@ -82,6 +82,7 @@ namespace YumaPos.Tests.Load.Server.Services
                 EmployeeId = employeeDto.UserId,
                 Login = employeeDto.Login,
                 Password = "pass" + rnd,
+                Pin = rnd.ToString(),
                 StoreId = storeId,
                 TenantId = tenantId
             };

@@ -16,13 +16,13 @@ namespace YumaPos.Tests.Load.Server.Interfaces
 
     public interface ITaskService
     {
-        Task<TestTask> CreateTask(Job job, Terminal terminal, Employee employee, Client client);
+        Task<TestTask> CreateTask(Job job, Terminal terminal, Employee employee, Data.DataObjects.Client client);
         Task<List<TestTask>> GetTasksByClientId(Guid clientId);
     }
 
-    public interface IPosfDatService
+    public interface IPosDataService
     {
-        Task<Terminal> CreateNewTerminal(Guid tenantId, Guid storeId, string dataConnectionString);
-        Task<Employee> CreateNewEmployee(Guid tenantId, Guid storeId, string dataConnectionString);
+        Task<Terminal> CreateNewTerminal(Guid tenantId, Guid storeId);
+        Task<Employee> CreateNewEmployee(Guid tenantId, Guid storeId);
     }
 }

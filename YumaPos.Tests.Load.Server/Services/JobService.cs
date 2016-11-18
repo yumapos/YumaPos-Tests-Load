@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using YumaPos.Client.WCF;
+using YumaPos.Shared.API;
+using YumaPos.Shared.Core.Reciept.Contracts;
+using YumaPos.Shared.Infrastructure;
+using YumaPos.Tests.Load.Scenarios;
 using YumaPos.Tests.Load.Server.Data;
 using YumaPos.Tests.Load.Server.Data.DataObjects;
 using YumaPos.Tests.Load.Server.Data.Interfaces;
@@ -12,12 +17,12 @@ namespace YumaPos.Tests.Load.Server.Services
 {
     public class JobService : IJobService
     {
+        private readonly IEntityContainer _container;
         private readonly LoadTestDbContext _db;
-        private readonly IPosfDatService _posfdatService;
 
-        public JobService(IEntityContainer container, IPosfDatService posfdatService)
+        public JobService(IEntityContainer container)
         {
-            _posfdatService = posfdatService;
+            _container = container;
             _db = container.Context;
         }
 
@@ -30,6 +35,7 @@ namespace YumaPos.Tests.Load.Server.Services
 
         public async Task<Tuple<Terminal, Employee>> ReserveEmployeeAndTerminal(Job job, Guid clientId)
         {
+            IPosDataService posDataService = null;
             // Get free tenant for this job
             var tenant = await _db.Tenants.AsNoTracking().FirstOrDefaultAsync(t => t.JobId == job.JobId);
             if (tenant == null)
@@ -42,6 +48,7 @@ namespace YumaPos.Tests.Load.Server.Services
                 }
                 else
                 {
+                    if (posDataService == null) posDataService = CreatePosfDatService(job.Server, tenant.TenantAlias);
                     // TODO: create new tenant
                     throw new NotImplementedException();
                 }
@@ -59,6 +66,7 @@ namespace YumaPos.Tests.Load.Server.Services
                 }
                 else
                 {
+                    if (posDataService == null) posDataService = CreatePosfDatService(job.Server, tenant.TenantAlias);
                     // TODO: create new store
                     throw new NotImplementedException();
                 }
@@ -68,18 +76,40 @@ namespace YumaPos.Tests.Load.Server.Services
             var terminal = await _db.Terminals.Include(p=>p.Tenant).FirstOrDefaultAsync(t => t.StoreId == store.StoreId && t.ClientId == null);
             if (terminal == null)
             {
-                terminal = await _posfdatService.CreateNewTerminal(tenant.TenantId, store.StoreId, job.Server.DataConnectionString);
+                if (posDataService == null) posDataService = CreatePosfDatService(job.Server, tenant.TenantAlias);
+                terminal = await posDataService.CreateNewTerminal(tenant.TenantId, store.StoreId);
             }
             var employee = await _db.Employees.FirstOrDefaultAsync(e => e.StoreId == store.StoreId && e.ClientId == null);
             if (employee == null)
             {
-                employee = await _posfdatService.CreateNewEmployee(tenant.TenantId, store.StoreId, job.Server.DataConnectionString);
+                if (posDataService == null) posDataService = CreatePosfDatService(job.Server, tenant.TenantAlias);
+                employee = await posDataService.CreateNewEmployee(tenant.TenantId, store.StoreId);
             }
             terminal.ClientId = clientId;
             employee.ClientId = clientId;
             await _db.SaveChangesAsync();
+            _db.Entry(terminal).State = EntityState.Detached;
+            _db.Entry(employee).State = EntityState.Detached;
+            terminal.Tenant = tenant;
             return new Tuple<Terminal, Employee>(terminal, employee);
 
+        }
+
+        private IPosDataService CreatePosfDatService(Data.DataObjects.Server server, string tenantAlias)
+        {
+            IAPIConfig apiConfig = new ApiConfig()
+            {
+                Tenant = tenantAlias,
+                TerminalId = Guid.NewGuid().ToString(),
+                AuthorizationAddress = server.AuthorizationAddress,
+                BackOfficeAddress = server.BackofficeAddress,
+                ServiceAddress = server.ServiceAddress
+            };
+            IBackOfficeApi b = new BackOfficeApi(apiConfig);
+            IAuthorizationApi a = new AuthorizationApi(apiConfig);
+            ITerminalApi t = new TerminalApi(apiConfig, new SerializationService());
+            var posfDatService = new PosDataService(_container, b, a, t);
+            return posfDatService;
         }
 
         public async Task IncreaseTaskCount(int jobId)
