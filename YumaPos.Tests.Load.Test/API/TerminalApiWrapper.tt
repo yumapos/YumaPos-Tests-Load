@@ -24,7 +24,7 @@ foreach (var method in typeof(YumaPos.Shared.Infrastructure.ITerminalApi).GetMet
         var returnMethod = method.ReturnParameter.Member.ToString().Split('(')[0].ReplaceFirst("`1[", "<").ReplaceLast("]", ">").ReplaceLast("[>", "[]");
         var returnType = returnMethod.Split(' ')[0];
     #>
-        public <#= returnMethod #>(<#
+        public async <#= returnMethod #>(<#
         if (parameters.Length > 0) {
                 #><#= parameters[0].ToString().ReplaceFirst("`1[", "<").ReplaceLast("]", ">").ReplaceLast("[>", "[]") #><#
             for(int i = 1; i < parameters.Length; i++) {
@@ -33,7 +33,7 @@ foreach (var method in typeof(YumaPos.Shared.Infrastructure.ITerminalApi).GetMet
         }
         #>)
         {
-            <#= returnType #> res = null;
+            <#= returnType.ReplaceFirst("System.Threading.Tasks.Task<","").ReplaceLast(">", "") #> res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "<#= method.Name #>",
@@ -42,7 +42,7 @@ foreach (var method in typeof(YumaPos.Shared.Infrastructure.ITerminalApi).GetMet
             _stopwatch.Start();
             try
             {
-                res = _api.<#= method.Name #>(<#
+                res = await _api.<#= method.Name #>(<#
         if (parameters.Length > 0) {
                 #><#= parameters[0].Name #><#
             for(int i = 1; i < parameters.Length; i++) {

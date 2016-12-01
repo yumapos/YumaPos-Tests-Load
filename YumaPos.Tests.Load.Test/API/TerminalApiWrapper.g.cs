@@ -6,9 +6,9 @@ using YumaPos.Tests.Load.Infrastucture.Dto;
 namespace YumaPos.Tests.Load.Client.API {
     public partial class TerminalApiWrapper : YumaPos.Shared.Infrastructure.ITerminalApi
     {
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCashDrawerCheckItem(YumaPos.Shared.API.Models.CashDrawerItemDto itemDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCashDrawerCheckItem(YumaPos.Shared.API.Models.CashDrawerItemDto itemDto)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "AddCashDrawerCheckItem",
@@ -17,7 +17,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.AddCashDrawerCheckItem(itemDto);
+                res = await _api.AddCashDrawerCheckItem(itemDto);
             }
             catch (Exception ex)
             {
@@ -37,9 +37,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCustomer(YumaPos.Shared.API.Models.CustomerDto customerDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCustomer(YumaPos.Shared.API.Models.CustomerDto customerDto)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "AddCustomer",
@@ -48,7 +48,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.AddCustomer(customerDto);
+                res = await _api.AddCustomer(customerDto);
             }
             catch (Exception ex)
             {
@@ -68,9 +68,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCustomerAddress(YumaPos.Shared.API.Models.CustomerAddressDto addressDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCustomerAddress(YumaPos.Shared.API.Models.CustomerAddressDto addressDto)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "AddCustomerAddress",
@@ -79,7 +79,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.AddCustomerAddress(addressDto);
+                res = await _api.AddCustomerAddress(addressDto);
             }
             catch (Exception ex)
             {
@@ -99,9 +99,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddDeliveryOrder(YumaPos.Shared.API.Models.Ordering.DeliveryDto deliveryDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddDeliveryOrder(YumaPos.Shared.API.Models.Ordering.DeliveryDto deliveryDto)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "AddDeliveryOrder",
@@ -110,7 +110,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.AddDeliveryOrder(deliveryDto);
+                res = await _api.AddDeliveryOrder(deliveryDto);
             }
             catch (Exception ex)
             {
@@ -130,9 +130,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddDiscountToSplitting(System.Guid orderId, Int32 splittingNumber, System.Nullable<System.Guid> discountId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddDiscountToSplitting(System.Guid orderId, Int32 splittingNumber, System.Nullable<System.Guid> discountId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "AddDiscountToSplitting",
@@ -141,7 +141,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.AddDiscountToSplitting(orderId, splittingNumber, discountId);
+                res = await _api.AddDiscountToSplitting(orderId, splittingNumber, discountId);
             }
             catch (Exception ex)
             {
@@ -161,9 +161,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> AddGiftCardToOrder(YumaPos.Shared.API.Models.GiftCardOrderItemDto item)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> AddGiftCardToOrder(YumaPos.Shared.API.Models.GiftCardOrderItemDto item)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "AddGiftCardToOrder",
@@ -172,7 +172,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.AddGiftCardToOrder(item);
+                res = await _api.AddGiftCardToOrder(item);
             }
             catch (Exception ex)
             {
@@ -192,9 +192,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderResponseDto> AddOrder(System.Guid orderId, YumaPos.Shared.API.Enums.OrderType orderType)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderResponseDto> AddOrder(System.Guid orderId, YumaPos.Shared.API.Enums.OrderType orderType)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.RestaurantOrderResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "AddOrder",
@@ -203,7 +203,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.AddOrder(orderId, orderType);
+                res = await _api.AddOrder(orderId, orderType);
             }
             catch (Exception ex)
             {
@@ -223,9 +223,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> AddOrderItem(YumaPos.Shared.API.Models.RestaurantOrderItemDto item)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> AddOrderItem(YumaPos.Shared.API.Models.RestaurantOrderItemDto item)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "AddOrderItem",
@@ -234,7 +234,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.AddOrderItem(item);
+                res = await _api.AddOrderItem(item);
             }
             catch (Exception ex)
             {
@@ -254,9 +254,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddOrdersToDriver(System.Guid driverId, System.Guid[] orderIds)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddOrdersToDriver(System.Guid driverId, System.Guid[] orderIds)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "AddOrdersToDriver",
@@ -265,7 +265,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.AddOrdersToDriver(driverId, orderIds);
+                res = await _api.AddOrdersToDriver(driverId, orderIds);
             }
             catch (Exception ex)
             {
@@ -285,9 +285,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddRelatedModifierToOrderItem(System.Guid orderId, YumaPos.Shared.API.Models.OrderItemRelatedModifierDto relatedModifier)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddRelatedModifierToOrderItem(System.Guid orderId, YumaPos.Shared.API.Models.OrderItemRelatedModifierDto relatedModifier)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "AddRelatedModifierToOrderItem",
@@ -296,7 +296,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.AddRelatedModifierToOrderItem(orderId, relatedModifier);
+                res = await _api.AddRelatedModifierToOrderItem(orderId, relatedModifier);
             }
             catch (Exception ex)
             {
@@ -316,9 +316,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GuidResponseDto> AddTerminalToStore(YumaPos.Shared.API.Models.TerminalDto terminalDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GuidResponseDto> AddTerminalToStore(YumaPos.Shared.API.Models.TerminalDto terminalDto)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GuidResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.GuidResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "AddTerminalToStore",
@@ -327,7 +327,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.AddTerminalToStore(terminalDto);
+                res = await _api.AddTerminalToStore(terminalDto);
             }
             catch (Exception ex)
             {
@@ -347,9 +347,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> CashDrawerMakeLoan(YumaPos.Shared.API.Models.PickUpDto pickUpDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> CashDrawerMakeLoan(YumaPos.Shared.API.Models.PickUpDto pickUpDto)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "CashDrawerMakeLoan",
@@ -358,7 +358,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.CashDrawerMakeLoan(pickUpDto);
+                res = await _api.CashDrawerMakeLoan(pickUpDto);
             }
             catch (Exception ex)
             {
@@ -378,9 +378,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> CashDrawerMakePickUp(YumaPos.Shared.API.Models.PickUpDto pickUpDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> CashDrawerMakePickUp(YumaPos.Shared.API.Models.PickUpDto pickUpDto)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "CashDrawerMakePickUp",
@@ -389,7 +389,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.CashDrawerMakePickUp(pickUpDto);
+                res = await _api.CashDrawerMakePickUp(pickUpDto);
             }
             catch (Exception ex)
             {
@@ -409,9 +409,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DecimalResponseDto> CheckGiftCardBalance(System.String cardNumber)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DecimalResponseDto> CheckGiftCardBalance(System.String cardNumber)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DecimalResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.DecimalResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "CheckGiftCardBalance",
@@ -420,7 +420,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.CheckGiftCardBalance(cardNumber);
+                res = await _api.CheckGiftCardBalance(cardNumber);
             }
             catch (Exception ex)
             {
@@ -440,9 +440,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> ClockOperation(YumaPos.Shared.API.Enums.UserActivityType operationType)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> ClockOperation(YumaPos.Shared.API.Enums.UserActivityType operationType)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "ClockOperation",
@@ -451,7 +451,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.ClockOperation(operationType);
+                res = await _api.ClockOperation(operationType);
             }
             catch (Exception ex)
             {
@@ -471,9 +471,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto> GetActiveOrdersChangesDigest(System.DateTime timestamp)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto> GetActiveOrdersChangesDigest(System.DateTime timestamp)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetActiveOrdersChangesDigest",
@@ -482,7 +482,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetActiveOrdersChangesDigest(timestamp);
+                res = await _api.GetActiveOrdersChangesDigest(timestamp);
             }
             catch (Exception ex)
             {
@@ -502,9 +502,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DiscountListResponseDto> GetAllDiscounts()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DiscountListResponseDto> GetAllDiscounts()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DiscountListResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.DiscountListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetAllDiscounts",
@@ -513,7 +513,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetAllDiscounts();
+                res = await _api.GetAllDiscounts();
             }
             catch (Exception ex)
             {
@@ -533,9 +533,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GiftCardTypeListResponseDto> GetAllGiftCardTypes()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GiftCardTypeListResponseDto> GetAllGiftCardTypes()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GiftCardTypeListResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.GiftCardTypeListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetAllGiftCardTypes",
@@ -544,7 +544,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetAllGiftCardTypes();
+                res = await _api.GetAllGiftCardTypes();
             }
             catch (Exception ex)
             {
@@ -564,9 +564,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.StoreListResponseDto> GetAllStores()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.StoreListResponseDto> GetAllStores()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.StoreListResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.StoreListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetAllStores",
@@ -575,7 +575,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetAllStores();
+                res = await _api.GetAllStores();
             }
             catch (Exception ex)
             {
@@ -595,9 +595,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashDrawerInfoResponseDto> GetCashDrawerInfoTotal()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashDrawerInfoResponseDto> GetCashDrawerInfoTotal()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashDrawerInfoResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.CashDrawerInfoResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetCashDrawerInfoTotal",
@@ -606,7 +606,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetCashDrawerInfoTotal();
+                res = await _api.GetCashDrawerInfoTotal();
             }
             catch (Exception ex)
             {
@@ -626,9 +626,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CheckoutOptionListResponseDto> GetCheckoutOptionsByOrderType(YumaPos.Shared.API.Enums.OrderType orderType)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CheckoutOptionListResponseDto> GetCheckoutOptionsByOrderType(YumaPos.Shared.API.Enums.OrderType orderType)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CheckoutOptionListResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.CheckoutOptionListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetCheckoutOptionsByOrderType",
@@ -637,7 +637,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetCheckoutOptionsByOrderType(orderType);
+                res = await _api.GetCheckoutOptionsByOrderType(orderType);
             }
             catch (Exception ex)
             {
@@ -657,9 +657,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashDrawerItemResponseDto> GetCurrentCashierLastActivity()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashDrawerItemResponseDto> GetCurrentCashierLastActivity()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashDrawerItemResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.CashDrawerItemResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetCurrentCashierLastActivity",
@@ -668,7 +668,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetCurrentCashierLastActivity();
+                res = await _api.GetCurrentCashierLastActivity();
             }
             catch (Exception ex)
             {
@@ -688,9 +688,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.EmployeeResponseDto> GetCurrentEmployee()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.EmployeeResponseDto> GetCurrentEmployee()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.EmployeeResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.EmployeeResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetCurrentEmployee",
@@ -699,7 +699,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetCurrentEmployee();
+                res = await _api.GetCurrentEmployee();
             }
             catch (Exception ex)
             {
@@ -719,9 +719,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.StoreResponseDto> GetCurrentStore()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.StoreResponseDto> GetCurrentStore()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.StoreResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.StoreResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetCurrentStore",
@@ -730,7 +730,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetCurrentStore();
+                res = await _api.GetCurrentStore();
             }
             catch (Exception ex)
             {
@@ -750,9 +750,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.UserClockStateResponseDto> GetCurrentUserClockState()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.UserClockStateResponseDto> GetCurrentUserClockState()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.UserClockStateResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.UserClockStateResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetCurrentUserClockState",
@@ -761,7 +761,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetCurrentUserClockState();
+                res = await _api.GetCurrentUserClockState();
             }
             catch (Exception ex)
             {
@@ -781,9 +781,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CustomerAddressListResponseDto> GetCustomerAddresses(System.Guid customerId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CustomerAddressListResponseDto> GetCustomerAddresses(System.Guid customerId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CustomerAddressListResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.CustomerAddressListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetCustomerAddresses",
@@ -792,7 +792,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetCustomerAddresses(customerId);
+                res = await _api.GetCustomerAddresses(customerId);
             }
             catch (Exception ex)
             {
@@ -812,9 +812,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DeliveryDetailsResponseDto> GetDeliveryInfo(System.Guid orderId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DeliveryDetailsResponseDto> GetDeliveryInfo(System.Guid orderId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DeliveryDetailsResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.DeliveryDetailsResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetDeliveryInfo",
@@ -823,7 +823,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetDeliveryInfo(orderId);
+                res = await _api.GetDeliveryInfo(orderId);
             }
             catch (Exception ex)
             {
@@ -843,9 +843,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DeliveryDetailsListResponseDto> GetDeliveryOrders()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DeliveryDetailsListResponseDto> GetDeliveryOrders()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DeliveryDetailsListResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.DeliveryDetailsListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetDeliveryOrders",
@@ -854,7 +854,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetDeliveryOrders();
+                res = await _api.GetDeliveryOrders();
             }
             catch (Exception ex)
             {
@@ -874,9 +874,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DriverDetailsListResponseDto> GetDriversDetails()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DriverDetailsListResponseDto> GetDriversDetails()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DriverDetailsListResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.DriverDetailsListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetDriversDetails",
@@ -885,7 +885,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetDriversDetails();
+                res = await _api.GetDriversDetails();
             }
             catch (Exception ex)
             {
@@ -905,9 +905,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredCustomersResponseResponseDto> GetFilteredCustomers(YumaPos.Shared.API.Models.FilteredRequestDto model)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredCustomersResponseResponseDto> GetFilteredCustomers(YumaPos.Shared.API.Models.FilteredRequestDto model)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredCustomersResponseResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.FilteredCustomersResponseResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetFilteredCustomers",
@@ -916,7 +916,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetFilteredCustomers(model);
+                res = await _api.GetFilteredCustomers(model);
             }
             catch (Exception ex)
             {
@@ -936,9 +936,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderListResponseDto> GetFilteredOrdersByIds(YumaPos.Shared.API.Models.OrderFilterDto filter)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderListResponseDto> GetFilteredOrdersByIds(YumaPos.Shared.API.Models.OrderFilterDto filter)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderListResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.TerminalOrderListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetFilteredOrdersByIds",
@@ -947,7 +947,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetFilteredOrdersByIds(filter);
+                res = await _api.GetFilteredOrdersByIds(filter);
             }
             catch (Exception ex)
             {
@@ -967,9 +967,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashierShiftResponseDto> GetLastCashierShift()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashierShiftResponseDto> GetLastCashierShift()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashierShiftResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.CashierShiftResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetLastCashierShift",
@@ -978,7 +978,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetLastCashierShift();
+                res = await _api.GetLastCashierShift();
             }
             catch (Exception ex)
             {
@@ -998,9 +998,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderResponseDto> GetOrderById(System.Guid orderId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderResponseDto> GetOrderById(System.Guid orderId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.TerminalOrderResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetOrderById",
@@ -1009,7 +1009,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetOrderById(orderId);
+                res = await _api.GetOrderById(orderId);
             }
             catch (Exception ex)
             {
@@ -1029,9 +1029,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderItemListResponseDto> GetOrderItemsByOrderId(System.Guid orderId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderItemListResponseDto> GetOrderItemsByOrderId(System.Guid orderId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderItemListResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.RestaurantOrderItemListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetOrderItemsByOrderId",
@@ -1040,7 +1040,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetOrderItemsByOrderId(orderId);
+                res = await _api.GetOrderItemsByOrderId(orderId);
             }
             catch (Exception ex)
             {
@@ -1060,9 +1060,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GuidDecimalDictonaryResponseDto> GetOrderItemsCosts(System.Guid orderId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GuidDecimalDictonaryResponseDto> GetOrderItemsCosts(System.Guid orderId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GuidDecimalDictonaryResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.GuidDecimalDictonaryResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetOrderItemsCosts",
@@ -1071,7 +1071,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetOrderItemsCosts(orderId);
+                res = await _api.GetOrderItemsCosts(orderId);
             }
             catch (Exception ex)
             {
@@ -1091,9 +1091,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderReceiptListResponseDto> GetOrderReceiptsByOrderId(System.Guid orderId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderReceiptListResponseDto> GetOrderReceiptsByOrderId(System.Guid orderId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderReceiptListResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.RestaurantOrderReceiptListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetOrderReceiptsByOrderId",
@@ -1102,7 +1102,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetOrderReceiptsByOrderId(orderId);
+                res = await _api.GetOrderReceiptsByOrderId(orderId);
             }
             catch (Exception ex)
             {
@@ -1122,9 +1122,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedActiveOrders(YumaPos.Shared.API.Models.OrderFilterDto filter)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedActiveOrders(YumaPos.Shared.API.Models.OrderFilterDto filter)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetPagedActiveOrders",
@@ -1133,7 +1133,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetPagedActiveOrders(filter);
+                res = await _api.GetPagedActiveOrders(filter);
             }
             catch (Exception ex)
             {
@@ -1153,9 +1153,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredCashDrawerItemResponseDto> GetPagedCashDrawerItems(YumaPos.Shared.API.Models.CashDrawerItemsFilterDto filter)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredCashDrawerItemResponseDto> GetPagedCashDrawerItems(YumaPos.Shared.API.Models.CashDrawerItemsFilterDto filter)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredCashDrawerItemResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.FilteredCashDrawerItemResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetPagedCashDrawerItems",
@@ -1164,7 +1164,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetPagedCashDrawerItems(filter);
+                res = await _api.GetPagedCashDrawerItems(filter);
             }
             catch (Exception ex)
             {
@@ -1184,9 +1184,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedClosedOrders(YumaPos.Shared.API.Models.OrderFilterDto filter)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedClosedOrders(YumaPos.Shared.API.Models.OrderFilterDto filter)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetPagedClosedOrders",
@@ -1195,7 +1195,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetPagedClosedOrders(filter);
+                res = await _api.GetPagedClosedOrders(filter);
             }
             catch (Exception ex)
             {
@@ -1215,9 +1215,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetReportById(System.Guid cashDrawerItemId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetReportById(System.Guid cashDrawerItemId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.XReportResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetReportById",
@@ -1226,7 +1226,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetReportById(cashDrawerItemId);
+                res = await _api.GetReportById(cashDrawerItemId);
             }
             catch (Exception ex)
             {
@@ -1246,9 +1246,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetShiftReport()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetShiftReport()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.XReportResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetShiftReport",
@@ -1257,7 +1257,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetShiftReport();
+                res = await _api.GetShiftReport();
             }
             catch (Exception ex)
             {
@@ -1277,9 +1277,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.LookupListResponseDto> GetSystemSettings(System.String[] listOfSystemSettings)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.LookupListResponseDto> GetSystemSettings(System.String[] listOfSystemSettings)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.LookupListResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.LookupListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetSystemSettings",
@@ -1288,7 +1288,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetSystemSettings(listOfSystemSettings);
+                res = await _api.GetSystemSettings(listOfSystemSettings);
             }
             catch (Exception ex)
             {
@@ -1308,9 +1308,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalResponseDto> GetTerminal(System.Guid terminalId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalResponseDto> GetTerminal(System.Guid terminalId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.TerminalResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetTerminal",
@@ -1319,7 +1319,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetTerminal(terminalId);
+                res = await _api.GetTerminal(terminalId);
             }
             catch (Exception ex)
             {
@@ -1339,9 +1339,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto> GetTerminals()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto> GetTerminals()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetTerminals",
@@ -1350,7 +1350,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetTerminals();
+                res = await _api.GetTerminals();
             }
             catch (Exception ex)
             {
@@ -1370,9 +1370,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto> GetTerminalsByStoreId(System.Guid storeId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto> GetTerminalsByStoreId(System.Guid storeId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetTerminalsByStoreId",
@@ -1381,7 +1381,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetTerminalsByStoreId(storeId);
+                res = await _api.GetTerminalsByStoreId(storeId);
             }
             catch (Exception ex)
             {
@@ -1401,9 +1401,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetXReport()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetXReport()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.XReportResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetXReport",
@@ -1412,7 +1412,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetXReport();
+                res = await _api.GetXReport();
             }
             catch (Exception ex)
             {
@@ -1432,9 +1432,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> IsActiveOrdersUpdated(System.DateTime clientDateTime)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> IsActiveOrdersUpdated(System.DateTime clientDateTime)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.BoolResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "IsActiveOrdersUpdated",
@@ -1443,7 +1443,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.IsActiveOrdersUpdated(clientDateTime);
+                res = await _api.IsActiveOrdersUpdated(clientDateTime);
             }
             catch (Exception ex)
             {
@@ -1463,9 +1463,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> IsMenuUpdated(System.DateTime clientUtcDateTime)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> IsMenuUpdated(System.DateTime clientUtcDateTime)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.BoolResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "IsMenuUpdated",
@@ -1474,7 +1474,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.IsMenuUpdated(clientUtcDateTime);
+                res = await _api.IsMenuUpdated(clientUtcDateTime);
             }
             catch (Exception ex)
             {
@@ -1494,9 +1494,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> Logout()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> Logout()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "Logout",
@@ -1505,7 +1505,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.Logout();
+                res = await _api.Logout();
             }
             catch (Exception ex)
             {
@@ -1525,9 +1525,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> OverrideLogin(System.String password, Int32 feature)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> OverrideLogin(System.String password, Int32 feature)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "OverrideLogin",
@@ -1536,7 +1536,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.OverrideLogin(password, feature);
+                res = await _api.OverrideLogin(password, feature);
             }
             catch (Exception ex)
             {
@@ -1556,9 +1556,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> PaymentTransaction(YumaPos.Shared.API.Models.RequestTransactionDto requestTransaction)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> PaymentTransaction(YumaPos.Shared.API.Models.RequestTransactionDto requestTransaction)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "PaymentTransaction",
@@ -1567,7 +1567,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.PaymentTransaction(requestTransaction);
+                res = await _api.PaymentTransaction(requestTransaction);
             }
             catch (Exception ex)
             {
@@ -1587,9 +1587,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> RefillGiftCard(YumaPos.Shared.API.Models.GiftCardOrderItemDto item, System.Decimal amount)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> RefillGiftCard(YumaPos.Shared.API.Models.GiftCardOrderItemDto item, System.Decimal amount)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "RefillGiftCard",
@@ -1598,7 +1598,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.RefillGiftCard(item, amount);
+                res = await _api.RefillGiftCard(item, amount);
             }
             catch (Exception ex)
             {
@@ -1618,9 +1618,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveCustomerAddress(System.Guid customerAddressId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveCustomerAddress(System.Guid customerAddressId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "RemoveCustomerAddress",
@@ -1629,7 +1629,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.RemoveCustomerAddress(customerAddressId);
+                res = await _api.RemoveCustomerAddress(customerAddressId);
             }
             catch (Exception ex)
             {
@@ -1649,9 +1649,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveOrderFromDelivery(System.Guid orderId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveOrderFromDelivery(System.Guid orderId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "RemoveOrderFromDelivery",
@@ -1660,7 +1660,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.RemoveOrderFromDelivery(orderId);
+                res = await _api.RemoveOrderFromDelivery(orderId);
             }
             catch (Exception ex)
             {
@@ -1680,9 +1680,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveProductFromOrder(YumaPos.Shared.API.Models.RestaurantOrderItemDto orderItem)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveProductFromOrder(YumaPos.Shared.API.Models.RestaurantOrderItemDto orderItem)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "RemoveProductFromOrder",
@@ -1691,7 +1691,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.RemoveProductFromOrder(orderItem);
+                res = await _api.RemoveProductFromOrder(orderItem);
             }
             catch (Exception ex)
             {
@@ -1711,9 +1711,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveRelatedModifierFromOrderItem(YumaPos.Shared.API.Models.OrderItemRelatedModifierDto relatedModifier)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveRelatedModifierFromOrderItem(YumaPos.Shared.API.Models.OrderItemRelatedModifierDto relatedModifier)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "RemoveRelatedModifierFromOrderItem",
@@ -1722,7 +1722,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.RemoveRelatedModifierFromOrderItem(relatedModifier);
+                res = await _api.RemoveRelatedModifierFromOrderItem(relatedModifier);
             }
             catch (Exception ex)
             {
@@ -1742,9 +1742,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> SavePaymentTransaction(YumaPos.Shared.API.Models.InputTransactionInfoDto data)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> SavePaymentTransaction(YumaPos.Shared.API.Models.InputTransactionInfoDto data)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "SavePaymentTransaction",
@@ -1753,7 +1753,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.SavePaymentTransaction(data);
+                res = await _api.SavePaymentTransaction(data);
             }
             catch (Exception ex)
             {
@@ -1773,9 +1773,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> SendReceipt(System.Guid orderId, System.String email)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> SendReceipt(System.Guid orderId, System.String email)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "SendReceipt",
@@ -1784,7 +1784,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.SendReceipt(orderId, email);
+                res = await _api.SendReceipt(orderId, email);
             }
             catch (Exception ex)
             {
@@ -1804,9 +1804,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> TryProcessPaymentTransaction(YumaPos.Shared.API.Models.RequestTransactionDto requestTransaction)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> TryProcessPaymentTransaction(YumaPos.Shared.API.Models.RequestTransactionDto requestTransaction)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "TryProcessPaymentTransaction",
@@ -1815,7 +1815,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.TryProcessPaymentTransaction(requestTransaction);
+                res = await _api.TryProcessPaymentTransaction(requestTransaction);
             }
             catch (Exception ex)
             {
@@ -1835,9 +1835,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateCommonModifierQuantityForOrderItem(YumaPos.Shared.API.Models.OrderItemCommonModifierDto modifier)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateCommonModifierQuantityForOrderItem(YumaPos.Shared.API.Models.OrderItemCommonModifierDto modifier)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "UpdateCommonModifierQuantityForOrderItem",
@@ -1846,7 +1846,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.UpdateCommonModifierQuantityForOrderItem(modifier);
+                res = await _api.UpdateCommonModifierQuantityForOrderItem(modifier);
             }
             catch (Exception ex)
             {
@@ -1866,9 +1866,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateCustomer(YumaPos.Shared.API.Models.CustomerDto customer)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateCustomer(YumaPos.Shared.API.Models.CustomerDto customer)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "UpdateCustomer",
@@ -1877,7 +1877,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.UpdateCustomer(customer);
+                res = await _api.UpdateCustomer(customer);
             }
             catch (Exception ex)
             {
@@ -1897,9 +1897,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateDriverDetails(YumaPos.Shared.API.Models.Ordering.DriverDetailsDto driverDetails)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateDriverDetails(YumaPos.Shared.API.Models.Ordering.DriverDetailsDto driverDetails)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "UpdateDriverDetails",
@@ -1908,7 +1908,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.UpdateDriverDetails(driverDetails);
+                res = await _api.UpdateDriverDetails(driverDetails);
             }
             catch (Exception ex)
             {
@@ -1928,9 +1928,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrder(YumaPos.Shared.API.Models.RestaurantOrderDto orderDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrder(YumaPos.Shared.API.Models.RestaurantOrderDto orderDto)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "UpdateOrder",
@@ -1939,7 +1939,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.UpdateOrder(orderDto);
+                res = await _api.UpdateOrder(orderDto);
             }
             catch (Exception ex)
             {
@@ -1959,9 +1959,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderCustomer(System.Guid orderId, System.Guid customerId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderCustomer(System.Guid orderId, System.Guid customerId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "UpdateOrderCustomer",
@@ -1970,7 +1970,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.UpdateOrderCustomer(orderId, customerId);
+                res = await _api.UpdateOrderCustomer(orderId, customerId);
             }
             catch (Exception ex)
             {
@@ -1990,9 +1990,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderItemQuantity(YumaPos.Shared.API.Models.RestaurantOrderItemDto item)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderItemQuantity(YumaPos.Shared.API.Models.RestaurantOrderItemDto item)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "UpdateOrderItemQuantity",
@@ -2001,7 +2001,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.UpdateOrderItemQuantity(item);
+                res = await _api.UpdateOrderItemQuantity(item);
             }
             catch (Exception ex)
             {
@@ -2021,9 +2021,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderStatusByOrderId(System.Guid orderId, Int32 statusId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderStatusByOrderId(System.Guid orderId, Int32 statusId)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "UpdateOrderStatusByOrderId",
@@ -2032,7 +2032,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.UpdateOrderStatusByOrderId(orderId, statusId);
+                res = await _api.UpdateOrderStatusByOrderId(orderId, statusId);
             }
             catch (Exception ex)
             {
@@ -2052,9 +2052,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateRelatedModifierQuantityForOrderItem(System.Guid orderId, YumaPos.Shared.API.Models.OrderItemRelatedModifierDto modifier)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateRelatedModifierQuantityForOrderItem(System.Guid orderId, YumaPos.Shared.API.Models.OrderItemRelatedModifierDto modifier)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "UpdateRelatedModifierQuantityForOrderItem",
@@ -2063,7 +2063,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.UpdateRelatedModifierQuantityForOrderItem(orderId, modifier);
+                res = await _api.UpdateRelatedModifierQuantityForOrderItem(orderId, modifier);
             }
             catch (Exception ex)
             {
@@ -2083,9 +2083,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> UpdateSplittingsForOrderId(System.Guid orderId, YumaPos.Shared.API.Enums.SplittingType splittingType, System.String[] parameters)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> UpdateSplittingsForOrderId(System.Guid orderId, YumaPos.Shared.API.Enums.SplittingType splittingType, System.String[] parameters)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.BoolResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "UpdateSplittingsForOrderId",
@@ -2094,7 +2094,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.UpdateSplittingsForOrderId(orderId, splittingType, parameters);
+                res = await _api.UpdateSplittingsForOrderId(orderId, splittingType, parameters);
             }
             catch (Exception ex)
             {
@@ -2114,9 +2114,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateTaxExempt(System.Guid orderId, Int32 splittingNumber, Boolean isTaxExempt)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateTaxExempt(System.Guid orderId, Int32 splittingNumber, Boolean isTaxExempt)
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "UpdateTaxExempt",
@@ -2125,7 +2125,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.UpdateTaxExempt(orderId, splittingNumber, isTaxExempt);
+                res = await _api.UpdateTaxExempt(orderId, splittingNumber, isTaxExempt);
             }
             catch (Exception ex)
             {
@@ -2145,9 +2145,9 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.MenuCacheResponseDto> GetTerminalCacheMenu()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.MenuCacheResponseDto> GetTerminalCacheMenu()
         {
-            System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.MenuCacheResponseDto> res = null;
+            YumaPos.Shared.API.ResponseDtos.MenuCacheResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetTerminalCacheMenu",
@@ -2156,7 +2156,7 @@ namespace YumaPos.Tests.Load.Client.API {
             _stopwatch.Start();
             try
             {
-                res = _api.GetTerminalCacheMenu();
+                res = await _api.GetTerminalCacheMenu();
             }
             catch (Exception ex)
             {
