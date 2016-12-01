@@ -1,0 +1,77 @@
+﻿//This file generated Automaticaly
+<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Runtime" #>
+<#@ assembly name="$(SolutionDir)Submodule.YumaPos.Shared\YumaPos.Shared.Infrastructure\$(OutDir)YumaPos.Shared.Infrastructure.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="YumaPos.Shared.Attributes" #>
+<#@ output extension=".g.cs" #>
+using System;
+using YumaPos.Tests.Load.Infrastucture.Dto;
+
+
+namespace YumaPos.Tests.Load.Client.API {
+    public partial class TerminalApiWrapper : YumaPos.Shared.Infrastructure.ITerminalApi
+    {
+<#
+foreach (var method in typeof(YumaPos.Shared.Infrastructure.ITerminalApi).GetMethods())
+{
+    if (method.IsPublic && (!method.IsSpecialName) && (method.Name != "SetUserToken") )
+    {
+        var parameters = method.GetParameters();
+        var returnMethod = method.ReturnParameter.Member.ToString().Split('(')[0].ReplaceFirst("`1[", "<").ReplaceLast("]", ">").ReplaceLast("[>", "[]");
+        var returnType = returnMethod.Split(' ')[0];
+    #>
+        public <#= returnMethod #>(<#
+        if (parameters.Length > 0) {
+                #><#= parameters[0].ToString().ReplaceFirst("`1[", "<").ReplaceLast("]", ">").ReplaceLast("[>", "[]") #><#
+            for(int i = 1; i < parameters.Length; i++) {
+                #>, <#= parameters[i].ToString().ReplaceFirst("`1[", "<").ReplaceLast("]", ">").ReplaceLast("[>", "[]") #><#
+            }
+        }
+        #>)
+        {
+            <#= returnType #> res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "<#= method.Name #>",
+                Created = DateTime.UtcNow,
+            };
+            _stopwatch.Start();
+            try
+            {
+                res = _api.<#= method.Name #>(<#
+        if (parameters.Length > 0) {
+                #><#= parameters[0].Name #><#
+            for(int i = 1; i < parameters.Length; i++) {
+                #>, <#= parameters[i].Name #><#
+            }
+        }
+        #>);
+            }
+            catch (Exception ex)
+            {
+                if (ex is AggregateException)
+                {
+                    ex = ((AggregateException) ex).Flatten();
+                }
+                reportItem.ExceptionMessage = ex.Message;
+            }
+            finally
+            {
+                _stopwatch.Stop();
+                reportItem.Duration = _stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+            
+        }
+    
+<#
+    }
+}
+#>
+    }
+}

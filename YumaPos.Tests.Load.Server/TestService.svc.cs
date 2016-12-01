@@ -87,15 +87,23 @@ namespace YumaPos.Tests.Load.Server
         public async Task Report(Guid clientToken, ReportDto report)
         {
             var clientService = Scope.Resolve<IClientService>();
-            var jobService = Scope.Resolve<IJobService>();
             var client = await clientService.GetByToken(clientToken);
             if (client == null) throw new FaultException(ErrorStrings.ClientNotFound);
             if (!client.IsActive) throw new FaultException(ErrorStrings.ClientNotActivated);
 
-            await jobService.CancelByTaskId(report.TaskId);
+            var reportService = Scope.Resolve<IReportService>();
+            await reportService.Add(report);
+        }
 
-            // TODO: add save report logic
-            //await reportService.Add(report);
+        public async Task Finish(Guid clientToken, int taskId)
+        {
+            var clientService = Scope.Resolve<IClientService>();
+            var client = await clientService.GetByToken(clientToken);
+            if (client == null) throw new FaultException(ErrorStrings.ClientNotFound);
+            if (!client.IsActive) throw new FaultException(ErrorStrings.ClientNotActivated);
+
+            var jobService = Scope.Resolve<IJobService>();
+            await jobService.CancelByTaskId(taskId);
         }
     }
 }

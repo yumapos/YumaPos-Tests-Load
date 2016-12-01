@@ -104,6 +104,7 @@
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\JobService.cs" />
     <Compile Include="Services\PosfDatService.cs" />
+    <Compile Include="Services\ReportService.cs" />
     <Compile Include="Services\TaskService.cs" />
     <Compile Include="TestService.svc.cs">
       <DependentUpon>TestService.svc</DependentUpon>

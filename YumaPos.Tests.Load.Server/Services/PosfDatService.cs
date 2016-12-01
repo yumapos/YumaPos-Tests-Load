@@ -18,20 +18,24 @@ namespace YumaPos.Tests.Load.Server.Services
         private readonly IBackOfficeApi _backOfficeApi;
         private readonly IAuthorizationApi _authorizationApi;
         private readonly ITerminalApi _terminalApi;
+        private readonly string _login;
+        private readonly string _password;
 
         private LoadTestDbContext _db;
 
-        public PosDataService(IEntityContainer container, IBackOfficeApi backOfficeApi, IAuthorizationApi authorizationApi, ITerminalApi terminalApi)
+        public PosDataService(IEntityContainer container, IBackOfficeApi backOfficeApi, IAuthorizationApi authorizationApi, ITerminalApi terminalApi, string login, string password)
         {
             _backOfficeApi = backOfficeApi;
             _authorizationApi = authorizationApi;
             _terminalApi = terminalApi;
+            _login = login;
+            _password = password;
             _db = container.Context;
         }
 
         public async Task<Terminal> CreateNewTerminal(Guid tenantId, Guid storeId)
         {
-            var userToken = await _authorizationApi.Login("admin", "admin");
+            var userToken = await _authorizationApi.Login(_login, _password);
             _terminalApi.SetUserToken(userToken);
             var rnd = (new Random()).Next(Int32.MaxValue);
             var terminalDto = new TerminalDto()
@@ -56,7 +60,7 @@ namespace YumaPos.Tests.Load.Server.Services
 
         public async Task<Employee> CreateNewEmployee(Guid tenantId, Guid storeId)
         {
-            var userToken = await _authorizationApi.Login("admin", "admin");
+            var userToken = await _authorizationApi.Login(_login, _password);
             _backOfficeApi.SetUserToken(userToken);
             var roles = await _backOfficeApi.GetAllRoles();
             foreach (var role in roles)

@@ -18,6 +18,7 @@ namespace YumaPos.Tests.Load.Server.Data
         public DbSet<Store> Stores { get; set; }
         public DbSet<Terminal> Terminals { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Report> Reports { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

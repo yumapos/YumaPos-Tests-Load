@@ -10,5 +10,6 @@ namespace YumaPos.Tests.Load.Client.Interfaces
         Task<TestTaskDto[]> GetTasks(Guid clientToken, int maxInstanceCount);
         Task CancelMyTasks(Guid clientToken);
         Task Report(Guid clientToken, ReportDto report);
+        Task Finish(Guid clientToken, int taskId);
     }
 }

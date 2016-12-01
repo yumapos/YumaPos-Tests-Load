@@ -24,5 +24,8 @@ namespace YumaPos.Tests.Load.Infrastucture
         [OperationContract]
         Task Report(Guid clientToken, ReportDto report);
 
+        [OperationContract]
+        Task Finish(Guid clientToken, int taskId);
+
     }
 }

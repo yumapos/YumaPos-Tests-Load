@@ -92,6 +92,7 @@ namespace YumaPos.Tests.Load.Client
                     var engine = new TestEngine();
                     _runningInstances.Add(engine);
                     engine.Finished += OnTestEngineFinished;
+                    engine.Reported += OnTestEngineReported;
                     engine.TestTask = testTask;
                     engine.ThreadTask = Task.Factory.StartNew(engine.Start, TaskCreationOptions.LongRunning);
                     await _taskRepository.SetIsStarting(testTask.TaskId);
@@ -104,9 +105,15 @@ namespace YumaPos.Tests.Load.Client
             var engine = (TestEngine) sender;
             _runningInstances.Remove(engine);
             engine.Finished -= OnTestEngineFinished;
+            engine.Reported -= OnTestEngineReported;
             await _testApi.Report(_config.ClientToken, engine.GetReport());
+            await _testApi.Finish(_config.ClientToken, engine.TestTask.TaskId);
             engine.Dispose();
         }
-
+        private async void OnTestEngineReported(object sender, EventArgs e)
+        {
+            var engine = (TestEngine)sender;
+            await _testApi.Report(_config.ClientToken, engine.GetReport());
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace YumaPos.Tests.Load.Server
             Register<ClientService, IClientService>(Lifecycles.PerScope);
             Register<JobService, IJobService>(Lifecycles.PerScope);
             Register<TaskService, ITaskService>(Lifecycles.PerScope);
+            Register<ReportService, IReportService>(Lifecycles.PerScope);
         }
     }
 }

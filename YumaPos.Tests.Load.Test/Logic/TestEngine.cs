@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
@@ -6,6 +8,8 @@ using YumaPos.Common.Infrastructure.Enums;
 using YumaPos.Tests.Load.Scenarios;
 using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Shared.Core.Reciept.Contracts;
+using YumaPos.Shared.Infrastructure;
+using YumaPos.Tests.Load.Client.API;
 using YumaPos.Tests.Load.Client.Data.Models;
 using YumaPos.Tests.Load.Infrastucture.Dto;
 
@@ -61,7 +65,12 @@ namespace YumaPos.Tests.Load.Client.Logic
                 foreach (string scenarioTypeName in TestTask.Scenarios)
                 {
                     IScenario scenario = _scope.ResolveKeyed<IScenario>(scenarioTypeName);
-                    await scenario.StartAsync();
+                    try
+                    {
+                        await scenario.StartAsync();
+                    }
+                    catch { }
+                    OnReported();
                     if (!_run) break;
                 }
             }
@@ -79,12 +88,19 @@ namespace YumaPos.Tests.Load.Client.Logic
         public Task ThreadTask { get; set; }
 
         public event EventHandler Finished;
+        public event EventHandler Reported;
 
         protected virtual void OnFinished()
         {
             var handler = Finished;
             if (handler != null) handler(this, EventArgs.Empty);
         }
+        protected virtual void OnReported()
+        {
+            var handler = Reported;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
 
         public void Dispose()
         {
@@ -95,9 +111,13 @@ namespace YumaPos.Tests.Load.Client.Logic
 
         public ReportDto GetReport()
         {
+            var api = _scope.Resolve<TerminalApiWrapper>();
+            List<ReportItem> reportItems = api.ReportItems.ToList();
+            api.ReportItems.Clear();
             return new ReportDto()
             {
-                TaskId = TestTask.TaskId
+                TaskId = TestTask.TaskId,
+                ReportItems = reportItems
             };
         }
     }

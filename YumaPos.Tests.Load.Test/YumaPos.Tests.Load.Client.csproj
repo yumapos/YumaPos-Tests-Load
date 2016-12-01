@@ -74,6 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\TerminalApiWrapper.cs" />
+    <Compile Include="API\TerminalApiWrapper.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TerminalApiWrapper.tt</DependentUpon>
+    </Compile>
     <Compile Include="App.cs" />
     <Compile Include="App_Start\Bootstrapper.cs" />
     <Compile Include="Logic\Config.cs" />
@@ -173,6 +179,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="API\TerminalApiWrapper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TerminalApiWrapper.g.cs</LastGenOutput>
+    </Content>
     <Content Include="FodyWeavers.xml" />
     <Content Include="Logic\MappingExtension.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

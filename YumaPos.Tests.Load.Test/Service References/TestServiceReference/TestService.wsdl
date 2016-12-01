@@ -32,6 +32,12 @@
   <wsdl:message name="ITestService_Report_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReportResponse" />
   </wsdl:message>
+  <wsdl:message name="ITestService_Finish_InputMessage">
+    <wsdl:part name="parameters" element="tns:Finish" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_Finish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FinishResponse" />
+  </wsdl:message>
   <wsdl:portType name="ITestService">
     <wsdl:operation name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/ITestService/Register" message="tns:ITestService_Register_InputMessage" />
@@ -48,6 +54,10 @@
     <wsdl:operation name="Report">
       <wsdl:input wsaw:Action="http://tempuri.org/ITestService/Report" message="tns:ITestService_Report_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITestService/ReportResponse" message="tns:ITestService_Report_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Finish">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/Finish" message="tns:ITestService_Finish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/FinishResponse" message="tns:ITestService_Finish_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITestService" type="tns:ITestService">
@@ -81,6 +91,15 @@
     </wsdl:operation>
     <wsdl:operation name="Report">
       <soap:operation soapAction="http://tempuri.org/ITestService/Report" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Finish">
+      <soap:operation soapAction="http://tempuri.org/ITestService/Finish" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -37,5 +37,12 @@ namespace YumaPos.Tests.Load.Client.Logic
                 await client.ReportAsync(clientToken, report);
             }
         }
+        public async Task Finish(Guid clientToken, int taskId)
+        {
+            using (var client = new TestServiceReference.TestServiceClient())
+            {
+                await client.FinishAsync(clientToken, taskId);
+            }
+        }
     }
 }

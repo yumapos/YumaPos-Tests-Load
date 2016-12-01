@@ -38,6 +38,12 @@ namespace YumaPos.Tests.Load.Client.TestServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Report", ReplyAction="http://tempuri.org/ITestService/ReportResponse")]
         System.Threading.Tasks.Task ReportAsync(System.Guid clientToken, YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Finish", ReplyAction="http://tempuri.org/ITestService/FinishResponse")]
+        void Finish(System.Guid clientToken, int taskId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Finish", ReplyAction="http://tempuri.org/ITestService/FinishResponse")]
+        System.Threading.Tasks.Task FinishAsync(System.Guid clientToken, int taskId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,6 +103,14 @@ namespace YumaPos.Tests.Load.Client.TestServiceReference {
         
         public System.Threading.Tasks.Task ReportAsync(System.Guid clientToken, YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report) {
             return base.Channel.ReportAsync(clientToken, report);
+        }
+        
+        public void Finish(System.Guid clientToken, int taskId) {
+            base.Channel.Finish(clientToken, taskId);
+        }
+        
+        public System.Threading.Tasks.Task FinishAsync(System.Guid clientToken, int taskId) {
+            return base.Channel.FinishAsync(clientToken, taskId);
         }
     }
 }

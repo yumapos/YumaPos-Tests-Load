@@ -29,8 +29,24 @@
   <xs:element name="TestTaskDto" nillable="true" type="tns:TestTaskDto" />
   <xs:complexType name="ReportDto">
     <xs:sequence>
+      <xs:element minOccurs="0" name="ReportItems" nillable="true" type="tns:ArrayOfReportItem" />
       <xs:element minOccurs="0" name="TaskId" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ReportDto" nillable="true" type="tns:ReportDto" />
+  <xs:complexType name="ArrayOfReportItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReportItem" nillable="true" type="tns:ReportItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReportItem" nillable="true" type="tns:ArrayOfReportItem" />
+  <xs:complexType name="ReportItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Duration" type="ser:duration" />
+      <xs:element minOccurs="0" name="ExceptionMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MethodName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportItem" nillable="true" type="tns:ReportItem" />
 </xs:schema>

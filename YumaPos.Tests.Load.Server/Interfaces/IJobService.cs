@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using YumaPos.Tests.Load.Infrastucture.Dto;
 using YumaPos.Tests.Load.Server.Data.DataObjects;
 
 namespace YumaPos.Tests.Load.Server.Interfaces
@@ -24,5 +25,10 @@ namespace YumaPos.Tests.Load.Server.Interfaces
     {
         Task<Terminal> CreateNewTerminal(Guid tenantId, Guid storeId);
         Task<Employee> CreateNewEmployee(Guid tenantId, Guid storeId);
+    }
+
+    public interface IReportService
+    {
+        Task Add(ReportDto report);
     }
 }

@@ -108,7 +108,7 @@ namespace YumaPos.Tests.Load.Server.Services
             IBackOfficeApi b = new BackOfficeApi(apiConfig);
             IAuthorizationApi a = new AuthorizationApi(apiConfig);
             ITerminalApi t = new TerminalApi(apiConfig, new SerializationService());
-            var posfDatService = new PosDataService(_container, b, a, t);
+            var posfDatService = new PosDataService(_container, b, a, t, server.Login, server.Password);
             return posfDatService;
         }
 
