@@ -1,6 +1,7 @@
 ﻿//This file generated Automaticaly
 using System;
 using YumaPos.Tests.Load.Infrastucture.Dto;
+using System.Diagnostics;
 
 
 namespace YumaPos.Tests.Load.Client.API {
@@ -14,7 +15,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddCashDrawerCheckItem",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.AddCashDrawerCheckItem(itemDto);
@@ -29,9 +31,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -45,7 +48,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddCustomer",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.AddCustomer(customerDto);
@@ -60,9 +64,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -76,7 +81,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddCustomerAddress",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.AddCustomerAddress(addressDto);
@@ -91,9 +97,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -107,7 +114,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddDeliveryOrder",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.AddDeliveryOrder(deliveryDto);
@@ -122,9 +130,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -138,7 +147,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddDiscountToSplitting",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.AddDiscountToSplitting(orderId, splittingNumber, discountId);
@@ -153,9 +163,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -169,7 +180,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddGiftCardToOrder",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.AddGiftCardToOrder(item);
@@ -184,9 +196,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -200,7 +213,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddOrder",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.AddOrder(orderId, orderType);
@@ -215,9 +229,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -231,7 +246,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddOrderItem",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.AddOrderItem(item);
@@ -246,9 +262,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -262,7 +279,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddOrdersToDriver",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.AddOrdersToDriver(driverId, orderIds);
@@ -277,9 +295,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -293,7 +312,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddRelatedModifierToOrderItem",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.AddRelatedModifierToOrderItem(orderId, relatedModifier);
@@ -308,9 +328,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -324,7 +345,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddTerminalToStore",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.AddTerminalToStore(terminalDto);
@@ -339,9 +361,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -355,7 +378,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "CashDrawerMakeLoan",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.CashDrawerMakeLoan(pickUpDto);
@@ -370,9 +394,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -386,7 +411,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "CashDrawerMakePickUp",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.CashDrawerMakePickUp(pickUpDto);
@@ -401,9 +427,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -417,7 +444,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "CheckGiftCardBalance",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.CheckGiftCardBalance(cardNumber);
@@ -432,9 +460,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -448,7 +477,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "ClockOperation",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.ClockOperation(operationType);
@@ -463,9 +493,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -479,7 +510,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetActiveOrdersChangesDigest",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetActiveOrdersChangesDigest(timestamp);
@@ -494,9 +526,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -510,7 +543,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetAllDiscounts",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetAllDiscounts();
@@ -525,9 +559,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -541,7 +576,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetAllGiftCardTypes",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetAllGiftCardTypes();
@@ -556,9 +592,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -572,7 +609,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetAllStores",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetAllStores();
@@ -587,9 +625,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -603,7 +642,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCashDrawerInfoTotal",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetCashDrawerInfoTotal();
@@ -618,9 +658,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -634,7 +675,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCheckoutOptionsByOrderType",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetCheckoutOptionsByOrderType(orderType);
@@ -649,9 +691,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -665,7 +708,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCurrentCashierLastActivity",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetCurrentCashierLastActivity();
@@ -680,9 +724,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -696,7 +741,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCurrentEmployee",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetCurrentEmployee();
@@ -711,9 +757,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -727,7 +774,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCurrentStore",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetCurrentStore();
@@ -742,9 +790,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -758,7 +807,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCurrentUserClockState",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetCurrentUserClockState();
@@ -773,9 +823,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -789,7 +840,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCustomerAddresses",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetCustomerAddresses(customerId);
@@ -804,9 +856,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -820,7 +873,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetDeliveryInfo",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetDeliveryInfo(orderId);
@@ -835,9 +889,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -851,7 +906,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetDeliveryOrders",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetDeliveryOrders();
@@ -866,9 +922,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -882,7 +939,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetDriversDetails",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetDriversDetails();
@@ -897,9 +955,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -913,7 +972,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetFilteredCustomers",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetFilteredCustomers(model);
@@ -928,9 +988,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -944,7 +1005,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetFilteredOrdersByIds",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetFilteredOrdersByIds(filter);
@@ -959,9 +1021,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -975,7 +1038,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetLastCashierShift",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetLastCashierShift();
@@ -990,9 +1054,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1006,7 +1071,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetOrderById",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetOrderById(orderId);
@@ -1021,9 +1087,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1037,7 +1104,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetOrderItemsByOrderId",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetOrderItemsByOrderId(orderId);
@@ -1052,9 +1120,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1068,7 +1137,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetOrderItemsCosts",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetOrderItemsCosts(orderId);
@@ -1083,9 +1153,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1099,7 +1170,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetOrderReceiptsByOrderId",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetOrderReceiptsByOrderId(orderId);
@@ -1114,9 +1186,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1130,7 +1203,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetPagedActiveOrders",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetPagedActiveOrders(filter);
@@ -1145,9 +1219,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1161,7 +1236,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetPagedCashDrawerItems",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetPagedCashDrawerItems(filter);
@@ -1176,9 +1252,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1192,7 +1269,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetPagedClosedOrders",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetPagedClosedOrders(filter);
@@ -1207,9 +1285,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1223,7 +1302,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetReportById",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetReportById(cashDrawerItemId);
@@ -1238,9 +1318,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1254,7 +1335,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetShiftReport",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetShiftReport();
@@ -1269,9 +1351,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1285,7 +1368,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetSystemSettings",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetSystemSettings(listOfSystemSettings);
@@ -1300,9 +1384,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1316,7 +1401,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetTerminal",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetTerminal(terminalId);
@@ -1331,9 +1417,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1347,7 +1434,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetTerminals",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetTerminals();
@@ -1362,9 +1450,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1378,7 +1467,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetTerminalsByStoreId",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetTerminalsByStoreId(storeId);
@@ -1393,9 +1483,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1409,7 +1500,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetXReport",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetXReport();
@@ -1424,9 +1516,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1440,7 +1533,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "IsActiveOrdersUpdated",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.IsActiveOrdersUpdated(clientDateTime);
@@ -1455,9 +1549,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1471,7 +1566,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "IsMenuUpdated",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.IsMenuUpdated(clientUtcDateTime);
@@ -1486,9 +1582,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1502,7 +1599,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "Logout",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.Logout();
@@ -1517,9 +1615,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1533,7 +1632,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "OverrideLogin",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.OverrideLogin(password, feature);
@@ -1548,9 +1648,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1564,7 +1665,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "PaymentTransaction",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.PaymentTransaction(requestTransaction);
@@ -1579,9 +1681,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1595,7 +1698,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "RefillGiftCard",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.RefillGiftCard(item, amount);
@@ -1610,9 +1714,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1626,7 +1731,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "RemoveCustomerAddress",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.RemoveCustomerAddress(customerAddressId);
@@ -1641,9 +1747,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1657,7 +1764,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "RemoveOrderFromDelivery",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.RemoveOrderFromDelivery(orderId);
@@ -1672,9 +1780,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1688,7 +1797,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "RemoveProductFromOrder",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.RemoveProductFromOrder(orderItem);
@@ -1703,9 +1813,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1719,7 +1830,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "RemoveRelatedModifierFromOrderItem",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.RemoveRelatedModifierFromOrderItem(relatedModifier);
@@ -1734,9 +1846,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1750,7 +1863,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "SavePaymentTransaction",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.SavePaymentTransaction(data);
@@ -1765,9 +1879,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1781,7 +1896,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "SendReceipt",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.SendReceipt(orderId, email);
@@ -1796,9 +1912,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1812,7 +1929,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "TryProcessPaymentTransaction",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.TryProcessPaymentTransaction(requestTransaction);
@@ -1827,9 +1945,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1843,7 +1962,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "UpdateCommonModifierQuantityForOrderItem",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.UpdateCommonModifierQuantityForOrderItem(modifier);
@@ -1858,9 +1978,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1874,7 +1995,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "UpdateCustomer",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.UpdateCustomer(customer);
@@ -1889,9 +2011,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1905,7 +2028,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "UpdateDriverDetails",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.UpdateDriverDetails(driverDetails);
@@ -1920,9 +2044,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1936,7 +2061,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "UpdateOrder",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.UpdateOrder(orderDto);
@@ -1951,9 +2077,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1967,7 +2094,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "UpdateOrderCustomer",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.UpdateOrderCustomer(orderId, customerId);
@@ -1982,9 +2110,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -1998,7 +2127,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "UpdateOrderItemQuantity",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.UpdateOrderItemQuantity(item);
@@ -2013,9 +2143,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -2029,7 +2160,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "UpdateOrderStatusByOrderId",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.UpdateOrderStatusByOrderId(orderId, statusId);
@@ -2044,9 +2176,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -2060,7 +2193,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "UpdateRelatedModifierQuantityForOrderItem",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.UpdateRelatedModifierQuantityForOrderItem(orderId, modifier);
@@ -2075,9 +2209,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -2091,7 +2226,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "UpdateSplittingsForOrderId",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.UpdateSplittingsForOrderId(orderId, splittingType, parameters);
@@ -2106,9 +2242,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -2122,7 +2259,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "UpdateTaxExempt",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.UpdateTaxExempt(orderId, splittingNumber, isTaxExempt);
@@ -2137,9 +2275,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
@@ -2153,7 +2292,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetTerminalCacheMenu",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.GetTerminalCacheMenu();
@@ -2168,9 +2308,10 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             

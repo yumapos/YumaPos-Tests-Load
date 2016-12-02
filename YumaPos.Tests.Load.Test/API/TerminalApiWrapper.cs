@@ -11,14 +11,12 @@ namespace YumaPos.Tests.Load.Client.API
     public partial class TerminalApiWrapper : YumaPos.Shared.Infrastructure.ITerminalApi
     {
         private TerminalApi _api;
-        private Stopwatch _stopwatch;
         private List<ReportItem> _reportItems;
 
 
         public TerminalApiWrapper(IAPIConfig config, ISerializationService serializationService)
         {
             _api = new TerminalApi(config, serializationService);
-            _stopwatch = new Stopwatch();
             _reportItems = new List<ReportItem>();
         }
 

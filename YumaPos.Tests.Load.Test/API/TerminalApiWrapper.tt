@@ -10,6 +10,7 @@
 <#@ output extension=".g.cs" #>
 using System;
 using YumaPos.Tests.Load.Infrastucture.Dto;
+using System.Diagnostics;
 
 
 namespace YumaPos.Tests.Load.Client.API {
@@ -39,7 +40,8 @@ foreach (var method in typeof(YumaPos.Shared.Infrastructure.ITerminalApi).GetMet
                 MethodName = "<#= method.Name #>",
                 Created = DateTime.UtcNow,
             };
-            _stopwatch.Start();
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
             try
             {
                 res = await _api.<#= method.Name #>(<#
@@ -61,9 +63,10 @@ foreach (var method in typeof(YumaPos.Shared.Infrastructure.ITerminalApi).GetMet
             }
             finally
             {
-                _stopwatch.Stop();
-                reportItem.Duration = _stopwatch.Elapsed;
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
+				
             }
             return res;
             
