@@ -23,11 +23,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -56,11 +52,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -89,11 +81,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -122,11 +110,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -155,11 +139,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -188,11 +168,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -221,11 +197,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -254,11 +226,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -287,11 +255,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -320,11 +284,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -353,11 +313,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -386,11 +342,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -419,11 +371,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -452,11 +400,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -485,11 +429,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -518,11 +458,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -551,11 +487,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -584,11 +516,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -617,11 +545,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -650,11 +574,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -683,11 +603,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -716,11 +632,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -749,11 +661,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -782,11 +690,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -815,11 +719,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -848,11 +748,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -881,11 +777,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -914,11 +806,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -947,11 +835,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -980,11 +864,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1013,11 +893,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1046,11 +922,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1079,11 +951,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1112,11 +980,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1145,11 +1009,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1178,11 +1038,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1211,11 +1067,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1244,11 +1096,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1277,11 +1125,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1310,11 +1154,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1343,11 +1183,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1376,11 +1212,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1409,11 +1241,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1442,11 +1270,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1475,11 +1299,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1508,11 +1328,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1541,11 +1357,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1574,11 +1386,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1607,11 +1415,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1640,11 +1444,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1673,11 +1473,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1706,11 +1502,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1739,11 +1531,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1772,11 +1560,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1805,11 +1589,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1838,11 +1618,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1871,11 +1647,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1904,11 +1676,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1937,11 +1705,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -1970,11 +1734,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -2003,11 +1763,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -2036,11 +1792,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -2069,11 +1821,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -2102,11 +1850,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -2135,11 +1879,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -2168,11 +1908,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -2201,11 +1937,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -2234,11 +1966,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -2267,11 +1995,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {
@@ -2300,11 +2024,7 @@ namespace YumaPos.Tests.Load.Client.API {
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {

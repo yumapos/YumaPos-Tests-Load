@@ -69,7 +69,17 @@ namespace YumaPos.Tests.Load.Client.Logic
                     {
                         await scenario.StartAsync();
                     }
-                    catch { }
+                    catch (Exception exception)
+                    {
+                        var api = _scope.Resolve<TerminalApiWrapper>();
+                        api.ReportItems.Add(new ReportItem()
+                        {
+                            MethodName = scenarioTypeName,
+                            Created = DateTime.UtcNow,
+                            ExceptionMessage = exception.ToString()
+                        });
+
+                    }
                     OnReported();
                     if (!_run) break;
                 }

@@ -55,11 +55,7 @@ foreach (var method in typeof(YumaPos.Shared.Infrastructure.ITerminalApi).GetMet
             }
             catch (Exception ex)
             {
-                if (ex is AggregateException)
-                {
-                    ex = ((AggregateException) ex).Flatten();
-                }
-                reportItem.ExceptionMessage = ex.Message;
+                reportItem.ExceptionMessage = ex.ToString();
             }
             finally
             {

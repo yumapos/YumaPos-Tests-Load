@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NLog;
+using YumaPos.Shared.Exceptions;
 using YumaPos.Tests.Load.Client.Data.Interfaces;
 using YumaPos.Tests.Load.Client.Data.Models;
 using YumaPos.Tests.Load.Client.Interfaces;
@@ -22,16 +23,16 @@ namespace YumaPos.Tests.Load.Client
         private readonly ITaskRepository _taskRepository;
         private readonly List<TestEngine> _runningInstances = new List<TestEngine>();
         private CancellationTokenSource _cancellationTokenSource;
-        private static Logger _logger = LogManager.GetCurrentClassLogger();
+        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
         public App(IConfig config, ITestApi testApi, ITaskRepository taskRepository)
         {
             _config = config;
             _testApi = testApi;
             _taskRepository = taskRepository;
-    }
+        }
 
-    public void Stop()
+        public void Stop()
         {
             _run = false;
             _cancellationTokenSource.Cancel();
@@ -57,13 +58,13 @@ namespace YumaPos.Tests.Load.Client
                 {
                     await CheckNewTask();
                     await CheckTaskForExecute();
-                    await Task.Delay(TimeSpan.FromMinutes(1), _cancellationTokenSource.Token);
+                    await Task.Delay(TimeSpan.FromSeconds(10), _cancellationTokenSource.Token);
                 }
             }
             catch (Exception exception)
             {
                 _logger.Error(exception);
-                if (exception is AggregateException) exception = ((AggregateException) exception).Flatten();
+                if (exception is AggregateException) exception = ((AggregateException)exception).Flatten();
                 MessageBox.Show(exception.Message);
                 Application.Exit();
             }
@@ -105,7 +106,7 @@ namespace YumaPos.Tests.Load.Client
 
         private async void OnTestEngineFinished(object sender, EventArgs e)
         {
-            var engine = (TestEngine) sender;
+            var engine = (TestEngine)sender;
             _runningInstances.Remove(engine);
             engine.Finished -= OnTestEngineFinished;
             engine.Reported -= OnTestEngineReported;
