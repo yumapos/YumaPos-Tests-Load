@@ -5,6 +5,7 @@ using System.ServiceModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NLog;
 using YumaPos.Tests.Load.Client.Data.Interfaces;
 using YumaPos.Tests.Load.Client.Data.Models;
 using YumaPos.Tests.Load.Client.Interfaces;
@@ -21,15 +22,16 @@ namespace YumaPos.Tests.Load.Client
         private readonly ITaskRepository _taskRepository;
         private readonly List<TestEngine> _runningInstances = new List<TestEngine>();
         private CancellationTokenSource _cancellationTokenSource;
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
 
         public App(IConfig config, ITestApi testApi, ITaskRepository taskRepository)
         {
             _config = config;
             _testApi = testApi;
             _taskRepository = taskRepository;
-        }
+    }
 
-        public void Stop()
+    public void Stop()
         {
             _run = false;
             _cancellationTokenSource.Cancel();
@@ -60,6 +62,7 @@ namespace YumaPos.Tests.Load.Client
             }
             catch (Exception exception)
             {
+                _logger.Error(exception);
                 if (exception is AggregateException) exception = ((AggregateException) exception).Flatten();
                 MessageBox.Show(exception.Message);
                 Application.Exit();
