@@ -2,13 +2,14 @@
 using System;
 using YumaPos.Tests.Load.Infrastucture.Dto;
 using System.Diagnostics;
-
+using System.Threading.Tasks;
 
 namespace YumaPos.Tests.Load.Client.API {
     public partial class TerminalApiWrapper : YumaPos.Shared.Infrastructure.ITerminalApi
     {
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCashDrawerCheckItem(YumaPos.Shared.API.Models.CashDrawerItemDto itemDto)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -38,6 +39,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCustomer(YumaPos.Shared.API.Models.CustomerDto customerDto)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -67,6 +69,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCustomerAddress(YumaPos.Shared.API.Models.CustomerAddressDto addressDto)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -96,6 +99,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddDeliveryOrder(YumaPos.Shared.API.Models.Ordering.DeliveryDto deliveryDto)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -125,6 +129,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddDiscountToSplitting(System.Guid orderId, Int32 splittingNumber, System.Nullable<System.Guid> discountId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -154,6 +159,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> AddGiftCardToOrder(YumaPos.Shared.API.Models.GiftCardOrderItemDto item)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -183,6 +189,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderResponseDto> AddOrder(System.Guid orderId, YumaPos.Shared.API.Enums.OrderType orderType)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.RestaurantOrderResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -212,6 +219,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> AddOrderItem(YumaPos.Shared.API.Models.RestaurantOrderItemDto item)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -241,6 +249,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddOrdersToDriver(System.Guid driverId, System.Guid[] orderIds)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -270,6 +279,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GuidResponseDto> AddTerminalToStore(YumaPos.Shared.API.Models.TerminalDto terminalDto)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.GuidResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -299,6 +309,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> CashDrawerMakeLoan(YumaPos.Shared.API.Models.PickUpDto pickUpDto)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -328,6 +339,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> CashDrawerMakePickUp(YumaPos.Shared.API.Models.PickUpDto pickUpDto)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -357,6 +369,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DecimalResponseDto> CheckGiftCardBalance(System.String cardNumber)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.DecimalResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -386,6 +399,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> ClockOperation(YumaPos.Shared.API.Enums.UserActivityType operationType)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -415,6 +429,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> EndShift(System.Decimal amount)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -444,6 +459,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto> GetActiveOrdersChangesDigest(System.DateTime timestamp)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -473,6 +489,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DiscountListResponseDto> GetAllDiscounts()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.DiscountListResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -502,6 +519,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GiftCardTypeListResponseDto> GetAllGiftCardTypes()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.GiftCardTypeListResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -531,6 +549,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.StoreListResponseDto> GetAllStores()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.StoreListResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -560,6 +579,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashDrawerInfoResponseDto> GetCashDrawerInfoTotal()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.CashDrawerInfoResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -589,6 +609,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CheckoutOptionListResponseDto> GetCheckoutOptionsByOrderType(YumaPos.Shared.API.Enums.OrderType orderType)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.CheckoutOptionListResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -618,6 +639,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashDrawerItemResponseDto> GetCurrentCashierLastActivity()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.CashDrawerItemResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -647,6 +669,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.EmployeeResponseDto> GetCurrentEmployee()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.EmployeeResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -676,6 +699,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.StoreResponseDto> GetCurrentStore()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.StoreResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -705,6 +729,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.UserClockStateResponseDto> GetCurrentUserClockState()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.UserClockStateResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -734,6 +759,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CustomerAddressListResponseDto> GetCustomerAddresses(System.Guid customerId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.CustomerAddressListResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -763,6 +789,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DeliveryDetailsResponseDto> GetDeliveryInfo(System.Guid orderId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.DeliveryDetailsResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -792,6 +819,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DeliveryDetailsListResponseDto> GetDeliveryOrders()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.DeliveryDetailsListResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -821,6 +849,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DriverDetailsListResponseDto> GetDriversDetails()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.DriverDetailsListResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -850,6 +879,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredCustomersResponseResponseDto> GetFilteredCustomers(YumaPos.Shared.API.Models.FilteredRequestDto model)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.FilteredCustomersResponseResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -879,6 +909,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderListResponseDto> GetFilteredOrdersByIds(YumaPos.Shared.API.Models.OrderFilterDto filter)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.TerminalOrderListResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -908,6 +939,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashierShiftResponseDto> GetLastCashierShift()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.CashierShiftResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -937,6 +969,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderResponseDto> GetOrderById(System.Guid orderId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.TerminalOrderResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -966,6 +999,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderItemListResponseDto> GetOrderItemsByOrderId(System.Guid orderId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.RestaurantOrderItemListResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -995,6 +1029,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GuidDecimalDictonaryResponseDto> GetOrderItemsCosts(System.Guid orderId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.GuidDecimalDictonaryResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1024,6 +1059,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderReceiptListResponseDto> GetOrderReceiptsByOrderId(System.Guid orderId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.RestaurantOrderReceiptListResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1053,6 +1089,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedActiveOrders(YumaPos.Shared.API.Models.OrderFilterDto filter)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1082,6 +1119,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredCashDrawerItemResponseDto> GetPagedCashDrawerItems(YumaPos.Shared.API.Models.CashDrawerItemsFilterDto filter)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.FilteredCashDrawerItemResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1111,6 +1149,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedClosedOrders(YumaPos.Shared.API.Models.OrderFilterDto filter)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1140,6 +1179,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetReportById(System.Guid cashDrawerItemId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.XReportResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1169,6 +1209,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetShiftReport()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.XReportResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1198,6 +1239,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.LookupListResponseDto> GetSystemSettings(System.String[] listOfSystemSettings)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.LookupListResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1227,6 +1269,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalResponseDto> GetTerminal(System.Guid terminalId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.TerminalResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1256,6 +1299,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto> GetTerminals()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1285,6 +1329,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto> GetTerminalsByStoreId(System.Guid storeId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1314,6 +1359,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetXReport()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.XReportResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1343,6 +1389,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> IsActiveOrdersUpdated(System.DateTime clientDateTime)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.BoolResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1372,6 +1419,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> IsMenuUpdated(System.DateTime clientUtcDateTime)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.BoolResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1401,6 +1449,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> Logout()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1430,6 +1479,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> OverrideLogin(System.String password, Int32 feature)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1459,6 +1509,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> PaymentTransaction(YumaPos.Shared.API.Models.RequestTransactionDto requestTransaction)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1488,6 +1539,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> RefillGiftCard(YumaPos.Shared.API.Models.GiftCardOrderItemDto item, System.Decimal amount)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1517,6 +1569,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveCustomerAddress(System.Guid customerAddressId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1546,6 +1599,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveOrderFromDelivery(System.Guid orderId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1575,6 +1629,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveProductFromOrder(YumaPos.Shared.API.Models.RestaurantOrderItemDto orderItem)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1604,6 +1659,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> SavePaymentTransaction(YumaPos.Shared.API.Models.InputTransactionInfoDto data)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1633,6 +1689,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> SendReceipt(System.Guid orderId, System.String email)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1662,6 +1719,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> StartShift(System.Decimal initialAmount)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1691,6 +1749,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> TryProcessPaymentTransaction(YumaPos.Shared.API.Models.RequestTransactionDto requestTransaction)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1720,6 +1779,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateCustomer(YumaPos.Shared.API.Models.CustomerDto customer)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1749,6 +1809,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateDriverDetails(YumaPos.Shared.API.Models.Ordering.DriverDetailsDto driverDetails)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1778,6 +1839,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrder(YumaPos.Shared.API.Models.RestaurantOrderDto orderDto)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1807,6 +1869,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderCustomer(System.Guid orderId, System.Guid customerId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1836,6 +1899,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderItem(YumaPos.Shared.API.Models.RestaurantOrderItemDto item)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1865,6 +1929,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderItemQuantity(YumaPos.Shared.API.Models.RestaurantOrderItemDto item)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1894,6 +1959,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderStatusByOrderId(System.Guid orderId, Int32 statusId)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1923,6 +1989,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> UpdateSplittingsForOrderId(System.Guid orderId, YumaPos.Shared.API.Enums.SplittingType splittingType, System.String[] parameters)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.BoolResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1952,6 +2019,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateTaxExempt(System.Guid orderId, Int32 splittingNumber, Boolean isTaxExempt)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
@@ -1981,6 +2049,7 @@ namespace YumaPos.Tests.Load.Client.API {
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.MenuCacheResponseDto> GetTerminalCacheMenu()
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.MenuCacheResponseDto res = null;
             var reportItem = new ReportItem()
             {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using YumaPos.Client.WCF;
 using YumaPos.FrontEnd.Infrastructure.CommandProcessing;
@@ -35,5 +36,8 @@ namespace YumaPos.Tests.Load.Client.API
         {
             get { return _reportItems; }
         }
+
+        public TimeSpan MaxInterval { get; set; }
+        public TimeSpan MinInterval { get; set; }
     }
 }

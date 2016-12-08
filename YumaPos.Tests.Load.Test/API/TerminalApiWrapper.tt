@@ -11,7 +11,7 @@
 using System;
 using YumaPos.Tests.Load.Infrastucture.Dto;
 using System.Diagnostics;
-
+using System.Threading.Tasks;
 
 namespace YumaPos.Tests.Load.Client.API {
     public partial class TerminalApiWrapper : YumaPos.Shared.Infrastructure.ITerminalApi
@@ -34,6 +34,7 @@ foreach (var method in typeof(YumaPos.Shared.Infrastructure.ITerminalApi).GetMet
         }
         #>)
         {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             <#= returnType.ReplaceFirst("System.Threading.Tasks.Task<","").ReplaceLast(">", "") #> res = null;
             var reportItem = new ReportItem()
             {

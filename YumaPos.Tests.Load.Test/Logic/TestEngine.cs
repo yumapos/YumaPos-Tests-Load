@@ -48,6 +48,11 @@ namespace YumaPos.Tests.Load.Client.Logic
             config.AuthorizationAddress         = TestTask.AuthorizationAddress;
             config.ServiceAddress               = TestTask.ServiceAddress;
 
+            var api = _scope.Resolve<TerminalApiWrapper>();
+            api.MaxInterval = TestTask.MaxInterval;
+            api.MinInterval = TestTask.MinInterval;
+
+
             if (_terminalContext.ClientIsRegistered)
             {
                 var regiterScenario = _scope.ResolveKeyed<RegisterTerminalScenario>(typeof(RegisterTerminalScenario).FullName);
@@ -71,7 +76,6 @@ namespace YumaPos.Tests.Load.Client.Logic
                     }
                     catch (Exception exception)
                     {
-                        var api = _scope.Resolve<TerminalApiWrapper>();
                         api.ReportItems.Add(new ReportItem()
                         {
                             MethodName = scenarioTypeName,
