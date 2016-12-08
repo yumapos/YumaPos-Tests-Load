@@ -64,6 +64,7 @@
     <Compile Include="Scenarios\EmployeeLoginScenario.cs" />
     <Compile Include="Scenarios\LoadFullMenuScenario.cs" />
     <Compile Include="Models\MenuCacheModel.cs" />
+    <Compile Include="Scenarios\UpdateModifiersScenario.cs" />
     <Compile Include="Scenarios\UpdateOrderCustomerScenario.cs" />
     <Compile Include="Scenarios\OrderTaxExemptScenario.cs" />
     <Compile Include="Scenarios\OrderWithCommonModifiersScenario.cs" />

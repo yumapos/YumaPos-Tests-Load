@@ -83,19 +83,26 @@ namespace YumaPos.Tests.Load.Scenarios
 
             #region Remove modifiers
 
-            var response4 = await _api.RemoveRelatedModifierFromOrderItem(new OrderItemRelatedModifierDto
-            {
-                OrderItemId = orderItemId,
-                OrderId = orderId,
-                RelatedModifierId = relatedModifier.Id
-            });
 
-            var response5 = await _api.UpdateCommonModifierQuantityForOrderItem(new OrderItemCommonModifierDto
+            var response4 = await _api.UpdateOrderItem(new RestaurantOrderItemDto()
             {
-                OrderId = orderId,
                 OrderItemId = orderItemId,
-                Qty = 0,
-                ModifierId = commonModifier.Id
+                OrderId = order.OrderId,
+                CommonModifiers = commonModifiers.Where(a=>a.Id!=commonModifier.Id).Select(a => new OrderItemCommonModifierDto
+                {
+                    OrderItemId = orderItemId,
+                    OrderId = orderId,
+                    ModifierId = a.Id,
+                    Qty = 1
+                }),
+                RelatedModifiers = relatedModifiers.Where(a=>a.Id!=relatedModifier.Id).Select(a => new OrderItemRelatedModifierDto
+                {
+                    OrderId = orderId,
+                    OrderItemId = orderItemId,
+                    Quantity = 1,
+                    RelatedModifierId = a.Id
+                }),
+                Qty = 1,
             });
 
             #endregion
@@ -107,20 +114,25 @@ namespace YumaPos.Tests.Load.Scenarios
 
             #region Add modifiers
 
-            var response6 = await _api.AddRelatedModifierToOrderItem(orderId, new OrderItemRelatedModifierDto
+            var response5 = await _api.UpdateOrderItem(new RestaurantOrderItemDto()
             {
                 OrderItemId = orderItemId,
-                OrderId = orderId,
-                RelatedModifierId = relatedModifier.Id,
-                Quantity = 1
-            });
-
-            var response7 = await _api.UpdateCommonModifierQuantityForOrderItem(new OrderItemCommonModifierDto
-            {
-                OrderId = orderId,
-                OrderItemId = orderItemId,
+                OrderId = order.OrderId,
+                CommonModifiers = commonModifiers.Select(a => new OrderItemCommonModifierDto
+                {
+                    OrderItemId = orderItemId,
+                    OrderId = orderId,
+                    ModifierId = a.Id,
+                    Qty = 1
+                }),
+                RelatedModifiers = relatedModifiers.Select(a => new OrderItemRelatedModifierDto
+                {
+                    OrderId = orderId,
+                    OrderItemId = orderItemId,
+                    Quantity = 1,
+                    RelatedModifierId = a.Id
+                }),
                 Qty = 1,
-                ModifierId = commonModifier.Id
             });
 
             #endregion
@@ -132,20 +144,25 @@ namespace YumaPos.Tests.Load.Scenarios
 
             #region Update quantity
 
-            var response8 = _api.UpdateRelatedModifierQuantityForOrderItem(orderId, new OrderItemRelatedModifierDto
+            var response6 = await _api.UpdateOrderItem(new RestaurantOrderItemDto()
             {
                 OrderItemId = orderItemId,
-                OrderId = orderId,
-                RelatedModifierId = relatedModifier.Id,
-                Quantity = 10
-            });
-
-            var response9 = _api.UpdateCommonModifierQuantityForOrderItem(new OrderItemCommonModifierDto
-            {
-                OrderId = orderId,
-                OrderItemId = orderItemId,
-                Qty = 10,
-                ModifierId = commonModifier.Id
+                OrderId = order.OrderId,
+                CommonModifiers = commonModifiers.Select(a => new OrderItemCommonModifierDto
+                {
+                    OrderItemId = orderItemId,
+                    OrderId = orderId,
+                    ModifierId = a.Id,
+                    Qty = 5
+                }),
+                RelatedModifiers = relatedModifiers.Select(a => new OrderItemRelatedModifierDto
+                {
+                    OrderId = orderId,
+                    OrderItemId = orderItemId,
+                    Quantity = 5,
+                    RelatedModifierId = a.Id
+                }),
+                Qty = 1,
             });
 
             #endregion
