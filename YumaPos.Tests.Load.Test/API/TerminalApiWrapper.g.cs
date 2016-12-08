@@ -268,35 +268,6 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddRelatedModifierToOrderItem(System.Guid orderId, YumaPos.Shared.API.Models.OrderItemRelatedModifierDto relatedModifier)
-        {
-            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
-            var reportItem = new ReportItem()
-            {
-                MethodName = "AddRelatedModifierToOrderItem",
-                Created = DateTime.UtcNow,
-            };
-			var stopwatch = new Stopwatch();
-            stopwatch.Start();
-            try
-            {
-                res = await _api.AddRelatedModifierToOrderItem(orderId, relatedModifier);
-            }
-            catch (Exception ex)
-            {
-                reportItem.ExceptionMessage = ex.ToString();
-            }
-            finally
-            {
-                stopwatch.Stop();
-                reportItem.Duration = stopwatch.Elapsed;
-                _reportItems.Add(reportItem);
-				
-            }
-            return res;
-            
-        }
-    
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GuidResponseDto> AddTerminalToStore(YumaPos.Shared.API.Models.TerminalDto terminalDto)
         {
             YumaPos.Shared.API.ResponseDtos.GuidResponseDto res = null;
@@ -426,6 +397,35 @@ namespace YumaPos.Tests.Load.Client.API {
             try
             {
                 res = await _api.ClockOperation(operationType);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+				
+            }
+            return res;
+            
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> EndShift(System.Decimal amount)
+        {
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "EndShift",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.EndShift(amount);
             }
             catch (Exception ex)
             {
@@ -1602,35 +1602,6 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveRelatedModifierFromOrderItem(YumaPos.Shared.API.Models.OrderItemRelatedModifierDto relatedModifier)
-        {
-            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
-            var reportItem = new ReportItem()
-            {
-                MethodName = "RemoveRelatedModifierFromOrderItem",
-                Created = DateTime.UtcNow,
-            };
-			var stopwatch = new Stopwatch();
-            stopwatch.Start();
-            try
-            {
-                res = await _api.RemoveRelatedModifierFromOrderItem(relatedModifier);
-            }
-            catch (Exception ex)
-            {
-                reportItem.ExceptionMessage = ex.ToString();
-            }
-            finally
-            {
-                stopwatch.Stop();
-                reportItem.Duration = stopwatch.Elapsed;
-                _reportItems.Add(reportItem);
-				
-            }
-            return res;
-            
-        }
-    
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> SavePaymentTransaction(YumaPos.Shared.API.Models.InputTransactionInfoDto data)
         {
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
@@ -1689,19 +1660,19 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> TryProcessPaymentTransaction(YumaPos.Shared.API.Models.RequestTransactionDto requestTransaction)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> StartShift(System.Decimal initialAmount)
         {
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
-                MethodName = "TryProcessPaymentTransaction",
+                MethodName = "StartShift",
                 Created = DateTime.UtcNow,
             };
 			var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
-                res = await _api.TryProcessPaymentTransaction(requestTransaction);
+                res = await _api.StartShift(initialAmount);
             }
             catch (Exception ex)
             {
@@ -1718,19 +1689,19 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateCommonModifierQuantityForOrderItem(YumaPos.Shared.API.Models.OrderItemCommonModifierDto modifier)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> TryProcessPaymentTransaction(YumaPos.Shared.API.Models.RequestTransactionDto requestTransaction)
         {
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
-                MethodName = "UpdateCommonModifierQuantityForOrderItem",
+                MethodName = "TryProcessPaymentTransaction",
                 Created = DateTime.UtcNow,
             };
 			var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
-                res = await _api.UpdateCommonModifierQuantityForOrderItem(modifier);
+                res = await _api.TryProcessPaymentTransaction(requestTransaction);
             }
             catch (Exception ex)
             {
@@ -1863,6 +1834,35 @@ namespace YumaPos.Tests.Load.Client.API {
             
         }
     
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderItem(YumaPos.Shared.API.Models.RestaurantOrderItemDto item)
+        {
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "UpdateOrderItem",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.UpdateOrderItem(item);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+				
+            }
+            return res;
+            
+        }
+    
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderItemQuantity(YumaPos.Shared.API.Models.RestaurantOrderItemDto item)
         {
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
@@ -1905,35 +1905,6 @@ namespace YumaPos.Tests.Load.Client.API {
             try
             {
                 res = await _api.UpdateOrderStatusByOrderId(orderId, statusId);
-            }
-            catch (Exception ex)
-            {
-                reportItem.ExceptionMessage = ex.ToString();
-            }
-            finally
-            {
-                stopwatch.Stop();
-                reportItem.Duration = stopwatch.Elapsed;
-                _reportItems.Add(reportItem);
-				
-            }
-            return res;
-            
-        }
-    
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateRelatedModifierQuantityForOrderItem(System.Guid orderId, YumaPos.Shared.API.Models.OrderItemRelatedModifierDto modifier)
-        {
-            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
-            var reportItem = new ReportItem()
-            {
-                MethodName = "UpdateRelatedModifierQuantityForOrderItem",
-                Created = DateTime.UtcNow,
-            };
-			var stopwatch = new Stopwatch();
-            stopwatch.Start();
-            try
-            {
-                res = await _api.UpdateRelatedModifierQuantityForOrderItem(orderId, modifier);
             }
             catch (Exception ex)
             {

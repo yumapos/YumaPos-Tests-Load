@@ -68,7 +68,6 @@
     <Compile Include="Scenarios\OrderTaxExemptScenario.cs" />
     <Compile Include="Scenarios\OrderWithCommonModifiersScenario.cs" />
     <Compile Include="Scenarios\OrderDiscountScenario.cs" />
-    <Compile Include="Scenarios\UpdateModifiersScenario.cs" />
     <Compile Include="Scenarios\RegisterTerminalScenario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenarios\PayAndRefundOrderScenario.cs" />

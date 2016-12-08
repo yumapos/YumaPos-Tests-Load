@@ -23,7 +23,7 @@ namespace YumaPos.Tests.Load.Scenarios
             Register<SimpleOrderScenario>               (typeof(SimpleOrderScenario).FullName,               Lifecycles.PerScope).As<IScenario>().As<SimpleOrderScenario>();
             Register<SplittingOrderScenario>            (typeof(SplittingOrderScenario).FullName,            Lifecycles.PerScope).As<IScenario>().As<SplittingOrderScenario>();
             Register<PayAndRefundOrderScenario>         (typeof(PayAndRefundOrderScenario).FullName,         Lifecycles.PerScope).As<IScenario>().As<PayAndRefundOrderScenario>();
-            Register<UpdateModifiersScenario>           (typeof(UpdateModifiersScenario).FullName,           Lifecycles.PerScope).As<IScenario>().As<UpdateModifiersScenario>();
+            //Register<UpdateModifiersScenario>           (typeof(UpdateModifiersScenario).FullName,           Lifecycles.PerScope).As<IScenario>().As<UpdateModifiersScenario>();
             Register<OrderDiscountScenario>             (typeof(OrderDiscountScenario).FullName,             Lifecycles.PerScope).As<IScenario>().As<OrderDiscountScenario>();
             Register<OrderTaxExemptScenario>            (typeof(OrderTaxExemptScenario).FullName,            Lifecycles.PerScope).As<IScenario>().As<OrderTaxExemptScenario>();
             Register<UpdateOrderCustomerScenario>       (typeof(UpdateOrderCustomerScenario).FullName,       Lifecycles.PerScope).As<IScenario>().As<UpdateOrderCustomerScenario>();

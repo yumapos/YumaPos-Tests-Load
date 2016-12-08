@@ -23,13 +23,14 @@ namespace YumaPos.Tests.Load.Scenarios
 
         public async Task StartAsync()
         {
-            await WhenILoginToTerminal();
+            await LoginToTerminal();
+            await ShiftStart();
             await ThenIAmAuthennticated();
         }
 
         #region Steps
 
-        public async Task WhenILoginToTerminal()
+        public async Task LoginToTerminal()
         {
             try
             {
@@ -42,6 +43,11 @@ namespace YumaPos.Tests.Load.Scenarios
                 _context.EmployeeToken = "invalid password";
             }
             Debug.WriteLine("token: {0}", _context.EmployeeToken);
+        }
+
+        private async Task ShiftStart()
+        {
+            await _terminalApi.StartShift(10);
         }
 
         public async Task ThenIAmAuthennticated()
