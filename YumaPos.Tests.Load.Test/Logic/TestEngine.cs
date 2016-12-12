@@ -53,16 +53,32 @@ namespace YumaPos.Tests.Load.Client.Logic
             api.MinInterval = TestTask.MinInterval;
 
 
-            if (_terminalContext.ClientIsRegistered)
+            while (true)
             {
-                var regiterScenario = _scope.ResolveKeyed<RegisterTerminalScenario>(typeof(RegisterTerminalScenario).FullName);
-                await regiterScenario.StartAsync();
+                try
+                {
+                    if (_terminalContext.ClientIsRegistered)
+                    {
+                        var regiterScenario = _scope.ResolveKeyed<RegisterTerminalScenario>(typeof(RegisterTerminalScenario).FullName);
+                        await regiterScenario.StartAsync();
+                    }
+                    var loginScenario = _scope.ResolveKeyed<EmployeeLoginScenario>(typeof(EmployeeLoginScenario).FullName);
+                    await loginScenario.StartAsync();
+                    var initScenario = _scope.ResolveKeyed<LoadFullMenuScenario>(typeof(LoadFullMenuScenario).FullName);
+                    await initScenario.StartAsync();
+                    break;
+                }
+                catch (Exception exception)
+                {
+                    api.ReportItems.Add(new ReportItem()
+                    {
+                        MethodName = "EmployeeLoginScenario",
+                        Created = DateTime.UtcNow,
+                        ExceptionMessage = exception.ToString()
+                    });
+                    await Task.Delay(10000);
+                }
             }
-            var loginScenario = _scope.ResolveKeyed<EmployeeLoginScenario>(typeof(EmployeeLoginScenario).FullName);
-            await loginScenario.StartAsync();
-            var initScenario = _scope.ResolveKeyed<LoadFullMenuScenario>(typeof(LoadFullMenuScenario).FullName);
-            await initScenario.StartAsync();
-
             var endTime = TestTask.Start + TestTask.Duration;
 
             while (endTime > DateTime.UtcNow)

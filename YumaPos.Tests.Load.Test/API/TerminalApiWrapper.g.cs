@@ -31,10 +31,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCustomer(YumaPos.Shared.API.Models.CustomerDto customerDto)
@@ -61,10 +59,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCustomerAddress(YumaPos.Shared.API.Models.CustomerAddressDto addressDto)
@@ -91,10 +87,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddDeliveryOrder(YumaPos.Shared.API.Models.Ordering.DeliveryDto deliveryDto)
@@ -121,10 +115,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddDiscountToSplitting(System.Guid orderId, Int32 splittingNumber, System.Nullable<System.Guid> discountId)
@@ -151,10 +143,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> AddGiftCardToOrder(YumaPos.Shared.API.Models.GiftCardOrderItemDto item)
@@ -181,10 +171,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderResponseDto> AddOrder(System.Guid orderId, YumaPos.Shared.API.Enums.OrderType orderType)
@@ -211,10 +199,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> AddOrderItem(YumaPos.Shared.API.Models.RestaurantOrderItemDto item)
@@ -241,10 +227,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddOrdersToDriver(System.Guid driverId, System.Guid[] orderIds)
@@ -271,10 +255,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GuidResponseDto> AddTerminalToStore(YumaPos.Shared.API.Models.TerminalDto terminalDto)
@@ -301,10 +283,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> CashDrawerMakeLoan(YumaPos.Shared.API.Models.PickUpDto pickUpDto)
@@ -331,10 +311,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> CashDrawerMakePickUp(YumaPos.Shared.API.Models.PickUpDto pickUpDto)
@@ -361,10 +339,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DecimalResponseDto> CheckGiftCardBalance(System.String cardNumber)
@@ -391,10 +367,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> ClockOperation(YumaPos.Shared.API.Enums.UserActivityType operationType)
@@ -421,10 +395,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> EndShift(System.Decimal amount)
@@ -451,10 +423,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto> GetActiveOrdersChangesDigest(System.DateTime timestamp)
@@ -481,10 +451,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DiscountListResponseDto> GetAllDiscounts()
@@ -511,10 +479,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GiftCardTypeListResponseDto> GetAllGiftCardTypes()
@@ -541,10 +507,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.StoreListResponseDto> GetAllStores()
@@ -571,10 +535,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashDrawerInfoResponseDto> GetCashDrawerInfoTotal()
@@ -601,10 +563,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CheckoutOptionListResponseDto> GetCheckoutOptionsByOrderType(YumaPos.Shared.API.Enums.OrderType orderType)
@@ -631,10 +591,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashDrawerItemResponseDto> GetCurrentCashierLastActivity()
@@ -661,10 +619,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.EmployeeResponseDto> GetCurrentEmployee()
@@ -691,10 +647,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.StoreResponseDto> GetCurrentStore()
@@ -721,10 +675,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.UserClockStateResponseDto> GetCurrentUserClockState()
@@ -751,10 +703,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CustomerAddressListResponseDto> GetCustomerAddresses(System.Guid customerId)
@@ -781,10 +731,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DeliveryDetailsResponseDto> GetDeliveryInfo(System.Guid orderId)
@@ -811,10 +759,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DeliveryDetailsListResponseDto> GetDeliveryOrders()
@@ -841,10 +787,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DriverDetailsListResponseDto> GetDriversDetails()
@@ -871,10 +815,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredCustomersResponseResponseDto> GetFilteredCustomers(YumaPos.Shared.API.Models.FilteredRequestDto model)
@@ -901,10 +843,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderListResponseDto> GetFilteredOrdersByIds(YumaPos.Shared.API.Models.OrderFilterDto filter)
@@ -931,10 +871,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashierShiftResponseDto> GetLastCashierShift()
@@ -961,10 +899,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderResponseDto> GetOrderById(System.Guid orderId)
@@ -991,10 +927,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderItemListResponseDto> GetOrderItemsByOrderId(System.Guid orderId)
@@ -1021,10 +955,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GuidDecimalDictonaryResponseDto> GetOrderItemsCosts(System.Guid orderId)
@@ -1051,10 +983,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.RestaurantOrderReceiptListResponseDto> GetOrderReceiptsByOrderId(System.Guid orderId)
@@ -1081,10 +1011,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedActiveOrders(YumaPos.Shared.API.Models.OrderFilterDto filter)
@@ -1111,10 +1039,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredCashDrawerItemResponseDto> GetPagedCashDrawerItems(YumaPos.Shared.API.Models.CashDrawerItemsFilterDto filter)
@@ -1141,10 +1067,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedClosedOrders(YumaPos.Shared.API.Models.OrderFilterDto filter)
@@ -1171,10 +1095,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetReportById(System.Guid cashDrawerItemId)
@@ -1201,10 +1123,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetShiftReport()
@@ -1231,10 +1151,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.LookupListResponseDto> GetSystemSettings(System.String[] listOfSystemSettings)
@@ -1261,10 +1179,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalResponseDto> GetTerminal(System.Guid terminalId)
@@ -1291,10 +1207,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto> GetTerminals()
@@ -1321,10 +1235,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalListResponseDto> GetTerminalsByStoreId(System.Guid storeId)
@@ -1351,10 +1263,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetXReport()
@@ -1381,10 +1291,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> IsActiveOrdersUpdated(System.DateTime clientDateTime)
@@ -1411,10 +1319,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> IsMenuUpdated(System.DateTime clientUtcDateTime)
@@ -1441,10 +1347,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> Logout()
@@ -1471,10 +1375,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> OverrideLogin(System.String password, Int32 feature)
@@ -1501,10 +1403,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> PaymentTransaction(YumaPos.Shared.API.Models.RequestTransactionDto requestTransaction)
@@ -1531,10 +1431,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderItemResponseDto> RefillGiftCard(YumaPos.Shared.API.Models.GiftCardOrderItemDto item, System.Decimal amount)
@@ -1561,10 +1459,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveCustomerAddress(System.Guid customerAddressId)
@@ -1591,10 +1487,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveOrderFromDelivery(System.Guid orderId)
@@ -1621,10 +1515,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveProductFromOrder(YumaPos.Shared.API.Models.RestaurantOrderItemDto orderItem)
@@ -1651,10 +1543,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> SavePaymentTransaction(YumaPos.Shared.API.Models.InputTransactionInfoDto data)
@@ -1681,10 +1571,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> SendReceipt(System.Guid orderId, System.String email)
@@ -1711,10 +1599,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> StartShift(System.Decimal initialAmount)
@@ -1741,10 +1627,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> TryProcessPaymentTransaction(YumaPos.Shared.API.Models.RequestTransactionDto requestTransaction)
@@ -1771,10 +1655,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateCustomer(YumaPos.Shared.API.Models.CustomerDto customer)
@@ -1801,10 +1683,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateDriverDetails(YumaPos.Shared.API.Models.Ordering.DriverDetailsDto driverDetails)
@@ -1831,10 +1711,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrder(YumaPos.Shared.API.Models.RestaurantOrderDto orderDto)
@@ -1861,10 +1739,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderCustomer(System.Guid orderId, System.Guid customerId)
@@ -1891,10 +1767,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderItem(YumaPos.Shared.API.Models.RestaurantOrderItemDto item)
@@ -1921,10 +1795,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderItemQuantity(YumaPos.Shared.API.Models.RestaurantOrderItemDto item)
@@ -1951,10 +1823,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderStatusByOrderId(System.Guid orderId, Int32 statusId)
@@ -1981,10 +1851,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> UpdateSplittingsForOrderId(System.Guid orderId, YumaPos.Shared.API.Enums.SplittingType splittingType, System.String[] parameters)
@@ -2011,10 +1879,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateTaxExempt(System.Guid orderId, Int32 splittingNumber, Boolean isTaxExempt)
@@ -2041,10 +1907,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.MenuCacheResponseDto> GetTerminalCacheMenu()
@@ -2071,10 +1935,8 @@ namespace YumaPos.Tests.Load.Client.API {
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
     }

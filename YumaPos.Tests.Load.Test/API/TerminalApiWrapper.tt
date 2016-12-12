@@ -63,10 +63,8 @@ foreach (var method in typeof(YumaPos.Shared.Infrastructure.ITerminalApi).GetMet
                 stopwatch.Stop();
                 reportItem.Duration = stopwatch.Elapsed;
                 _reportItems.Add(reportItem);
-				
             }
             return res;
-            
         }
     
 <#
