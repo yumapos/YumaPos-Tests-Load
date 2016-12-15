@@ -70,6 +70,8 @@ namespace YumaPos.Tests.Load.Server.Services
             var rnd = (new Random()).Next(Int32.MaxValue);
             var employeeDto = new EmployeeDto()
             {
+                FirstName = "Test",
+                LastName = rnd.ToString(),
                 Login = "empl" + rnd,
                 CashierPassword = rnd,
                 Roles = roles,

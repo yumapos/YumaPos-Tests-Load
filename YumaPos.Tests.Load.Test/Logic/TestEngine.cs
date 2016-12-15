@@ -61,6 +61,7 @@ namespace YumaPos.Tests.Load.Client.Logic
                     {
                         var regiterScenario = _scope.ResolveKeyed<RegisterTerminalScenario>(typeof(RegisterTerminalScenario).FullName);
                         await regiterScenario.StartAsync();
+                        _terminalContext.ClientIsRegistered = true;
                     }
                     var loginScenario = _scope.ResolveKeyed<EmployeeLoginScenario>(typeof(EmployeeLoginScenario).FullName);
                     await loginScenario.StartAsync();

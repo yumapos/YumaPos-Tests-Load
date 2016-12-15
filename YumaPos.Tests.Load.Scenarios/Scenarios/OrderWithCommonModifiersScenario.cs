@@ -35,7 +35,7 @@ namespace YumaPos.Tests.Load.Scenarios
                 );
             var menuItemsCount = menuItems.Count();
 
-            Assert.IsTrue(menuItemsCount > 0);
+            Assert.IsTrue(menuItemsCount > 0, "Menuitems with common modifiers not found");
 
             var i = new Random().Next(menuItemsCount);
 
