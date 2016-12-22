@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Shared.API;
+using YumaPos.Shared.API.Enums;
+using YumaPos.Shared.API.Models;
 using YumaPos.Shared.Infrastructure;
 
 namespace YumaPos.Tests.Load.Scenarios
@@ -47,7 +49,12 @@ namespace YumaPos.Tests.Load.Scenarios
 
         private async Task ShiftStart()
         {
-            await _terminalApi.StartShift(10);
+            await _terminalApi.StartShift(0);
+            await _terminalApi.AddCashDrawerCheckItem(new CashDrawerItemDto
+            {
+                Activity = CashDrawerActivity.CashierIn,
+                Amount = 0,
+            });
         }
 
         public async Task ThenIAmAuthennticated()
