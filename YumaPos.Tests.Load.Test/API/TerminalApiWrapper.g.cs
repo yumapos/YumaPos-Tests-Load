@@ -1127,34 +1127,6 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetShiftReport()
-        {
-            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.XReportResponseDto res = null;
-            var reportItem = new ReportItem()
-            {
-                MethodName = "GetShiftReport",
-                Created = DateTime.UtcNow,
-            };
-			var stopwatch = new Stopwatch();
-            stopwatch.Start();
-            try
-            {
-                res = await _api.GetShiftReport();
-            }
-            catch (Exception ex)
-            {
-                reportItem.ExceptionMessage = ex.ToString();
-            }
-            finally
-            {
-                stopwatch.Stop();
-                reportItem.Duration = stopwatch.Elapsed;
-                _reportItems.Add(reportItem);
-            }
-            return res;
-        }
-    
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.LookupListResponseDto> GetSystemSettings(System.String[] listOfSystemSettings)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
@@ -1323,20 +1295,20 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> IsMenuUpdated(System.DateTime clientUtcDateTime)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> IsMenuNeedToUpdate(System.DateTime clientUtcDateTime)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.BoolResponseDto res = null;
             var reportItem = new ReportItem()
             {
-                MethodName = "IsMenuUpdated",
+                MethodName = "IsMenuNeedToUpdate",
                 Created = DateTime.UtcNow,
             };
 			var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
-                res = await _api.IsMenuUpdated(clientUtcDateTime);
+                res = await _api.IsMenuNeedToUpdate(clientUtcDateTime);
             }
             catch (Exception ex)
             {

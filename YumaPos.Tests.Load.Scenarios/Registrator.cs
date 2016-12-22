@@ -12,9 +12,9 @@ namespace YumaPos.Tests.Load.Scenarios
     {
         protected override void Init()
         {
-            Register<ApiConfig, IAPIConfig>(Lifecycles.Singleton);
-            Register<AuthorizationApi, IAuthorizationApi>(Lifecycles.Singleton);
+            Register<AuthorizationApi, IAuthorizationApi>(Lifecycles.PerScope);
 
+            Register<ApiConfig, IAPIConfig>(Lifecycles.PerScope);
             Register<TerminalContext>(Lifecycles.PerScope);
 
             Register<EmployeeLoginScenario>             (typeof(EmployeeLoginScenario).FullName,             Lifecycles.PerScope).As<IScenario>().As<EmployeeLoginScenario>();
