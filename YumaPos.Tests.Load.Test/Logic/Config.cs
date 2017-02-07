@@ -11,7 +11,7 @@ namespace YumaPos.Tests.Load.Client.Logic
         private bool _clientIsRegistered = false;
         private Guid _clientId;
         private Guid _clientToken;
-        private int _maxInstanceCount = 100;
+        private int _maxInstanceCount = 1000;
 
         public Config(IConfigRepository configRepository)
         {

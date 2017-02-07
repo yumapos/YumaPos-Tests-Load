@@ -14,19 +14,20 @@ namespace YumaPos.Tests.Load.Scenarios
 {
     internal class SplittingOrderScenario : IScenario
     {
-        private readonly ITerminalApi _api;
+        private readonly IOrderServiceApi _orderServiceApi;
         private readonly IMenuAvailabilityHelper _menuAvailabilityHelper;
 
-        public SplittingOrderScenario(ITerminalApi terminalApi, IMenuAvailabilityHelper menuAvailabilityHelper)
+        public SplittingOrderScenario(IOrderServiceApi orderServiceApi, IMenuAvailabilityHelper menuAvailabilityHelper)
         {
-            _api = terminalApi;
+            _orderServiceApi = orderServiceApi;
             _menuAvailabilityHelper = menuAvailabilityHelper;
         }
+
         public async Task StartAsync()
         {
             var orderId = Guid.NewGuid();
-            _api.ExecutionContext.OrderId = orderId;
-            var response1 = await _api.AddOrder(orderId, OrderType.Quick);
+            _orderServiceApi.ExecutionContext.OrderId = orderId;
+            var response1 = await _orderServiceApi.AddOrder(orderId, OrderType.Quick);
             var order = response1.Value;
 
             var menuItems = _menuAvailabilityHelper.GetAvailableMenuItems();
@@ -47,8 +48,8 @@ namespace YumaPos.Tests.Load.Scenarios
                 CalculatedPrice = menuitem1.Price
             };
 
-            var response2 = await _api.AddOrderItem(orderitem1);
-            var response3 = await _api.GetOrderItemsCosts(order.OrderId);
+            var response2 = await _orderServiceApi.AddOrderItem(orderitem1);
+            var response3 = await _orderServiceApi.GetOrderItemsCosts(order.OrderId);
 
             Assert.AreEqual(1, response3.Value.Count);
 
@@ -56,7 +57,7 @@ namespace YumaPos.Tests.Load.Scenarios
 
             Assert.IsTrue(cost>0);
 
-            var isNeedUpdate = await _api.UpdateSplittingsForOrderId(orderId, SplittingType.SplitEvently, new[] {2.ToString()});
+            var isNeedUpdate = await _orderServiceApi.UpdateSplittingsForOrderId(orderId, SplittingType.SplitEvently, new[] {2.ToString()});
 
             Assert.IsTrue(isNeedUpdate.Value);
 
@@ -66,7 +67,7 @@ namespace YumaPos.Tests.Load.Scenarios
 
             var requestTransaction1 = new RequestTransactionDto
             {
-                PaymentInfo = new InputTransactionInfoDto
+                PaymentInfo = new TransactionInfoDto()
                 {
                     OrderId = order.OrderId,
                     SplittingNumber = 0
@@ -86,13 +87,13 @@ namespace YumaPos.Tests.Load.Scenarios
                 }
             };
             await Task.Delay(100);
-            var response4 = await _api.PaymentTransaction(requestTransaction1);
+            var response4 = await _orderServiceApi.PaymentTransaction(requestTransaction1);
 
             Assert.IsNull(response4.PostprocessingType);
 
             var requestTransaction2 = new RequestTransactionDto
             {
-                PaymentInfo = new InputTransactionInfoDto
+                PaymentInfo = new TransactionInfoDto()
                 {
                     OrderId = order.OrderId,
                     SplittingNumber = 1
@@ -112,7 +113,7 @@ namespace YumaPos.Tests.Load.Scenarios
                 }
             };
             await Task.Delay(100);
-            var response5 = await _api.PaymentTransaction(requestTransaction2);
+            var response5 = await _orderServiceApi.PaymentTransaction(requestTransaction2);
 
             Assert.IsNull(response5.PostprocessingType);
         }

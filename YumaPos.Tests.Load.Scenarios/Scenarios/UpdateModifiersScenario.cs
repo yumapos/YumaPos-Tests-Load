@@ -14,19 +14,19 @@ namespace YumaPos.Tests.Load.Scenarios
 {
     internal class UpdateModifiersScenario : IScenario
     {
-        private readonly ITerminalApi _api;
+        private readonly IOrderServiceApi _orderServiceApi;
         private readonly IMenuAvailabilityHelper _menuAvailabilityHelper;
 
-        public UpdateModifiersScenario(ITerminalApi terminalApi, IMenuAvailabilityHelper menuAvailabilityHelper)
+        public UpdateModifiersScenario(IOrderServiceApi orderServiceApi, IMenuAvailabilityHelper menuAvailabilityHelper)
         {
-            _api = terminalApi;
+            _orderServiceApi = orderServiceApi;
             _menuAvailabilityHelper = menuAvailabilityHelper;
         }
         public async Task StartAsync()
         {
             var orderId = Guid.NewGuid();
-            _api.ExecutionContext.OrderId = orderId;
-            var response1 = await _api.AddOrder(orderId, OrderType.Quick);
+            _orderServiceApi.ExecutionContext.OrderId = orderId;
+            var response1 = await _orderServiceApi.AddOrder(orderId, OrderType.Quick);
             var order = response1.Value;
 
             var menuItems = _menuAvailabilityHelper.GetAvailableMenuItems()
@@ -57,20 +57,20 @@ namespace YumaPos.Tests.Load.Scenarios
                     OrderId = orderId,
                     ModifierId = a.Id,
                     Qty = 1
-                }),
+                }).ToList(),
                 RelatedModifiers = relatedModifiers.Select(a=>new OrderItemRelatedModifierDto
                 {
                     OrderId = orderId,
                     OrderItemId = orderItemId,
                     Quantity = 1,
                     RelatedModifierId = a.Id
-                }),
+                }).ToList(),
                 Qty = 1,
                 CalculatedPrice = menuitem.Price + relatedModifiers.Sum(a=>a.Price) + commonModifiers.Sum(a=>a.Price)
             };
 
-            var response2 = await _api.AddOrderItem(orderitem);
-            var response3 = await _api.GetOrderItemsCosts(order.OrderId);
+            var response2 = await _orderServiceApi.AddOrderItem(orderitem);
+            var response3 = await _orderServiceApi.GetOrderItemsCosts(order.OrderId);
 
             Assert.AreEqual(1, response3.Value.Count);
 
@@ -84,7 +84,7 @@ namespace YumaPos.Tests.Load.Scenarios
             #region Remove modifiers
 
 
-            var response4 = await _api.UpdateOrderItem(new RestaurantOrderItemDto()
+            var response4 = await _orderServiceApi.UpdateOrderItem(new RestaurantOrderItemDto()
             {
                 OrderItemId = orderItemId,
                 OrderId = order.OrderId,
@@ -94,27 +94,27 @@ namespace YumaPos.Tests.Load.Scenarios
                     OrderId = orderId,
                     ModifierId = a.Id,
                     Qty = 1
-                }),
+                }).ToList(),
                 RelatedModifiers = relatedModifiers.Where(a=>a.Id!=relatedModifier.Id).Select(a => new OrderItemRelatedModifierDto
                 {
                     OrderId = orderId,
                     OrderItemId = orderItemId,
                     Quantity = 1,
                     RelatedModifierId = a.Id
-                }),
+                }).ToList(),
                 Qty = 1,
             });
 
             #endregion
 
-            var costs = await _api.GetOrderItemsCosts(order.OrderId);
+            var costs = await _orderServiceApi.GetOrderItemsCosts(order.OrderId);
             var newCost = costs.Value.Sum(a => a.Value);
             Assert.IsTrue(newCost <= cost);
             cost = newCost;
 
             #region Add modifiers
 
-            var response5 = await _api.UpdateOrderItem(new RestaurantOrderItemDto()
+            var response5 = await _orderServiceApi.UpdateOrderItem(new RestaurantOrderItemDto()
             {
                 OrderItemId = orderItemId,
                 OrderId = order.OrderId,
@@ -124,27 +124,27 @@ namespace YumaPos.Tests.Load.Scenarios
                     OrderId = orderId,
                     ModifierId = a.Id,
                     Qty = 1
-                }),
+                }).ToList(),
                 RelatedModifiers = relatedModifiers.Select(a => new OrderItemRelatedModifierDto
                 {
                     OrderId = orderId,
                     OrderItemId = orderItemId,
                     Quantity = 1,
                     RelatedModifierId = a.Id
-                }),
+                }).ToList(),
                 Qty = 1,
             });
 
             #endregion
 
-            costs = await _api.GetOrderItemsCosts(order.OrderId);
+            costs = await _orderServiceApi.GetOrderItemsCosts(order.OrderId);
             newCost = costs.Value.Sum(a => a.Value);
             Assert.IsTrue(newCost >= cost);
             cost = newCost;
 
             #region Update quantity
 
-            var response6 = await _api.UpdateOrderItem(new RestaurantOrderItemDto()
+            var response6 = await _orderServiceApi.UpdateOrderItem(new RestaurantOrderItemDto()
             {
                 OrderItemId = orderItemId,
                 OrderId = order.OrderId,
@@ -154,27 +154,27 @@ namespace YumaPos.Tests.Load.Scenarios
                     OrderId = orderId,
                     ModifierId = a.Id,
                     Qty = 5
-                }),
+                }).ToList(),
                 RelatedModifiers = relatedModifiers.Select(a => new OrderItemRelatedModifierDto
                 {
                     OrderId = orderId,
                     OrderItemId = orderItemId,
                     Quantity = 5,
                     RelatedModifierId = a.Id
-                }),
+                }).ToList(),
                 Qty = 1,
             });
 
             #endregion
 
-            costs = await _api.GetOrderItemsCosts(order.OrderId);
+            costs = await _orderServiceApi.GetOrderItemsCosts(order.OrderId);
             newCost = costs.Value.Sum(a => a.Value);
             Assert.IsTrue(newCost >= cost);
             cost = newCost;
 
             var requestTransaction = new RequestTransactionDto
             {
-                PaymentInfo = new InputTransactionInfoDto
+                PaymentInfo = new TransactionInfoDto()
                 {
                     OrderId = order.OrderId,
                     SplittingNumber = 0
@@ -194,7 +194,7 @@ namespace YumaPos.Tests.Load.Scenarios
                 }
             };
             await Task.Delay(100);
-            var response10 = await _api.PaymentTransaction(requestTransaction);
+            var response10 = await _orderServiceApi.PaymentTransaction(requestTransaction);
 
             Assert.IsNull(response10.PostprocessingType);
         }

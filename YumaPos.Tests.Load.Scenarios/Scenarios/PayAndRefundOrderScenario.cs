@@ -14,19 +14,19 @@ namespace YumaPos.Tests.Load.Scenarios
 {
     internal class PayAndRefundOrderScenario : IScenario
     {
-        private readonly ITerminalApi _api;
+        private readonly IOrderServiceApi _orderServiceApi;
         private readonly IMenuAvailabilityHelper _menuAvailabilityHelper;
 
-        public PayAndRefundOrderScenario(ITerminalApi terminalApi, IMenuAvailabilityHelper menuAvailabilityHelper)
+        public PayAndRefundOrderScenario(IOrderServiceApi orderServiceApi, IMenuAvailabilityHelper menuAvailabilityHelper)
         {
-            _api = terminalApi;
+            _orderServiceApi = orderServiceApi;
             _menuAvailabilityHelper = menuAvailabilityHelper;
         }
         public async Task StartAsync()
         {
             var orderId = Guid.NewGuid();
-            _api.ExecutionContext.OrderId = orderId;
-            var response1 = await _api.AddOrder(orderId, OrderType.Quick);
+            _orderServiceApi.ExecutionContext.OrderId = orderId;
+            var response1 = await _orderServiceApi.AddOrder(orderId, OrderType.Quick);
             var order = response1.Value;
 
             var menuItems = _menuAvailabilityHelper.GetAvailableMenuItems();
@@ -47,8 +47,8 @@ namespace YumaPos.Tests.Load.Scenarios
                 CalculatedPrice = menuitem1.Price
             };
 
-            var response2 = await _api.AddOrderItem(orderitem1);
-            var response3 = await _api.GetOrderItemsCosts(order.OrderId);
+            var response2 = await _orderServiceApi.AddOrderItem(orderitem1);
+            var response3 = await _orderServiceApi.GetOrderItemsCosts(order.OrderId);
 
             Assert.AreEqual(1, response3.Value.Count);
 
@@ -58,7 +58,7 @@ namespace YumaPos.Tests.Load.Scenarios
 
             var requestTransaction1 = new RequestTransactionDto
             {
-                PaymentInfo = new InputTransactionInfoDto
+                PaymentInfo = new TransactionInfoDto()
                 {
                     OrderId = order.OrderId,
                     SplittingNumber = 0
@@ -78,7 +78,7 @@ namespace YumaPos.Tests.Load.Scenarios
                 }
             };
             await Task.Delay(100);
-            var response4 = await _api.PaymentTransaction(requestTransaction1);
+            var response4 = await _orderServiceApi.PaymentTransaction(requestTransaction1);
 
             Assert.IsNull(response4.PostprocessingType);
         }

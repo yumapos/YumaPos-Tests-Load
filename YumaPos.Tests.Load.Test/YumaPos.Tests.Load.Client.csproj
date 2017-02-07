@@ -78,6 +78,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\OrderApiWrapper.g.cs">
+      <DependentUpon>OrderApiWrapper.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="API\OrderApiWrapper.cs" />
     <Compile Include="API\TerminalApiWrapper.cs" />
     <Compile Include="API\TerminalApiWrapper.g.cs">
       <AutoGen>True</AutoGen>
@@ -186,6 +192,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="API\OrderApiWrapper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OrderApiWrapper.g.cs</LastGenOutput>
+    </Content>
     <Content Include="API\TerminalApiWrapper.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TerminalApiWrapper.g.cs</LastGenOutput>

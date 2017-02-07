@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using YumaPos.Client.Backoffice;
 using YumaPos.Client.WCF;
 using YumaPos.Shared.API;
 using YumaPos.Shared.Core.Reciept.Contracts;
@@ -103,7 +104,8 @@ namespace YumaPos.Tests.Load.Server.Services
                 TerminalId = Guid.NewGuid().ToString(),
                 AuthorizationAddress = server.AuthorizationAddress,
                 BackOfficeAddress = server.BackofficeAddress,
-                ServiceAddress = server.ServiceAddress
+                OrderServiceAddress = server.ServiceAddress.Replace("/TerminalService.svc", "/OrderService.svc"),
+                TerminalServiceAddress = server.ServiceAddress
             };
             IBackOfficeApi b = new BackOfficeApi(apiConfig);
             IAuthorizationApi a = new AuthorizationApi(apiConfig);
@@ -138,6 +140,15 @@ namespace YumaPos.Tests.Load.Server.Services
             (await _db.Employees.FindAsync(task.EmployeeId)).ClientId = null;
             (await _db.Terminals.FindAsync(task.TerminalId)).ClientId = null;
             _db.TestTasks.Remove(task);
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task Init()
+        {
+            (await _db.Employees.ToListAsync()).ForEach(p => p.ClientId = null);
+            (await _db.Terminals.ToListAsync()).ForEach(p => p.ClientId = null);
+            (await _db.Clients.ToListAsync()).ForEach(p => p.TasksCount = 0);
+            (await _db.Jobs.ToListAsync()).ForEach(p => p.TasksCount = 0);
             await _db.SaveChangesAsync();
         }
     }

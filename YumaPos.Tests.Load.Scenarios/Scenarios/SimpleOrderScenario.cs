@@ -13,19 +13,19 @@ namespace YumaPos.Tests.Load.Scenarios
 {
     public class SimpleOrderScenario : IScenario
     {
+        private readonly IOrderServiceApi _orderServiceApi;
         private TerminalContext _context;
-        private ITerminalApi _api;
 
-        public SimpleOrderScenario(TerminalContext context, ITerminalApi terminalApi)
+        public SimpleOrderScenario(IOrderServiceApi orderServiceApi, TerminalContext context)
         {
+            _orderServiceApi = orderServiceApi;
             _context = context;
-            _api = terminalApi;
         }
         public async Task StartAsync()
         {
             var orderId = Guid.NewGuid();
-            _api.ExecutionContext.OrderId = orderId;
-            var response1 = await _api.AddOrder(orderId, OrderType.Quick);
+            _orderServiceApi.ExecutionContext.OrderId = orderId;
+            var response1 = await _orderServiceApi.AddOrder(orderId, OrderType.Quick);
             var order = response1.Value;
             decimal cost = 0;
             int menuItemsCount = _context.FullMenu.MenuItems.Count;
@@ -43,13 +43,13 @@ namespace YumaPos.Tests.Load.Scenarios
                     Qty = 1,
                     CalculatedPrice = menuitem1.Price
                 };
-                var response2 = await _api.AddOrderItem(orderitem1);
-                var response3 = await _api.GetOrderItemsCosts(order.OrderId);
+                var response2 = await _orderServiceApi.AddOrderItem(orderitem1);
+                var response3 = await _orderServiceApi.GetOrderItemsCosts(order.OrderId);
                 cost = response3.Value.Sum(p => p.Value);
             }
             var requestTransaction = new RequestTransactionDto
             {
-                PaymentInfo = new InputTransactionInfoDto
+                PaymentInfo = new TransactionInfoDto()
                 {
                     OrderId = order.OrderId,
                     SplittingNumber = 0
@@ -69,7 +69,7 @@ namespace YumaPos.Tests.Load.Scenarios
                 }
             };
             await Task.Delay(100);
-            var response4 = await _api.PaymentTransaction(requestTransaction);
+            var response4 = await _orderServiceApi.PaymentTransaction(requestTransaction);
         }
 
     }

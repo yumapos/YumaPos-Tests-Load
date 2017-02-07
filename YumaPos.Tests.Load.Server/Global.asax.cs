@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using YumaPos.Tests.Load.Server.Data;
+using YumaPos.Tests.Load.Server.Interfaces;
 
 namespace YumaPos.Tests.Load.Server
 {
@@ -10,6 +11,7 @@ namespace YumaPos.Tests.Load.Server
         protected void Application_Start(object sender, EventArgs e)
         {
             Bootstrapper.Init();
+            Bootstrapper.GetObjectInstance<IJobService>().Init().Wait();
         }
 
         protected void Session_Start(object sender, EventArgs e)

@@ -58,7 +58,7 @@ namespace YumaPos.Tests.Load.Client
                 {
                     await CheckNewTask();
                     await CheckTaskForExecute();
-                    await Task.Delay(TimeSpan.FromSeconds(10), _cancellationTokenSource.Token);
+                    await Task.Delay(TimeSpan.FromSeconds(0.2), _cancellationTokenSource.Token);
                 }
             }
             catch (Exception exception)

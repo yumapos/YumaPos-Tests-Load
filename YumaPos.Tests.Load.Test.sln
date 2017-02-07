@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Tests.Load.Client", "YumaPos.Tests.Load.Test\YumaPos.Tests.Load.Client.csproj", "{5E41CCF6-CA91-46A1-838A-C5311354F7E7}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -37,6 +37,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Common.Tools", "Submodule.YumaPos.Shared\YumaPos.Common.Tools\YumaPos.Common.Tools.csproj", "{27F89F4A-8AF5-4E61-8CF2-136388269B3D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Tests.Load.Server.Data", "YumaPos.Tests.Load.Server.Data\YumaPos.Tests.Load.Server.Data.csproj", "{942DB82A-C1D2-4F27-9030-372F8E927113}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Client.Backoffice", "Submodule.YumaPos.Shared\YumaPos.Client.Backoffice\YumaPos.Client.Backoffice.csproj", "{347F3AEB-C3E2-45AA-8231-BB17DEDEA1EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -120,6 +122,14 @@ Global
 		{942DB82A-C1D2-4F27-9030-372F8E927113}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{942DB82A-C1D2-4F27-9030-372F8E927113}.Release|Any CPU.Build.0 = Release|Any CPU
 		{942DB82A-C1D2-4F27-9030-372F8E927113}.Release|x86.ActiveCfg = Release|Any CPU
+		{347F3AEB-C3E2-45AA-8231-BB17DEDEA1EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{347F3AEB-C3E2-45AA-8231-BB17DEDEA1EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{347F3AEB-C3E2-45AA-8231-BB17DEDEA1EA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{347F3AEB-C3E2-45AA-8231-BB17DEDEA1EA}.Debug|x86.Build.0 = Debug|Any CPU
+		{347F3AEB-C3E2-45AA-8231-BB17DEDEA1EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{347F3AEB-C3E2-45AA-8231-BB17DEDEA1EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{347F3AEB-C3E2-45AA-8231-BB17DEDEA1EA}.Release|x86.ActiveCfg = Release|Any CPU
+		{347F3AEB-C3E2-45AA-8231-BB17DEDEA1EA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,5 +141,6 @@ Global
 		{8B25790F-00B2-4406-ADD4-6E13E8ACF3EE} = {8C5B0D3C-81EB-48AA-8ADF-5A84F4B070BF}
 		{7534A74B-5C4E-4BB1-BB07-25976647E465} = {8C5B0D3C-81EB-48AA-8ADF-5A84F4B070BF}
 		{27F89F4A-8AF5-4E61-8CF2-136388269B3D} = {8C5B0D3C-81EB-48AA-8ADF-5A84F4B070BF}
+		{347F3AEB-C3E2-45AA-8231-BB17DEDEA1EA} = {8C5B0D3C-81EB-48AA-8ADF-5A84F4B070BF}
 	EndGlobalSection
 EndGlobal

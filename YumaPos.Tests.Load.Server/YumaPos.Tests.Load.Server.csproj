@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -112,6 +113,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Client.Backoffice\YumaPos.Client.Backoffice.csproj">
+      <Project>{347F3AEB-C3E2-45AA-8231-BB17DEDEA1EA}</Project>
+      <Name>YumaPos.Client.Backoffice</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Client.WCF\YumaPos.Client.WCF.csproj">
       <Project>{A562EDF2-7C9F-479D-B370-4DF6236301FF}</Project>
       <Name>YumaPos.Client.WCF</Name>

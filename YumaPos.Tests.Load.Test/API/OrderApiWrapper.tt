@@ -1,0 +1,75 @@
+﻿//This file generated Automaticaly
+<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Runtime" #>
+<#@ assembly name="$(SolutionDir)Submodule.YumaPos.Shared\YumaPos.Shared.Infrastructure\$(OutDir)YumaPos.Shared.Infrastructure.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="YumaPos.Shared.Attributes" #>
+<#@ output extension=".g.cs" #>
+using System;
+using YumaPos.Tests.Load.Infrastucture.Dto;
+using System.Diagnostics;
+using System.Threading.Tasks;
+
+namespace YumaPos.Tests.Load.Client.API {
+    public partial class OrderApiWrapper : YumaPos.Shared.Infrastructure.IOrderServiceApi
+    {
+<#
+foreach (var method in typeof(YumaPos.Shared.Infrastructure.IOrderServiceApi).GetMethods())
+{
+    if (method.IsPublic && (!method.IsSpecialName) && (method.Name != "SetUserToken") )
+    {
+        var parameters = method.GetParameters();
+        var returnMethod = method.ReturnParameter.Member.ToString().Split('(')[0].ReplaceFirst("`1[", "<").ReplaceLast("]", ">").ReplaceLast("[>", "[]");
+        var returnType = returnMethod.Split(' ')[0];
+    #>
+        public async <#= returnMethod #>(<#
+        if (parameters.Length > 0) {
+                #><#= parameters[0].ToString().ReplaceFirst("`1[", "<").ReplaceLast("]", ">").ReplaceLast("[>", "[]") #><#
+            for(int i = 1; i < parameters.Length; i++) {
+                #>, <#= parameters[i].ToString().ReplaceFirst("`1[", "<").ReplaceLast("]", ">").ReplaceLast("[>", "[]") #><#
+            }
+        }
+        #>)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            <#= returnType.ReplaceFirst("System.Threading.Tasks.Task<","").ReplaceLast(">", "") #> res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "<#= method.Name #>",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.<#= method.Name #>(<#
+        if (parameters.Length > 0) {
+                #><#= parameters[0].Name #><#
+            for(int i = 1; i < parameters.Length; i++) {
+                #>, <#= parameters[i].Name #><#
+            }
+        }
+        #>);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+<#
+    }
+}
+#>
+    }
+}

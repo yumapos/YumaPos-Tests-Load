@@ -46,7 +46,8 @@ namespace YumaPos.Tests.Load.Client.Logic
             config.Token                        = TestTask.TerminalToken.ToString();
             config.Tenant                       = TestTask.TenantAlias;
             config.AuthorizationAddress         = TestTask.AuthorizationAddress;
-            config.ServiceAddress               = TestTask.ServiceAddress;
+            config.TerminalServiceAddress       = TestTask.ServiceAddress;
+            config.OrderServiceAddress          = TestTask.ServiceAddress.Replace("/TerminalService.svc", "/OrderService.svc");
 
             var api = _scope.Resolve<TerminalApiWrapper>();
             api.MaxInterval = TestTask.MaxInterval;

@@ -13,6 +13,7 @@ namespace YumaPos.Tests.Load.Server.Interfaces
         Task IncreaseTaskCount(int jobId);
         Task CancelByClientId(Guid clientId);
         Task CancelByTaskId(int taskId);
+        Task Init();
     }
 
     public interface ITaskService
