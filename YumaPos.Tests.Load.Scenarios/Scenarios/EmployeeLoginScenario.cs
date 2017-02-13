@@ -12,12 +12,14 @@ namespace YumaPos.Tests.Load.Scenarios
 {
     public class EmployeeLoginScenario : IScenario
     {
+        private readonly IOrderServiceApi _orderServiceApi;
         private readonly TerminalContext _context;
         private readonly IAuthorizationApi _authorizationApi;
         private readonly ITerminalApi _terminalApi;
 
-        public EmployeeLoginScenario(TerminalContext context, IAuthorizationApi authorizationApi, ITerminalApi terminalApi)
+        public EmployeeLoginScenario(IOrderServiceApi orderServiceApi, TerminalContext context, IAuthorizationApi authorizationApi, ITerminalApi terminalApi)
         {
+            _orderServiceApi = orderServiceApi;
             _context = context;
             _authorizationApi = authorizationApi;
             _terminalApi = terminalApi;
@@ -38,6 +40,7 @@ namespace YumaPos.Tests.Load.Scenarios
             {
                 _context.EmployeeToken = await _authorizationApi.Login(_context.EmployeeLogin, _context.EmployeePassword);
                 _terminalApi.SetUserToken(_context.EmployeeToken);
+                _orderServiceApi.SetUserToken(_context.EmployeeToken);
             }
             catch (Exception ex)
             {

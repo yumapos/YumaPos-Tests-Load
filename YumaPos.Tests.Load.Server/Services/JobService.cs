@@ -104,7 +104,7 @@ namespace YumaPos.Tests.Load.Server.Services
                 TerminalId = Guid.NewGuid().ToString(),
                 AuthorizationAddress = server.AuthorizationAddress,
                 BackOfficeAddress = server.BackofficeAddress,
-                OrderServiceAddress = server.ServiceAddress.Replace("/TerminalService.svc", "/OrderService.svc"),
+                OrderServiceAddress = server.ServiceAddress.ToLowerInvariant().Replace("/terminalservice.svc", "/orderservice.svc"),
                 TerminalServiceAddress = server.ServiceAddress
             };
             IBackOfficeApi b = new BackOfficeApi(apiConfig);

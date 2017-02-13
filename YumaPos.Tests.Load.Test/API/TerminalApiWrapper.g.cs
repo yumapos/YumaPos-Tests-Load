@@ -595,7 +595,7 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DeliveryDetailsListResponseDto> GetDeliveryOrders()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DeliveryDetailsListResponseDto> GetDeliveryOrders(YumaPos.Shared.API.Models.FilteredRequestDto filteredRequestDto)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.DeliveryDetailsListResponseDto res = null;
@@ -608,7 +608,35 @@ namespace YumaPos.Tests.Load.Client.API {
             stopwatch.Start();
             try
             {
-                res = await _api.GetDeliveryOrders();
+                res = await _api.GetDeliveryOrders(filteredRequestDto);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DriverDetailsResponseDto> GetDriver(System.Guid driverId)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.DriverDetailsResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetDriver",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetDriver(driverId);
             }
             catch (Exception ex)
             {
@@ -861,6 +889,34 @@ namespace YumaPos.Tests.Load.Client.API {
             try
             {
                 res = await _api.GetSystemSettings(listOfSystemSettings);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ImageResponseDto> GetTenantLogo()
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.ImageResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetTenantLogo",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetTenantLogo();
             }
             catch (Exception ex)
             {

@@ -17,6 +17,7 @@ namespace YumaPos.Tests.Load.Client
             Register<TestApi, ITestApi>(Lifecycles.Singleton);
             Register<SerializationService, ISerializationService>(Lifecycles.Singleton);
             Register<TerminalApiWrapper, ITerminalApi>(Lifecycles.PerScope).As<TerminalApiWrapper>();
+            Register<OrderApiWrapper, IOrderServiceApi>(Lifecycles.PerScope).As<OrderApiWrapper>();
 
         }
     }

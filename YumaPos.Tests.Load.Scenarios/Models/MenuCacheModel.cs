@@ -93,6 +93,7 @@ namespace YumaPos.Tests.Load.Scenarios.Models
         public int ViewNumber { get; set; }
         public bool NoChoice { get; set; }
         public int? GroupMaxQuantity { get; set; }
+        public Guid GroupId { get; set; }
         public List<IRelatedModifier> Modifiers { get; set; }
     }
 
