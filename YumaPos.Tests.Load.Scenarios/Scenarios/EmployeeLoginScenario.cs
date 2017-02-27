@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Shared.API;
 using YumaPos.Shared.API.Enums;
-using YumaPos.Shared.API.Models;
-using YumaPos.Shared.Infrastructure;
+using YumaPos.Shared.Terminal.Infrastructure;
+using YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering;
 
 namespace YumaPos.Tests.Load.Scenarios
 {

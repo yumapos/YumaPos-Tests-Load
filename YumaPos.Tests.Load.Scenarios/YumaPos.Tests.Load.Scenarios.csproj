@@ -65,6 +65,7 @@
     <Compile Include="Scenarios\LoadFullMenuScenario.cs" />
     <Compile Include="Models\MenuCacheModel.cs" />
     <Compile Include="Scenarios\UpdateModifiersScenario.cs" />
+    <Compile Include="Scenarios\VoidOldOrdersScenario.cs" />
     <Compile Include="Scenarios\UpdateOrderCustomerScenario.cs" />
     <Compile Include="Scenarios\OrderTaxExemptScenario.cs" />
     <Compile Include="Scenarios\OrderWithCommonModifiersScenario.cs" />
@@ -101,6 +102,10 @@
     <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Shared.Infrastructure\YumaPos.Shared.Infrastructure.csproj">
       <Project>{2BE0D1CE-DFA0-476B-A2B5-B16ED56610C4}</Project>
       <Name>YumaPos.Shared.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Shared.Terminal.Infrastructure\YumaPos.Shared.Terminal.Infrastructure.csproj">
+      <Project>{8DECDD35-2586-436B-9906-A974718CD703}</Project>
+      <Name>YumaPos.Shared.Terminal.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

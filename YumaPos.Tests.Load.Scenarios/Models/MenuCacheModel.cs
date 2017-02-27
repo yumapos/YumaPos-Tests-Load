@@ -14,6 +14,7 @@ namespace YumaPos.Tests.Load.Scenarios.Models
         public Dictionary<Guid, IModifierGroup> ModifierGroups { get; set; }
         public Dictionary<Guid, ICommonModifier> CommonModifiers { get; set; }
         public Dictionary<Guid, IRelatedModifier> RelatedModifiers { get; set; }
+        public Dictionary<Guid, IEnumerable<Guid>> MenuItemImages { get; set; }
         public ICollection<IModifierGroup2MenuItem> ModifierGroup2MenuItems { get; set; }
         public ICollection<IMenuCategory2Availability> MenuCategory2Availabilities { get; set; }
         public ICollection<IMenuItem2Availability> MenuItem2Availabilities { get; set; } 
@@ -48,6 +49,7 @@ namespace YumaPos.Tests.Load.Scenarios.Models
         public List<IModifierGroup> ModifierGroups { get; set; }
         public List<IRelatedModifier> RelatedModifiers { get; set; }
         public List<IAvailability> Availabilities { get; set; }
+        public List<Guid> Images { get; set; }
     }
 
     public class Language : ILanguage

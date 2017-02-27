@@ -5,9 +5,37 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace YumaPos.Tests.Load.Client.API {
-    public partial class TerminalApiWrapper : YumaPos.Shared.Infrastructure.ITerminalApi
+    public partial class TerminalApiWrapper
     {
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCashDrawerCheckItem(YumaPos.Shared.API.Models.CashDrawerItemDto itemDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.MenuCacheResponseDto> GetTerminalCacheMenu()
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.MenuCacheResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetTerminalCacheMenu",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetTerminalCacheMenu();
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCashDrawerCheckItem(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.CashDrawerItemDto itemDto)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
@@ -35,7 +63,7 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCustomer(YumaPos.Shared.API.Models.CustomerDto customerDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCustomer(YumaPos.Shared.API.Models.Ordering.CustomerDto customerDto)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
@@ -63,7 +91,7 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCustomerAddress(YumaPos.Shared.API.Models.CustomerAddressDto addressDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCustomerAddress(YumaPos.Shared.API.Models.Ordering.CustomerAddressDto addressDto)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
@@ -119,7 +147,7 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GuidResponseDto> AddTerminalToStore(YumaPos.Shared.API.Models.TerminalDto terminalDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.GuidResponseDto> AddTerminalToStore(YumaPos.Shared.API.Models.Ordering.TerminalDto terminalDto)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.GuidResponseDto res = null;
@@ -147,7 +175,7 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> CashDrawerMakeLoan(YumaPos.Shared.API.Models.PickUpDto pickUpDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> CashDrawerMakeLoan(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.PickUpDto pickUpDto)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
@@ -175,7 +203,7 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> CashDrawerMakePickUp(YumaPos.Shared.API.Models.PickUpDto pickUpDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> CashDrawerMakePickUp(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.PickUpDto pickUpDto)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
@@ -259,10 +287,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto> GetActiveOrdersChangesDigest(System.DateTime timestamp)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto> GetActiveOrdersChangesDigest(System.DateTime timestamp)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetActiveOrdersChangesDigest",
@@ -371,10 +399,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashDrawerInfoResponseDto> GetCashDrawerInfoTotal()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.CashDrawerInfoResponseDto> GetCashDrawerInfoTotal()
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.CashDrawerInfoResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.CashDrawerInfoResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetCashDrawerInfoTotal",
@@ -399,10 +427,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CheckoutOptionListResponseDto> GetCheckoutOptionsByOrderType(YumaPos.Shared.API.Enums.OrderType orderType)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.CheckoutOptionListResponseDto> GetCheckoutOptionsByOrderType(YumaPos.Shared.API.Enums.OrderType orderType)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.CheckoutOptionListResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.CheckoutOptionListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetCheckoutOptionsByOrderType",
@@ -427,10 +455,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashDrawerItemResponseDto> GetCurrentCashierLastActivity()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.CashDrawerItemResponseDto> GetCurrentCashierLastActivity()
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.CashDrawerItemResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.CashDrawerItemResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetCurrentCashierLastActivity",
@@ -511,10 +539,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.UserClockStateResponseDto> GetCurrentUserClockState()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.UserClockStateResponseDto> GetCurrentUserClockState()
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.UserClockStateResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.UserClockStateResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetCurrentUserClockState",
@@ -595,10 +623,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DeliveryDetailsListResponseDto> GetDeliveryOrders(YumaPos.Shared.API.Models.FilteredRequestDto filteredRequestDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.DeliveryDetailsListResponseDto> GetDeliveryOrders(YumaPos.Shared.API.Models.Ordering.FilteredRequestDto filteredRequestDto)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.DeliveryDetailsListResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.DeliveryDetailsListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetDeliveryOrders",
@@ -679,7 +707,7 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredCustomersResponseResponseDto> GetFilteredCustomers(YumaPos.Shared.API.Models.FilteredRequestDto model)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredCustomersResponseResponseDto> GetFilteredCustomers(YumaPos.Shared.API.Models.Ordering.FilteredRequestDto model)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.FilteredCustomersResponseResponseDto res = null;
@@ -707,7 +735,7 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderListResponseDto> GetFilteredOrdersByIds(YumaPos.Shared.API.Models.OrderFilterDto filter)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderListResponseDto> GetFilteredOrdersByIds(YumaPos.Shared.API.Models.Ordering.OrderFilterDto filter)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.TerminalOrderListResponseDto res = null;
@@ -735,10 +763,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CashierShiftResponseDto> GetLastCashierShift()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.CashierShiftResponseDto> GetLastCashierShift()
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.CashierShiftResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.CashierShiftResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetLastCashierShift",
@@ -763,7 +791,7 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedActiveOrders(YumaPos.Shared.API.Models.OrderFilterDto filter)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedActiveOrders(YumaPos.Shared.API.Models.Ordering.OrderFilterDto filter)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto res = null;
@@ -791,10 +819,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredCashDrawerItemResponseDto> GetPagedCashDrawerItems(YumaPos.Shared.API.Models.CashDrawerItemsFilterDto filter)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.FilteredCashDrawerItemResponseDto> GetPagedCashDrawerItems(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.CashDrawerItemsFilterDto filter)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.FilteredCashDrawerItemResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.FilteredCashDrawerItemResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetPagedCashDrawerItems",
@@ -819,7 +847,7 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedClosedOrders(YumaPos.Shared.API.Models.OrderFilterDto filter)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedClosedOrders(YumaPos.Shared.API.Models.Ordering.OrderFilterDto filter)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto res = null;
@@ -847,10 +875,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetReportById(System.Guid cashDrawerItemId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.XReportResponseDto> GetReportById(System.Guid cashDrawerItemId)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.XReportResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.XReportResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetReportById",
@@ -1015,10 +1043,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.XReportResponseDto> GetXReport()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.XReportResponseDto> GetXReport()
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.XReportResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.XReportResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetXReport",
@@ -1155,7 +1183,7 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateCustomer(YumaPos.Shared.API.Models.CustomerDto customer)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateCustomer(YumaPos.Shared.API.Models.Ordering.CustomerDto customer)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
@@ -1225,34 +1253,6 @@ namespace YumaPos.Tests.Load.Client.API {
             try
             {
                 res = await _api.UpdateOrderStatusMany(orderIds, statusId);
-            }
-            catch (Exception ex)
-            {
-                reportItem.ExceptionMessage = ex.ToString();
-            }
-            finally
-            {
-                stopwatch.Stop();
-                reportItem.Duration = stopwatch.Elapsed;
-                _reportItems.Add(reportItem);
-            }
-            return res;
-        }
-    
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.MenuCacheResponseDto> GetTerminalCacheMenu()
-        {
-            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.MenuCacheResponseDto res = null;
-            var reportItem = new ReportItem()
-            {
-                MethodName = "GetTerminalCacheMenu",
-                Created = DateTime.UtcNow,
-            };
-			var stopwatch = new Stopwatch();
-            stopwatch.Start();
-            try
-            {
-                res = await _api.GetTerminalCacheMenu();
             }
             catch (Exception ex)
             {

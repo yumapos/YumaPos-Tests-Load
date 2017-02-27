@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using YumaPos.Shared.API;
-using YumaPos.Shared.API.Models.Ordering;
+﻿using System.Threading.Tasks;
 using YumaPos.Shared.Core.Cache;
 using YumaPos.Shared.Core.MenuModels;
-using YumaPos.Shared.Infrastructure;
+using YumaPos.Shared.Terminal.Infrastructure;
 using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Tests.Load.Scenarios.Models;
 

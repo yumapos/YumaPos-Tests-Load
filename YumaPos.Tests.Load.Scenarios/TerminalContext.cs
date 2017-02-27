@@ -1,7 +1,6 @@
 ﻿using System;
-using Autofac;
-using YumaPos.Shared.API.Models.Ordering;
 using YumaPos.Shared.Core.MenuModels;
+using YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering;
 
 namespace YumaPos.Tests.Load.Scenarios
 {

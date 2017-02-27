@@ -1,13 +1,13 @@
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using YumaPos.Client.Backoffice;
 using YumaPos.Client.WCF;
 using YumaPos.Shared.API;
+using YumaPos.Shared.BackOffice.Infrastructure;
 using YumaPos.Shared.Core.Reciept.Contracts;
-using YumaPos.Shared.Infrastructure;
+using YumaPos.Shared.Terminal.Infrastructure;
 using YumaPos.Tests.Load.Scenarios;
 using YumaPos.Tests.Load.Server.Data;
 using YumaPos.Tests.Load.Server.Data.DataObjects;

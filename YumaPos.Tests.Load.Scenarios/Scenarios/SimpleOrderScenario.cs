@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using YumaPos.Common.Infrastructure.BusinessLogic.Tendering;
-using YumaPos.Shared.API;
 using YumaPos.Shared.API.Enums;
-using YumaPos.Shared.API.Models;
-using YumaPos.Shared.Infrastructure;
+using YumaPos.Shared.API.Models.Ordering;
+using YumaPos.Shared.Terminal.Infrastructure;
+using YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering;
 using YumaPos.Tests.Load.Scenarios.Interfaces;
 
 namespace YumaPos.Tests.Load.Scenarios

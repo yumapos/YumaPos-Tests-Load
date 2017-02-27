@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using YumaPos.Shared.API.Models;
+using YumaPos.Shared.API.Models.Ordering;
 using YumaPos.Shared.Core.MenuModels;
 using YumaPos.Shared.Core.Utils.Availability;
 

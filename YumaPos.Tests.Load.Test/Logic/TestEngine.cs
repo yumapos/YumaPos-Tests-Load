@@ -8,7 +8,6 @@ using YumaPos.Common.Infrastructure.Enums;
 using YumaPos.Tests.Load.Scenarios;
 using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Shared.Core.Reciept.Contracts;
-using YumaPos.Shared.Infrastructure;
 using YumaPos.Tests.Load.Client.API;
 using YumaPos.Tests.Load.Client.Data.Models;
 using YumaPos.Tests.Load.Infrastucture.Dto;

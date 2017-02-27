@@ -3,7 +3,6 @@ using YumaPos.Common.Infrastructure.IoC.Registration;
 using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Shared.API;
 using YumaPos.Shared.Core.Reciept.Contracts;
-using YumaPos.Shared.Infrastructure;
 using YumaPos.Tests.Load.Scenarios.MenuHelper;
 
 namespace YumaPos.Tests.Load.Scenarios

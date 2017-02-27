@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using YumaPos.Common.Infrastructure.BusinessLogic.Tendering;
 using YumaPos.Shared.API.Enums;
-using YumaPos.Shared.API.Models;
-using YumaPos.Shared.Infrastructure;
+using YumaPos.Shared.API.Models.Ordering;
+using YumaPos.Shared.Terminal.Infrastructure;
+using YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering;
 using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Tests.Load.Scenarios.MenuHelper;
 

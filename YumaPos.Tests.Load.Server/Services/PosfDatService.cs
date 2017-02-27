@@ -1,11 +1,10 @@
 using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Threading.Tasks;
-using Dapper;
 using YumaPos.Shared.API;
-using YumaPos.Shared.API.Models;
-using YumaPos.Shared.Infrastructure;
+using YumaPos.Shared.API.Models.Ordering;
+using YumaPos.Shared.BackOffice.Infrastructure;
+using YumaPos.Shared.BackOffice.Infrastructure.API.Models;
+using YumaPos.Shared.Terminal.Infrastructure;
 using YumaPos.Tests.Load.Server.Data;
 using YumaPos.Tests.Load.Server.Data.DataObjects;
 using YumaPos.Tests.Load.Server.Data.Interfaces;

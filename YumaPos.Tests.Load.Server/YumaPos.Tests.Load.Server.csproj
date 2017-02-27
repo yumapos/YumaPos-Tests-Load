@@ -133,6 +133,10 @@
       <Project>{8B25790F-00B2-4406-ADD4-6E13E8ACF3EE}</Project>
       <Name>YumaPos.FrontEnd.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Shared.BackOffice.Infrastructure\YumaPos.Shared.BackOffice.Infrastructure.csproj">
+      <Project>{E53D99EB-1B15-4088-9AB7-B8A438ABDB27}</Project>
+      <Name>YumaPos.Shared.BackOffice.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Shared.Core\YumaPos.Shared.Core.csproj">
       <Project>{7534A74B-5C4E-4BB1-BB07-25976647E465}</Project>
       <Name>YumaPos.Shared.Core</Name>
@@ -140,6 +144,10 @@
     <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Shared.Infrastructure\YumaPos.Shared.Infrastructure.csproj">
       <Project>{2BE0D1CE-DFA0-476B-A2B5-B16ED56610C4}</Project>
       <Name>YumaPos.Shared.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Submodule.YumaPos.Shared\YumaPos.Shared.Terminal.Infrastructure\YumaPos.Shared.Terminal.Infrastructure.csproj">
+      <Project>{8DECDD35-2586-436B-9906-A974718CD703}</Project>
+      <Name>YumaPos.Shared.Terminal.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\YumaPos.Tests.Load.Infrastucture\YumaPos.Tests.Load.Infrastucture.csproj">
       <Project>{e2718f0f-700f-4cfa-8d2e-dca33105eb2b}</Project>

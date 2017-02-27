@@ -5,11 +5,12 @@ using YumaPos.Client.WCF;
 using YumaPos.FrontEnd.Infrastructure.CommandProcessing;
 using YumaPos.FrontEnd.Infrastructure.Common.Serialization;
 using YumaPos.Shared.Core.Reciept.Contracts;
+using YumaPos.Shared.Terminal.Infrastructure;
 using YumaPos.Tests.Load.Infrastucture.Dto;
 
 namespace YumaPos.Tests.Load.Client.API
 {
-    public partial class OrderApiWrapper : YumaPos.Shared.Infrastructure.IOrderServiceApi
+    public partial class OrderApiWrapper : IOrderServiceApi
     {
         private OrderServiceApi _api;
         private List<ReportItem> _reportItems;
