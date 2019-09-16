@@ -22,6 +22,7 @@ namespace YumaPos.Tests.Load.Client.Logic
 
         public static YumaPos.Tests.Load.Client.Data.Models.Report MapFromDto (this YumaPos.Tests.Load.Infrastucture.Dto.ReportDto itemDto)
         {  
+            //itemDto.ReportItems
             if (itemDto == null) return null;
             
             var item = new YumaPos.Tests.Load.Client.Data.Models.Report ();

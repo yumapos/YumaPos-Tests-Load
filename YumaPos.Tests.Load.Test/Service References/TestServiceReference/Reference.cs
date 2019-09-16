@@ -9,7 +9,416 @@
 //------------------------------------------------------------------------------
 
 namespace YumaPos.Tests.Load.Client.TestServiceReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TestTaskDto", Namespace="http://schemas.datacontract.org/2004/07/YumaPos.Tests.Load.Infrastucture.Dto")]
+    [System.SerializableAttribute()]
+    public partial class TestTaskDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AuthorizationAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.TimeSpan DurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmployeeLoginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmployeePasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.TimeSpan MaxIntervalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.TimeSpan MinIntervalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] ScenariosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ServiceAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TaskIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TenantAliasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid TerminalIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool TerminalIsRegisteredField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid TerminalTokenField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AuthorizationAddress {
+            get {
+                return this.AuthorizationAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AuthorizationAddressField, value) != true)) {
+                    this.AuthorizationAddressField = value;
+                    this.RaisePropertyChanged("AuthorizationAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.TimeSpan Duration {
+            get {
+                return this.DurationField;
+            }
+            set {
+                if ((this.DurationField.Equals(value) != true)) {
+                    this.DurationField = value;
+                    this.RaisePropertyChanged("Duration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmployeeLogin {
+            get {
+                return this.EmployeeLoginField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmployeeLoginField, value) != true)) {
+                    this.EmployeeLoginField = value;
+                    this.RaisePropertyChanged("EmployeeLogin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmployeePassword {
+            get {
+                return this.EmployeePasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmployeePasswordField, value) != true)) {
+                    this.EmployeePasswordField = value;
+                    this.RaisePropertyChanged("EmployeePassword");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.TimeSpan MaxInterval {
+            get {
+                return this.MaxIntervalField;
+            }
+            set {
+                if ((this.MaxIntervalField.Equals(value) != true)) {
+                    this.MaxIntervalField = value;
+                    this.RaisePropertyChanged("MaxInterval");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.TimeSpan MinInterval {
+            get {
+                return this.MinIntervalField;
+            }
+            set {
+                if ((this.MinIntervalField.Equals(value) != true)) {
+                    this.MinIntervalField = value;
+                    this.RaisePropertyChanged("MinInterval");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] Scenarios {
+            get {
+                return this.ScenariosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScenariosField, value) != true)) {
+                    this.ScenariosField = value;
+                    this.RaisePropertyChanged("Scenarios");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ServiceAddress {
+            get {
+                return this.ServiceAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ServiceAddressField, value) != true)) {
+                    this.ServiceAddressField = value;
+                    this.RaisePropertyChanged("ServiceAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Start {
+            get {
+                return this.StartField;
+            }
+            set {
+                if ((this.StartField.Equals(value) != true)) {
+                    this.StartField = value;
+                    this.RaisePropertyChanged("Start");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TaskId {
+            get {
+                return this.TaskIdField;
+            }
+            set {
+                if ((this.TaskIdField.Equals(value) != true)) {
+                    this.TaskIdField = value;
+                    this.RaisePropertyChanged("TaskId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TenantAlias {
+            get {
+                return this.TenantAliasField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TenantAliasField, value) != true)) {
+                    this.TenantAliasField = value;
+                    this.RaisePropertyChanged("TenantAlias");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid TerminalId {
+            get {
+                return this.TerminalIdField;
+            }
+            set {
+                if ((this.TerminalIdField.Equals(value) != true)) {
+                    this.TerminalIdField = value;
+                    this.RaisePropertyChanged("TerminalId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool TerminalIsRegistered {
+            get {
+                return this.TerminalIsRegisteredField;
+            }
+            set {
+                if ((this.TerminalIsRegisteredField.Equals(value) != true)) {
+                    this.TerminalIsRegisteredField = value;
+                    this.RaisePropertyChanged("TerminalIsRegistered");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid TerminalToken {
+            get {
+                return this.TerminalTokenField;
+            }
+            set {
+                if ((this.TerminalTokenField.Equals(value) != true)) {
+                    this.TerminalTokenField = value;
+                    this.RaisePropertyChanged("TerminalToken");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ReportDto", Namespace="http://schemas.datacontract.org/2004/07/YumaPos.Tests.Load.Infrastucture.Dto")]
+    [System.SerializableAttribute()]
+    public partial class ReportDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private YumaPos.Tests.Load.Client.TestServiceReference.ReportItem[] ReportItemsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TaskIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public YumaPos.Tests.Load.Client.TestServiceReference.ReportItem[] ReportItems {
+            get {
+                return this.ReportItemsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReportItemsField, value) != true)) {
+                    this.ReportItemsField = value;
+                    this.RaisePropertyChanged("ReportItems");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TaskId {
+            get {
+                return this.TaskIdField;
+            }
+            set {
+                if ((this.TaskIdField.Equals(value) != true)) {
+                    this.TaskIdField = value;
+                    this.RaisePropertyChanged("TaskId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ReportItem", Namespace="http://schemas.datacontract.org/2004/07/YumaPos.Tests.Load.Infrastucture.Dto")]
+    [System.SerializableAttribute()]
+    public partial class ReportItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.TimeSpan DurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ExceptionMessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MethodNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Created {
+            get {
+                return this.CreatedField;
+            }
+            set {
+                if ((this.CreatedField.Equals(value) != true)) {
+                    this.CreatedField = value;
+                    this.RaisePropertyChanged("Created");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.TimeSpan Duration {
+            get {
+                return this.DurationField;
+            }
+            set {
+                if ((this.DurationField.Equals(value) != true)) {
+                    this.DurationField = value;
+                    this.RaisePropertyChanged("Duration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ExceptionMessage {
+            get {
+                return this.ExceptionMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExceptionMessageField, value) != true)) {
+                    this.ExceptionMessageField = value;
+                    this.RaisePropertyChanged("ExceptionMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MethodName {
+            get {
+                return this.MethodNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MethodNameField, value) != true)) {
+                    this.MethodNameField = value;
+                    this.RaisePropertyChanged("MethodName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TestServiceReference.ITestService")]
@@ -22,10 +431,10 @@ namespace YumaPos.Tests.Load.Client.TestServiceReference {
         System.Threading.Tasks.Task<System.Guid> RegisterAsync(System.Guid clientId, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/GetTasks", ReplyAction="http://tempuri.org/ITestService/GetTasksResponse")]
-        YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[] GetTasks(System.Guid clientToken, int maxInstance);
+        YumaPos.Tests.Load.Client.TestServiceReference.TestTaskDto[] GetTasks(System.Guid clientToken, int maxInstance);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/GetTasks", ReplyAction="http://tempuri.org/ITestService/GetTasksResponse")]
-        System.Threading.Tasks.Task<YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[]> GetTasksAsync(System.Guid clientToken, int maxInstance);
+        System.Threading.Tasks.Task<YumaPos.Tests.Load.Client.TestServiceReference.TestTaskDto[]> GetTasksAsync(System.Guid clientToken, int maxInstance);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/CancelMyTasks", ReplyAction="http://tempuri.org/ITestService/CancelMyTasksResponse")]
         void CancelMyTasks(System.Guid clientToken);
@@ -34,10 +443,10 @@ namespace YumaPos.Tests.Load.Client.TestServiceReference {
         System.Threading.Tasks.Task CancelMyTasksAsync(System.Guid clientToken);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Report", ReplyAction="http://tempuri.org/ITestService/ReportResponse")]
-        void Report(System.Guid clientToken, [System.ServiceModel.MessageParameterAttribute(Name="report")] YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report1);
+        void Report(System.Guid clientToken, [System.ServiceModel.MessageParameterAttribute(Name="report")] YumaPos.Tests.Load.Client.TestServiceReference.ReportDto report1);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Report", ReplyAction="http://tempuri.org/ITestService/ReportResponse")]
-        System.Threading.Tasks.Task ReportAsync(System.Guid clientToken, YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report);
+        System.Threading.Tasks.Task ReportAsync(System.Guid clientToken, YumaPos.Tests.Load.Client.TestServiceReference.ReportDto report);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Finish", ReplyAction="http://tempuri.org/ITestService/FinishResponse")]
         void Finish(System.Guid clientToken, int taskId);
@@ -81,11 +490,11 @@ namespace YumaPos.Tests.Load.Client.TestServiceReference {
             return base.Channel.RegisterAsync(clientId, name);
         }
         
-        public YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[] GetTasks(System.Guid clientToken, int maxInstance) {
+        public YumaPos.Tests.Load.Client.TestServiceReference.TestTaskDto[] GetTasks(System.Guid clientToken, int maxInstance) {
             return base.Channel.GetTasks(clientToken, maxInstance);
         }
         
-        public System.Threading.Tasks.Task<YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto[]> GetTasksAsync(System.Guid clientToken, int maxInstance) {
+        public System.Threading.Tasks.Task<YumaPos.Tests.Load.Client.TestServiceReference.TestTaskDto[]> GetTasksAsync(System.Guid clientToken, int maxInstance) {
             return base.Channel.GetTasksAsync(clientToken, maxInstance);
         }
         
@@ -97,11 +506,11 @@ namespace YumaPos.Tests.Load.Client.TestServiceReference {
             return base.Channel.CancelMyTasksAsync(clientToken);
         }
         
-        public void Report(System.Guid clientToken, YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report1) {
+        public void Report(System.Guid clientToken, YumaPos.Tests.Load.Client.TestServiceReference.ReportDto report1) {
             base.Channel.Report(clientToken, report1);
         }
         
-        public System.Threading.Tasks.Task ReportAsync(System.Guid clientToken, YumaPos.Tests.Load.Infrastucture.Dto.ReportDto report) {
+        public System.Threading.Tasks.Task ReportAsync(System.Guid clientToken, YumaPos.Tests.Load.Client.TestServiceReference.ReportDto report) {
             return base.Channel.ReportAsync(clientToken, report);
         }
         

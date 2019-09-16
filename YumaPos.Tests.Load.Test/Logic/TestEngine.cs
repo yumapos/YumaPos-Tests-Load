@@ -123,13 +123,11 @@ namespace YumaPos.Tests.Load.Client.Logic
 
         protected virtual void OnFinished()
         {
-            var handler = Finished;
-            if (handler != null) handler(this, EventArgs.Empty);
+            Finished?.Invoke(this, EventArgs.Empty);
         }
         protected virtual void OnReported()
         {
-            var handler = Reported;
-            if (handler != null) handler(this, EventArgs.Empty);
+            Reported?.Invoke(this, EventArgs.Empty);
         }
 
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using YumaPos.Client.Backoffice;
 using YumaPos.Client.WCF;
+using YumaPos.Common.Tools.JsonSerialization;
 using YumaPos.Shared.API;
 using YumaPos.Shared.BackOffice.Infrastructure;
 using YumaPos.Shared.Core.Reciept.Contracts;
@@ -109,7 +110,7 @@ namespace YumaPos.Tests.Load.Server.Services
             };
             IBackOfficeApi b = new BackOfficeApi(apiConfig);
             IAuthorizationApi a = new AuthorizationApi(apiConfig);
-            ITerminalApi t = new TerminalApi(apiConfig, new SerializationService());
+            ITerminalApi t = new TerminalApi(apiConfig, new SerializationService(), new CheckServerConnectionService());
             var posfDatService = new PosDataService(_container, b, a, t, server.Login, server.Password);
             return posfDatService;
         }

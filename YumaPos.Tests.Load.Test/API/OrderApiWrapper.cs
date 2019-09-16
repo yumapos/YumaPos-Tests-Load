@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using YumaPos.Client.WCF;
+using YumaPos.Common.Infrastructure.Common.Serialization;
 using YumaPos.FrontEnd.Infrastructure.CommandProcessing;
-using YumaPos.FrontEnd.Infrastructure.Common.Serialization;
 using YumaPos.Shared.Core.Reciept.Contracts;
 using YumaPos.Shared.Terminal.Infrastructure;
 using YumaPos.Tests.Load.Infrastucture.Dto;

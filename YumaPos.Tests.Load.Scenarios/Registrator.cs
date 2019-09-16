@@ -28,6 +28,7 @@ namespace YumaPos.Tests.Load.Scenarios
             Register<UpdateOrderCustomerScenario>       (typeof(UpdateOrderCustomerScenario).FullName,       Lifecycles.PerScope).As<IScenario>().As<UpdateOrderCustomerScenario>();
             Register<OrderWithRelatedModifiersScenario> (typeof(OrderWithRelatedModifiersScenario).FullName, Lifecycles.PerScope).As<IScenario>().As<OrderWithRelatedModifiersScenario>();
             Register<OrderWithCommonModifiersScenario>  (typeof(OrderWithCommonModifiersScenario).FullName,  Lifecycles.PerScope).As<IScenario>().As<OrderWithCommonModifiersScenario>();
+            Register<VoidOldOrdersScenario>             (typeof(VoidOldOrdersScenario).FullName,             Lifecycles.PerScope).As<IScenario>().As<VoidOldOrdersScenario>();
             
             Register<MenuAvailabilityHelper, IMenuAvailabilityHelper>(Lifecycles.PerScope);
         }

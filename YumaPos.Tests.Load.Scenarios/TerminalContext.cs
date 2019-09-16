@@ -1,4 +1,5 @@
 ﻿using System;
+using YumaPos.Shared.API.Models.Ordering;
 using YumaPos.Shared.Core.MenuModels;
 using YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering;
 

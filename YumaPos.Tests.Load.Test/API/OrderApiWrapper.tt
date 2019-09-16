@@ -2,8 +2,8 @@
 <#@ template debug="false" hostspecific="false" language="C#" #>
 <#@ assembly name="System.Core" #>
 <#@ assembly name="System.Runtime" #>
-<#@ assembly name="$(SolutionDir)Submodule.YumaPos.Shared\YumaPos.Shared.Infrastructure\$(OutDir)YumaPos.Shared.Infrastructure.dll" #>
-<#@ assembly name="$(SolutionDir)Submodule.YumaPos.Shared\YumaPos.Shared.Terminal.Infrastructure\$(OutDir)YumaPos.Shared.Terminal.Infrastructure.dll" #>
+<#@ assembly name="$(SolutionDir)Submodule.YumaPos.Shared\YumaPos.Shared.Infrastructure\$(OutDir)netstandard2.0\YumaPos.Shared.Infrastructure.dll" #>
+<#@ assembly name="$(SolutionDir)Submodule.YumaPos.Shared\YumaPos.Shared.Terminal.Infrastructure\$(OutDir)netstandard2.0\YumaPos.Shared.Terminal.Infrastructure.dll" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
@@ -58,6 +58,7 @@ foreach (var method in typeof(YumaPos.Shared.Terminal.Infrastructure.IOrderServi
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {

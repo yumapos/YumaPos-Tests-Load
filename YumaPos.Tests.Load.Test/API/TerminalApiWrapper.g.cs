@@ -7,34 +7,6 @@ using System.Threading.Tasks;
 namespace YumaPos.Tests.Load.Client.API {
     public partial class TerminalApiWrapper
     {
-        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.MenuCacheResponseDto> GetTerminalCacheMenu()
-        {
-            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.Terminal.API.ResponseDtos.MenuCacheResponseDto res = null;
-            var reportItem = new ReportItem()
-            {
-                MethodName = "GetTerminalCacheMenu",
-                Created = DateTime.UtcNow,
-            };
-			var stopwatch = new Stopwatch();
-            stopwatch.Start();
-            try
-            {
-                res = await _api.GetTerminalCacheMenu();
-            }
-            catch (Exception ex)
-            {
-                reportItem.ExceptionMessage = ex.ToString();
-            }
-            finally
-            {
-                stopwatch.Stop();
-                reportItem.Duration = stopwatch.Elapsed;
-                _reportItems.Add(reportItem);
-            }
-            return res;
-        }
-    
         public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddCashDrawerCheckItem(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.CashDrawerItemDto itemDto)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
@@ -53,6 +25,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -81,6 +54,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -109,6 +83,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -119,24 +94,25 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddOrdersToDriver(System.Guid driverId, System.Guid[] orderIds)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> AddReservation(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.ReservationDto reservation)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
-                MethodName = "AddOrdersToDriver",
+                MethodName = "AddReservation",
                 Created = DateTime.UtcNow,
             };
 			var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
-                res = await _api.AddOrdersToDriver(driverId, orderIds);
+                res = await _api.AddReservation(reservation);
             }
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -165,6 +141,36 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> BeginJumioIdentityVerificationProcess(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.VerificationRequestDto verificationDto)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "BeginJumioIdentityVerificationProcess",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.BeginJumioIdentityVerificationProcess(verificationDto);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -193,6 +199,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -221,6 +228,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -231,7 +239,65 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> ClockOperation(YumaPos.Shared.API.Enums.UserActivityType operationType)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.EgaisIdCodeResponseDto> CheckEgaisIdCode(YumaPos.Shared.API.Models.Ordering.EgaisIdCodeDataDto code)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.EgaisIdCodeResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "CheckEgaisIdCode",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.CheckEgaisIdCode(code);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DecimalResponseDto> CheckGiftCardBalance(System.String cardNumber)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.DecimalResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "CheckGiftCardBalance",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.CheckGiftCardBalance(cardNumber);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> ClockOperation(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.ClockOperationDto clockOperation)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
@@ -244,11 +310,41 @@ namespace YumaPos.Tests.Load.Client.API {
             stopwatch.Start();
             try
             {
-                res = await _api.ClockOperation(operationType);
+                res = await _api.ClockOperation(clockOperation);
             }
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.BasicModeMenuItemResponseDto> CreateBasicModeMenuItem()
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.BasicModeMenuItemResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "CreateBasicModeMenuItem",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.CreateBasicModeMenuItem();
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -277,6 +373,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -287,7 +384,7 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto> GetActiveOrdersChangesDigest(System.DateTime timestamp)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto> GetActiveOrdersChangesDigest(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.ChangeDigestRequestDto changeDigestDto)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.Terminal.API.ResponseDtos.ActiveOrdersChangesDigestResponseDto res = null;
@@ -300,11 +397,12 @@ namespace YumaPos.Tests.Load.Client.API {
             stopwatch.Start();
             try
             {
-                res = await _api.GetActiveOrdersChangesDigest(timestamp);
+                res = await _api.GetActiveOrdersChangesDigest(changeDigestDto);
             }
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -315,10 +413,97 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DiscountListResponseDto> GetAllDiscounts()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.TerminalPromoCampaignListResponseDto> GetActualPromoCampaigns()
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.DiscountListResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.TerminalPromoCampaignListResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetActualPromoCampaigns",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetActualPromoCampaigns();
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.SimpleCustomersListResponseDto> GetAllCustomers()
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.SimpleCustomersListResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetAllCustomers",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetAllCustomers();
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.TerminalDeliveryZoneListResponseDto> GetAllDeliveryZones(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.GetAllDeliveryZonesRequestDto getAllDeliveryZonesRequestDto)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.TerminalDeliveryZoneListResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetAllDeliveryZones",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetAllDeliveryZones(getAllDeliveryZonesRequestDto);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalDiscountListResponseDto> GetAllDiscounts(System.Guid storeId)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.TerminalDiscountListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetAllDiscounts",
@@ -328,11 +513,41 @@ namespace YumaPos.Tests.Load.Client.API {
             stopwatch.Start();
             try
             {
-                res = await _api.GetAllDiscounts();
+                res = await _api.GetAllDiscounts(storeId);
             }
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.TerminalEmployeeListResponseDto> GetAllEmployees()
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.TerminalEmployeeListResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetAllEmployees",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetAllEmployees();
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -361,6 +576,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -371,10 +587,39 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.StoreListResponseDto> GetAllStores()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.LanguageListResponseDto> GetAllLanguages()
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.StoreListResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.LanguageListResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetAllLanguages",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetAllLanguages();
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.TerminalStoreListResponseDto> GetAllStores()
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.TerminalStoreListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetAllStores",
@@ -389,6 +634,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -417,6 +663,65 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.SimpleCustomersListResponseDto> GetChangedCustomers(YumaPos.Shared.API.Models.Ordering.SimpleCustomersRequestDto request)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.SimpleCustomersListResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetChangedCustomers",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetChangedCustomers(request);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.ChangeReasonListResponseDto> GetChangeReasons(YumaPos.Shared.API.Enums.ChangeReasonSettings settings)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.ChangeReasonListResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetChangeReasons",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetChangeReasons(settings);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -445,6 +750,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -473,6 +779,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -483,10 +790,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.EmployeeResponseDto> GetCurrentEmployee()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.TerminalEmployeeResponseDto> GetCurrentEmployee()
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.EmployeeResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.TerminalEmployeeResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetCurrentEmployee",
@@ -501,6 +808,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -511,10 +819,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.StoreResponseDto> GetCurrentStore()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.TerminalStoreResponseDto> GetCurrentStore()
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.StoreResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.TerminalStoreResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetCurrentStore",
@@ -529,6 +837,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -557,6 +866,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -585,6 +895,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -595,7 +906,65 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DateTimeResponseDto> GetDateTimeActiveOrdersUpdated(System.DateTime clientDateTime)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CustomerResponseDto> GetCustomerByCardNo(System.String cardNo)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.CustomerResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetCustomerByCardNo",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetCustomerByCardNo(cardNo);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.CustomerGroupListResponseDto> GetCustomersGroups()
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.CustomerGroupListResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetCustomersGroups",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetCustomersGroups();
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DateTimeResponseDto> GetDateTimeActiveOrdersUpdated(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.GetDateTimeActiveOrdersUpdatedDto getDateTimeActiveOrdersUpdatedDto)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.DateTimeResponseDto res = null;
@@ -608,11 +977,12 @@ namespace YumaPos.Tests.Load.Client.API {
             stopwatch.Start();
             try
             {
-                res = await _api.GetDateTimeActiveOrdersUpdated(clientDateTime);
+                res = await _api.GetDateTimeActiveOrdersUpdated(getDateTimeActiveOrdersUpdatedDto);
             }
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -623,10 +993,68 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.DeliveryDetailsListResponseDto> GetDeliveryOrders(YumaPos.Shared.API.Models.Ordering.FilteredRequestDto filteredRequestDto)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.DeletedItemsByEmployeeReportResponseDto> GetDeletedItemsByEmployeeReport(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.ReportRequestDto reportRequestDto)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.Terminal.API.ResponseDtos.DeliveryDetailsListResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.DeletedItemsByEmployeeReportResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetDeletedItemsByEmployeeReport",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetDeletedItemsByEmployeeReport(reportRequestDto);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.DeletedItemsReportResponseDto> GetDeletedItemsReport(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.ReportRequestDto reportRequestDto)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.DeletedItemsReportResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetDeletedItemsReport",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetDeletedItemsReport(reportRequestDto);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.TerminalOrderListResponseDto> GetDeliveryOrders(YumaPos.Shared.API.Models.Ordering.FilteredRequestDto filteredRequestDto)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.TerminalOrderListResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetDeliveryOrders",
@@ -641,6 +1069,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -651,7 +1080,7 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DriverDetailsResponseDto> GetDriver(System.Guid driverId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.DriverDetailsResponseDto> GetDriver(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.GetDriverDto getDriverDto)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.DriverDetailsResponseDto res = null;
@@ -664,11 +1093,41 @@ namespace YumaPos.Tests.Load.Client.API {
             stopwatch.Start();
             try
             {
-                res = await _api.GetDriver(driverId);
+                res = await _api.GetDriver(getDriverDto);
             }
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.DriveCostsReportResponseDto> GetDriverCostsReport()
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.DriveCostsReportResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetDriverCostsReport",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetDriverCostsReport();
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -697,6 +1156,36 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.GetEventsResponseDto> GetEvents(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.GetEventsFilterDto eventsFilterDto)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.GetEventsResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetEvents",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetEvents(eventsFilterDto);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -725,6 +1214,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -735,24 +1225,25 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.TerminalOrderListResponseDto> GetFilteredOrdersByIds(YumaPos.Shared.API.Models.Ordering.OrderFilterDto filter)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.TerminalFloorPlanListResponseDto> GetFloorPlans(System.Guid storeId)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.TerminalOrderListResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.TerminalFloorPlanListResponseDto res = null;
             var reportItem = new ReportItem()
             {
-                MethodName = "GetFilteredOrdersByIds",
+                MethodName = "GetFloorPlans",
                 Created = DateTime.UtcNow,
             };
 			var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
-                res = await _api.GetFilteredOrdersByIds(filter);
+                res = await _api.GetFloorPlans(storeId);
             }
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -781,6 +1272,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -791,10 +1283,126 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedActiveOrders(YumaPos.Shared.API.Models.Ordering.OrderFilterDto filter)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.DateTimeInfoResponseDto> GetLocalStoreDateTime()
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.DateTimeInfoResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetLocalStoreDateTime",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetLocalStoreDateTime();
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.MenuCacheListResponseDto> GetMenus(System.Guid[] storeIds)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.MenuCacheListResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetMenus",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetMenus(storeIds);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.MenuCacheListResponseDto> GetMenus2(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.MenuRequestDto menuRequestDto)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.MenuCacheListResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetMenus2",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetMenus2(menuRequestDto);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.NullableDateTimeResponseDto> GetMenuUpdated()
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.NullableDateTimeResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetMenuUpdated",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetMenuUpdated();
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedActiveOrders(YumaPos.Shared.API.Models.Ordering.OrderFilterDto filter)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.FilteredRestaurantOrdersResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetPagedActiveOrders",
@@ -809,6 +1417,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -837,6 +1446,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -847,10 +1457,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedClosedOrders(YumaPos.Shared.API.Models.Ordering.OrderFilterDto filter)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.FilteredRestaurantOrdersResponseDto> GetPagedClosedOrders(YumaPos.Shared.API.Models.Ordering.OrderFilterDto filter)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.FilteredRestaurantOrdersResponseDto res = null;
+            YumaPos.Shared.Terminal.API.ResponseDtos.FilteredRestaurantOrdersResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetPagedClosedOrders",
@@ -865,6 +1475,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -893,6 +1504,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -903,7 +1515,239 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.LookupListResponseDto> GetSystemSettings(System.String[] listOfSystemSettings)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.ReservationDetailsResponseDto> GetReservation(System.Guid reservationId)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.ReservationDetailsResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetReservation",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetReservation(reservationId);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.ReservationsResponseDto> GetReservations(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.GetReservationsDto reservationsRequestDto)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.ReservationsResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetReservations",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetReservations(reservationsRequestDto);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.SalesByCategoryWithModifiersReportResponseDto> GetSalesByCategoryWithModifiersReport(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.SalesByCategoryWithModifiersReportRequestDto reportRequest)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.SalesByCategoryWithModifiersReportResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetSalesByCategoryWithModifiersReport",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetSalesByCategoryWithModifiersReport(reportRequest);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.SalesByEmployeeReportResponseDto> GetSalesByEmployeeReport()
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.SalesByEmployeeReportResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetSalesByEmployeeReport",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetSalesByEmployeeReport();
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.SalesByHoursReportResponseDto> GetSalesByHoursReport()
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.SalesByHoursReportResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetSalesByHoursReport",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetSalesByHoursReport();
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.SalesByMenuItemsReportResponseDto> GetSalesByMenuItemsReport(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.ReportRequestDto reportRequest)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.SalesByMenuItemsReportResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetSalesByMenuItemsReport",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetSalesByMenuItemsReport(reportRequest);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.SalesByEmployeeReportResponseDto> GetSalesByOrderCreatorReport()
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.SalesByEmployeeReportResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetSalesByOrderCreatorReport",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetSalesByOrderCreatorReport();
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.TerminalStoreResponseDto> GetStoreByStoreId(System.Guid storeId)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.TerminalStoreResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "GetStoreByStoreId",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.GetStoreByStoreId(storeId);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.LookupListResponseDto> GetSystemSettings(System.String[] listOfSystemSettings, System.String code)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.LookupListResponseDto res = null;
@@ -916,11 +1760,12 @@ namespace YumaPos.Tests.Load.Client.API {
             stopwatch.Start();
             try
             {
-                res = await _api.GetSystemSettings(listOfSystemSettings);
+                res = await _api.GetSystemSettings(listOfSystemSettings, code);
             }
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -931,10 +1776,10 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ImageResponseDto> GetTenantLogo()
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.Models.ImageResponseDto> GetTenantLogo()
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.ImageResponseDto res = null;
+            YumaPos.Shared.API.Models.ImageResponseDto res = null;
             var reportItem = new ReportItem()
             {
                 MethodName = "GetTenantLogo",
@@ -949,6 +1794,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -977,6 +1823,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -1005,6 +1852,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -1033,6 +1881,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -1061,6 +1910,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -1071,24 +1921,25 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.BoolResponseDto> IsMenuNeedToUpdate(System.DateTime clientUtcDateTime)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> LogManualCustomerVerifications(YumaPos.Shared.API.Models.Ordering.CustomerManualVerificationsDto request)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
-            YumaPos.Shared.API.ResponseDtos.BoolResponseDto res = null;
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
-                MethodName = "IsMenuNeedToUpdate",
+                MethodName = "LogManualCustomerVerifications",
                 Created = DateTime.UtcNow,
             };
 			var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
-                res = await _api.IsMenuNeedToUpdate(clientUtcDateTime);
+                res = await _api.LogManualCustomerVerifications(request);
             }
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -1117,6 +1968,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -1145,6 +1997,152 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> RemoveReservation(System.Guid reservationId)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "RemoveReservation",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.RemoveReservation(reservationId);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> SavePaymentsenseData(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.PaymentsenseReportCollectionDto paymentsensReports)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "SavePaymentsenseData",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.SavePaymentsenseData(paymentsensReports);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> SendReport(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.ReportForSendDto report)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "SendReport",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.SendReport(report);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.Terminal.API.ResponseDtos.EgaisIdCodeResponseDto> SetEgaisIdCodeShiftId(YumaPos.Shared.Terminal.Infrastructure.API.Models.Inventory.EgaisIdCodeDto code)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.Terminal.API.ResponseDtos.EgaisIdCodeResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "SetEgaisIdCodeShiftId",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.SetEgaisIdCodeShiftId(code);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
+            }
+            finally
+            {
+                stopwatch.Stop();
+                reportItem.Duration = stopwatch.Elapsed;
+                _reportItems.Add(reportItem);
+            }
+            return res;
+        }
+    
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> SetStopMenuItem(System.Guid itemId, Boolean isStop, System.Nullable<System.Guid> storeId)
+        {
+            await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
+            YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
+            var reportItem = new ReportItem()
+            {
+                MethodName = "SetStopMenuItem",
+                Created = DateTime.UtcNow,
+            };
+			var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
+            {
+                res = await _api.SetStopMenuItem(itemId, isStop, storeId);
+            }
+            catch (Exception ex)
+            {
+                reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -1173,6 +2171,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -1201,6 +2200,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -1229,6 +2229,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {
@@ -1239,24 +2240,25 @@ namespace YumaPos.Tests.Load.Client.API {
             return res;
         }
     
-        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateOrderStatusMany(System.Guid[] orderIds, YumaPos.Shared.API.Enums.OrderStatus statusId)
+        public async System.Threading.Tasks.Task<YumaPos.Shared.API.ResponseDtos.ResponseDto> UpdateReservation(YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering.ReservationDto reservation)
         {
             await Task.Delay((new Random().Next((int) MinInterval.TotalMilliseconds, (int) MaxInterval.TotalMilliseconds)));
             YumaPos.Shared.API.ResponseDtos.ResponseDto res = null;
             var reportItem = new ReportItem()
             {
-                MethodName = "UpdateOrderStatusMany",
+                MethodName = "UpdateReservation",
                 Created = DateTime.UtcNow,
             };
 			var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
-                res = await _api.UpdateOrderStatusMany(orderIds, statusId);
+                res = await _api.UpdateReservation(reservation);
             }
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
+				throw;
             }
             finally
             {

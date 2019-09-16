@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using YumaPos.Shared.API.Enums;
 using YumaPos.Shared.API.Models.Ordering;
 using YumaPos.Shared.Terminal.Infrastructure;
+using YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering;
 using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Tests.Load.Scenarios.MenuHelper;
 
@@ -23,12 +24,12 @@ namespace YumaPos.Tests.Load.Scenarios
         }
         public async Task StartAsync()
         {
-            var response1 = await _terminalApi.GetPagedActiveOrders(new OrderFilterDto() {DateStart = DateTime.UtcNow.AddDays(-1), DateEnd = DateTime.UtcNow.AddMinutes(-5), Count = 10000});
+            var response1 = await _terminalApi.GetPagedActiveOrders(new OrderFilterDto() {Statuses = new []{OrderStatus.New}, DateStart = DateTime.UtcNow.AddDays(-1), DateEnd = DateTime.UtcNow.AddMinutes(-15), Count = 1});
             IList<TerminalOrderDto> orders = response1.Value.Results;
             foreach (TerminalOrderDto orderDto in orders)
             {
                 _orderServiceApi.ExecutionContext.OrderId = orderDto.OrderId;
-                await _orderServiceApi.UpdateOrderStatusByOrderId(orderDto.OrderId, (int) OrderStatus.Void);
+                await _orderServiceApi.UpdateOrderStatusByOrderId(null, orderDto.OrderId, (int) OrderStatus.Void);
             }
         }
     }

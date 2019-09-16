@@ -2,7 +2,7 @@
 <#@ output extension="g.cs" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
-<#@ include file="..\..\Submodule.YumaPos.Shared\YumaPos.Shared.Tools\Generation\MapHelper.tt" #>
+<#@ include file="MapHelper.tt" #>
 <#@ import namespace="System.Text.RegularExpressions" #>
 using System;
 using System.Linq;
