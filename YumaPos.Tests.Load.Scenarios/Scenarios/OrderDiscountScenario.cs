@@ -46,15 +46,15 @@ namespace YumaPos.Tests.Load.Scenarios
                 OrderId = order.OrderId,
                 CommonModifiers = new List<OrderItemCommonModifierDto>(),
                 RelatedModifiers = new List<OrderItemRelatedModifierDto>(),
-                Qty = 1,
+                Quantity = 1,
                 CalculatedPrice = menuitem1.Price
             };
 
             var response2 = await _orderServiceApi.AddOrderItem(orderitem1);
-            var response3 = await _orderServiceApi.GetOrderItemsCosts(order.OrderId);
+            var response3 = await _orderServiceApi.GetOrderInfo(order.OrderId);
 
-            Assert.AreEqual(1, response3.Value.Count);
-            var cost = response3.Value.Sum(p => p.Value);
+            Assert.AreEqual(1, response3.Value.OrderItemsCosts.Count);
+            var cost = response3.Value.OrderItemsCosts.Sum(p => p.Value);
 
             var discounts = await _terminalApi.GetAllDiscounts();
 

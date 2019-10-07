@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using YumaPos.Shared.Attributes;
 
-namespace YumaPos.Tests.Load.Infrastucture.Dto
+namespace YumaPos.Tests.Load.Infrastructure.Dto
 {
     [Map]
     public class ReportDto

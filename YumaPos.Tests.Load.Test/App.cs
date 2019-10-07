@@ -11,7 +11,7 @@ using YumaPos.Tests.Load.Client.Data.Interfaces;
 using YumaPos.Tests.Load.Client.Data.Models;
 using YumaPos.Tests.Load.Client.Interfaces;
 using YumaPos.Tests.Load.Client.Logic;
-using YumaPos.Tests.Load.Infrastucture.Dto;
+using YumaPos.Tests.Load.Infrastructure.Dto;
 
 namespace YumaPos.Tests.Load.Client
 {

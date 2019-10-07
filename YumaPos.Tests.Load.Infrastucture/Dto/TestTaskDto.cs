@@ -1,7 +1,7 @@
 using System;
 using YumaPos.Shared.Attributes;
 
-namespace YumaPos.Tests.Load.Infrastucture.Dto
+namespace YumaPos.Tests.Load.Infrastructure.Dto
 {
     [Map]
     public class TestTaskDto

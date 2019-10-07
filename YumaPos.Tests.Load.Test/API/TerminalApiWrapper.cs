@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using YumaPos.Client.WCF;
+using YumaPos.Common.Infrastructure.Common.Serialization;
 using YumaPos.FrontEnd.Infrastructure.CommandProcessing;
-using YumaPos.FrontEnd.Infrastructure.Common.Serialization;
 using YumaPos.Shared.Core.Reciept.Contracts;
 using YumaPos.Shared.Terminal.Infrastructure;
-using YumaPos.Tests.Load.Infrastucture.Dto;
+using YumaPos.Tests.Load.Infrastructure.Dto;
 
 namespace YumaPos.Tests.Load.Client.API
 {
@@ -16,9 +16,9 @@ namespace YumaPos.Tests.Load.Client.API
         private List<ReportItem> _reportItems;
 
 
-        public TerminalApiWrapper(IAPIConfig config, ISerializationService serializationService)
+        public TerminalApiWrapper(IAPIConfig config, ISerializationService serializationService, ICheckServerConnectionService checkServerConnectionService)
         {
-            _api = new TerminalApi(config, serializationService);
+            _api = new TerminalApi(config, serializationService, checkServerConnectionService);
             _reportItems = new List<ReportItem>();
         }
 

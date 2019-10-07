@@ -6,11 +6,12 @@ namespace YumaPos.Tests.Load.Server.Data.DataObjects
     {
         [Key]
         public int ServerId { get; set; }
+        public string Name { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public string AuthorizationAddress { get; set; }
         public string ServiceAddress { get; set; }
         public string BackofficeAddress { get; set; }
-        
+        public string SqlConnectionString { get; set; }
     }
 }

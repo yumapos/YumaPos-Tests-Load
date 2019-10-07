@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="TestTaskDto" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto, YumaPos.Tests.Load.Infrastucture, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>YumaPos.Tests.Load.Infrastructure.Dto.TestTaskDto, YumaPos.Tests.Load.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

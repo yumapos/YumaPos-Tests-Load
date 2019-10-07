@@ -5,9 +5,10 @@ namespace YumaPos.Tests.Load.Server.Data
 {
     public class LoadTestDbContext : DbContext
     {
-        public LoadTestDbContext(string connectionString) : base(connectionString)
+        public LoadTestDbContext(string connectionStringName) : base(connectionStringName)
         {
             this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.LazyLoadingEnabled = false;
         }
 

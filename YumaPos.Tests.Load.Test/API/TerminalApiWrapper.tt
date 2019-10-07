@@ -10,7 +10,7 @@
 <#@ import namespace="YumaPos.Shared.Attributes" #>
 <#@ output extension=".g.cs" #>
 using System;
-using YumaPos.Tests.Load.Infrastucture.Dto;
+using YumaPos.Tests.Load.Infrastructure.Dto;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -42,7 +42,7 @@ foreach (var method in typeof(YumaPos.Shared.Terminal.Infrastructure.ITerminalAp
                 MethodName = "<#= method.Name #>",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -58,7 +58,7 @@ foreach (var method in typeof(YumaPos.Shared.Terminal.Infrastructure.ITerminalAp
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {

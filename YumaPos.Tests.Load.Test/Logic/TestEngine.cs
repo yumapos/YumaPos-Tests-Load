@@ -10,7 +10,7 @@ using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Shared.Core.Reciept.Contracts;
 using YumaPos.Tests.Load.Client.API;
 using YumaPos.Tests.Load.Client.Data.Models;
-using YumaPos.Tests.Load.Infrastucture.Dto;
+using YumaPos.Tests.Load.Infrastructure.Dto;
 
 namespace YumaPos.Tests.Load.Client.Logic
 {
@@ -59,8 +59,8 @@ namespace YumaPos.Tests.Load.Client.Logic
                 {
                     if (_terminalContext.ClientIsRegistered)
                     {
-                        var regiterScenario = _scope.ResolveKeyed<RegisterTerminalScenario>(typeof(RegisterTerminalScenario).FullName);
-                        await regiterScenario.StartAsync();
+                        var registerScenario = _scope.ResolveKeyed<RegisterTerminalScenario>(typeof(RegisterTerminalScenario).FullName);
+                        await registerScenario.StartAsync();
                         _terminalContext.ClientIsRegistered = true;
                     }
                     var loginScenario = _scope.ResolveKeyed<EmployeeLoginScenario>(typeof(EmployeeLoginScenario).FullName);

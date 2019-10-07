@@ -1,6 +1,7 @@
 ﻿using YumaPos.Client.WCF;
+using YumaPos.Common.Infrastructure.Common.Serialization;
 using YumaPos.Common.Infrastructure.IoC.Registration;
-using YumaPos.FrontEnd.Infrastructure.Common.Serialization;
+using YumaPos.Common.Tools.JsonSerialization;
 using YumaPos.Shared.Terminal.Infrastructure;
 using YumaPos.Tests.Load.Client.API;
 using YumaPos.Tests.Load.Client.Interfaces;

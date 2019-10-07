@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:56879/TestService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="http://localhost:56879/TestService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/YumaPos.Tests.Load.Infrastucture.Dto" />
+  <xs:import schemaLocation="http://localhost:56556/TestService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:56556/TestService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/YumaPos.Tests.Load.Infrastructure.Dto" />
   <xs:element name="Register">
     <xs:complexType>
       <xs:sequence>
@@ -28,7 +28,7 @@
   <xs:element name="GetTasksResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/YumaPos.Tests.Load.Infrastucture.Dto" minOccurs="0" name="GetTasksResult" nillable="true" type="q4:ArrayOfTestTaskDto" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/YumaPos.Tests.Load.Infrastructure.Dto" minOccurs="0" name="GetTasksResult" nillable="true" type="q4:ArrayOfTestTaskDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -48,7 +48,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="clientToken" type="q6:guid" />
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/YumaPos.Tests.Load.Infrastucture.Dto" minOccurs="0" name="report" nillable="true" type="q7:ReportDto" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/YumaPos.Tests.Load.Infrastructure.Dto" minOccurs="0" name="report" nillable="true" type="q7:ReportDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

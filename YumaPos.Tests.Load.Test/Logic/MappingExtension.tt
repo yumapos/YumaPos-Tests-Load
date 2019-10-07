@@ -15,7 +15,7 @@ using YumaPos.Shared.API.Enums;
     MapHelper.MapIgnoreAttribute = "MapIgnore";
     MapHelper.DtoSuffix = "Dto";    
     MapHelper.DoProjects.Add("YumaPos.Tests.Load.Client.Data");
-    MapHelper.DtoProjects.Add("YumaPos.Tests.Load.Infrastucture");
+    MapHelper.DtoProjects.Add("YumaPos.Tests.Load.Infrastructure");
 	MapHelper.DOSkipAttribute=false;
 	MapHelper.DTOSkipAttribute=false;
 

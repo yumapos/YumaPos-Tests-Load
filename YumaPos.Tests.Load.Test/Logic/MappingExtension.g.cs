@@ -9,18 +9,18 @@ namespace YumaPos.Tests.Load.Client.Logic
     public static class MapExtensions 
     {
         
-        public static YumaPos.Tests.Load.Infrastucture.Dto.ReportDto MapToDto (this YumaPos.Tests.Load.Client.Data.Models.Report item)
+        public static YumaPos.Tests.Load.Infrastructure.Dto.ReportDto MapToDto (this YumaPos.Tests.Load.Client.Data.Models.Report item)
         {  
             //itemDo.ReportId
             if (item == null) return null;
             
-            var itemDto = new YumaPos.Tests.Load.Infrastucture.Dto.ReportDto ();
+            var itemDto = new YumaPos.Tests.Load.Infrastructure.Dto.ReportDto ();
                 itemDto.TaskId = item.TaskId;
 
             return itemDto;
         }
 
-        public static YumaPos.Tests.Load.Client.Data.Models.Report MapFromDto (this YumaPos.Tests.Load.Infrastucture.Dto.ReportDto itemDto)
+        public static YumaPos.Tests.Load.Client.Data.Models.Report MapFromDto (this YumaPos.Tests.Load.Infrastructure.Dto.ReportDto itemDto)
         {  
             //itemDto.ReportItems
             if (itemDto == null) return null;
@@ -31,7 +31,7 @@ namespace YumaPos.Tests.Load.Client.Logic
             return item;
         }
         
-        public static YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto MapToDto (this YumaPos.Tests.Load.Client.Data.Models.TestTask item)
+        public static YumaPos.Tests.Load.Infrastructure.Dto.TestTaskDto MapToDto (this YumaPos.Tests.Load.Client.Data.Models.TestTask item)
         {  
             //itemDo.DurationTicks
             //itemDo.MinIntervalTicks
@@ -41,7 +41,7 @@ namespace YumaPos.Tests.Load.Client.Logic
             //itemDo.ClientIsRegistered
             if (item == null) return null;
             
-            var itemDto = new YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto ();
+            var itemDto = new YumaPos.Tests.Load.Infrastructure.Dto.TestTaskDto ();
                 itemDto.TaskId = item.TaskId;
                 itemDto.AuthorizationAddress = item.AuthorizationAddress;
                 itemDto.ServiceAddress = item.ServiceAddress;
@@ -59,7 +59,7 @@ namespace YumaPos.Tests.Load.Client.Logic
             return itemDto;
         }
 
-        public static YumaPos.Tests.Load.Client.Data.Models.TestTask MapFromDto (this YumaPos.Tests.Load.Infrastucture.Dto.TestTaskDto itemDto)
+        public static YumaPos.Tests.Load.Client.Data.Models.TestTask MapFromDto (this YumaPos.Tests.Load.Infrastructure.Dto.TestTaskDto itemDto)
         {  
             //itemDto.TerminalIsRegistered
             if (itemDto == null) return null;

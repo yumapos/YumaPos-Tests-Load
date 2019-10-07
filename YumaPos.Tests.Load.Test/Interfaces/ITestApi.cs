@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using YumaPos.Tests.Load.Infrastucture.Dto;
+using YumaPos.Tests.Load.Infrastructure.Dto;
 
 namespace YumaPos.Tests.Load.Client.Interfaces
 {

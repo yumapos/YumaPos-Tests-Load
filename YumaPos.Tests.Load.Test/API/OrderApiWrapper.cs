@@ -6,7 +6,7 @@ using YumaPos.Common.Infrastructure.Common.Serialization;
 using YumaPos.FrontEnd.Infrastructure.CommandProcessing;
 using YumaPos.Shared.Core.Reciept.Contracts;
 using YumaPos.Shared.Terminal.Infrastructure;
-using YumaPos.Tests.Load.Infrastucture.Dto;
+using YumaPos.Tests.Load.Infrastructure.Dto;
 
 namespace YumaPos.Tests.Load.Client.API
 {
@@ -16,9 +16,9 @@ namespace YumaPos.Tests.Load.Client.API
         private List<ReportItem> _reportItems;
 
 
-        public OrderApiWrapper(IAPIConfig config, ISerializationService serializationService)
+        public OrderApiWrapper(IAPIConfig config, ISerializationService serializationService, ICheckServerConnectionService checkServerConnectionService)
         {
-            _api = new OrderServiceApi(config, serializationService);
+            _api = new OrderServiceApi(config, serializationService, checkServerConnectionService);
             _reportItems = new List<ReportItem>();
         }
 

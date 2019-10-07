@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
 using System.Threading.Tasks;
-using YumaPos.Tests.Load.Infrastucture.Dto;
+using YumaPos.Tests.Load.Infrastructure.Dto;
 
-namespace YumaPos.Tests.Load.Infrastucture
+namespace YumaPos.Tests.Load.Infrastructure
 {
     [ServiceContract]
     public interface ITestService

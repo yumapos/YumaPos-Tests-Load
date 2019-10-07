@@ -4,7 +4,7 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Tests.Load.Client", "YumaPos.Tests.Load.Test\YumaPos.Tests.Load.Client.csproj", "{5E41CCF6-CA91-46A1-838A-C5311354F7E7}"
 	ProjectSection(ProjectDependencies) = postProject
-		{9B4F0F82-A71E-4229-BE98-8DE861D559A9} = {9B4F0F82-A71E-4229-BE98-8DE861D559A9}
+		{0CB24193-41B5-4C73-9516-2314FD5AFAE9} = {0CB24193-41B5-4C73-9516-2314FD5AFAE9}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YumaPos.Shared.Infrastructure", "Submodule.YumaPos.Shared\YumaPos.Shared.Infrastructure\YumaPos.Shared.Infrastructure.csproj", "{2BE0D1CE-DFA0-476B-A2B5-B16ED56610C4}"
@@ -26,9 +26,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YumaPos.FrontEnd.Infrastruc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YumaPos.Shared.Core", "Submodule.YumaPos.Shared\YumaPos.Shared.Core\YumaPos.Shared.Core.csproj", "{7534A74B-5C4E-4BB1-BB07-25976647E465}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Tests.Load.Server", "YumaPos.Tests.Load.Server\YumaPos.Tests.Load.Server.csproj", "{9B4F0F82-A71E-4229-BE98-8DE861D559A9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Tests.Load.Infrastucture", "YumaPos.Tests.Load.Infrastucture\YumaPos.Tests.Load.Infrastucture.csproj", "{E2718F0F-700F-4CFA-8D2E-DCA33105EB2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Tests.Load.Infrastructure", "YumaPos.Tests.Load.Infrastucture\YumaPos.Tests.Load.Infrastructure.csproj", "{E2718F0F-700F-4CFA-8D2E-DCA33105EB2B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Tests.Load.Scenarios", "YumaPos.Tests.Load.Scenarios\YumaPos.Tests.Load.Scenarios.csproj", "{92307441-2AEC-43A2-A7B7-1B03AA25C533}"
 EndProject
@@ -53,6 +51,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YumaPos.Packages.StringUtils", "Submodule.YumaPos.Shared\YumaPos.Packages.StringUtils\YumaPos.Packages.StringUtils.csproj", "{DF165C41-1338-4AFA-A9B4-4288FC0C2AFC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YumaPos.Packages.TimeZones.Infrastructure", "Submodule.YumaPos.Shared\YumaPos.Packages.TimeZones.Infrastructure\YumaPos.Packages.TimeZones.Infrastructure.csproj", "{707775CE-AB88-40D3-874E-E38697848555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YumaPos.Tests.Load.Web", "YumaPos.Tests.Load.Web\YumaPos.Tests.Load.Web.csproj", "{0CB24193-41B5-4C73-9516-2314FD5AFAE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,12 +98,6 @@ Global
 		{7534A74B-5C4E-4BB1-BB07-25976647E465}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7534A74B-5C4E-4BB1-BB07-25976647E465}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7534A74B-5C4E-4BB1-BB07-25976647E465}.Release|x86.ActiveCfg = Release|Any CPU
-		{9B4F0F82-A71E-4229-BE98-8DE861D559A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9B4F0F82-A71E-4229-BE98-8DE861D559A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9B4F0F82-A71E-4229-BE98-8DE861D559A9}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{9B4F0F82-A71E-4229-BE98-8DE861D559A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9B4F0F82-A71E-4229-BE98-8DE861D559A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9B4F0F82-A71E-4229-BE98-8DE861D559A9}.Release|x86.ActiveCfg = Release|Any CPU
 		{E2718F0F-700F-4CFA-8D2E-DCA33105EB2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2718F0F-700F-4CFA-8D2E-DCA33105EB2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2718F0F-700F-4CFA-8D2E-DCA33105EB2B}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -200,6 +194,14 @@ Global
 		{707775CE-AB88-40D3-874E-E38697848555}.Release|Any CPU.Build.0 = Release|Any CPU
 		{707775CE-AB88-40D3-874E-E38697848555}.Release|x86.ActiveCfg = Release|Any CPU
 		{707775CE-AB88-40D3-874E-E38697848555}.Release|x86.Build.0 = Release|Any CPU
+		{0CB24193-41B5-4C73-9516-2314FD5AFAE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CB24193-41B5-4C73-9516-2314FD5AFAE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CB24193-41B5-4C73-9516-2314FD5AFAE9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0CB24193-41B5-4C73-9516-2314FD5AFAE9}.Debug|x86.Build.0 = Debug|Any CPU
+		{0CB24193-41B5-4C73-9516-2314FD5AFAE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CB24193-41B5-4C73-9516-2314FD5AFAE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CB24193-41B5-4C73-9516-2314FD5AFAE9}.Release|x86.ActiveCfg = Release|Any CPU
+		{0CB24193-41B5-4C73-9516-2314FD5AFAE9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

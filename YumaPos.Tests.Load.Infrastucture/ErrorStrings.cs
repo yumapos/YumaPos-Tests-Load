@@ -1,4 +1,4 @@
-﻿namespace YumaPos.Tests.Load.Infrastucture
+﻿namespace YumaPos.Tests.Load.Infrastructure
 {
     public class ErrorStrings
     {

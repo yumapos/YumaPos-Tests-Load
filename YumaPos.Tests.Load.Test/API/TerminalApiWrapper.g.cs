@@ -1,6 +1,6 @@
 ﻿//This file generated Automaticaly
 using System;
-using YumaPos.Tests.Load.Infrastucture.Dto;
+using YumaPos.Tests.Load.Infrastructure.Dto;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -16,7 +16,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddCashDrawerCheckItem",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -25,7 +25,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -45,7 +45,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddCustomer",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -54,7 +54,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -74,7 +74,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddCustomerAddress",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -83,7 +83,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -103,7 +103,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddReservation",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -112,7 +112,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -132,7 +132,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "AddTerminalToStore",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -141,7 +141,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -161,7 +161,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "BeginJumioIdentityVerificationProcess",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -170,7 +170,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -190,7 +190,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "CashDrawerMakeLoan",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -199,7 +199,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -219,7 +219,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "CashDrawerMakePickUp",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -228,7 +228,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -248,7 +248,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "CheckEgaisIdCode",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -257,7 +257,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -277,7 +277,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "CheckGiftCardBalance",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -286,7 +286,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -306,7 +306,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "ClockOperation",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -315,7 +315,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -335,7 +335,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "CreateBasicModeMenuItem",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -344,7 +344,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -364,7 +364,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "EndShift",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -373,7 +373,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -393,7 +393,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetActiveOrdersChangesDigest",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -402,7 +402,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -422,7 +422,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetActualPromoCampaigns",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -431,7 +431,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -451,7 +451,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetAllCustomers",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -460,7 +460,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -480,7 +480,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetAllDeliveryZones",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -489,7 +489,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -509,7 +509,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetAllDiscounts",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -518,7 +518,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -538,7 +538,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetAllEmployees",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -547,7 +547,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -567,7 +567,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetAllGiftCardTypes",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -576,7 +576,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -596,7 +596,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetAllLanguages",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -605,7 +605,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -625,7 +625,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetAllStores",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -634,7 +634,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -654,7 +654,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCashDrawerInfoTotal",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -663,7 +663,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -683,7 +683,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetChangedCustomers",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -692,7 +692,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -712,7 +712,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetChangeReasons",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -721,7 +721,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -741,7 +741,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCheckoutOptionsByOrderType",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -750,7 +750,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -770,7 +770,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCurrentCashierLastActivity",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -779,7 +779,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -799,7 +799,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCurrentEmployee",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -808,7 +808,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -828,7 +828,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCurrentStore",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -837,7 +837,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -857,7 +857,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCurrentUserClockState",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -866,7 +866,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -886,7 +886,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCustomerAddresses",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -895,7 +895,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -915,7 +915,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCustomerByCardNo",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -924,7 +924,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -944,7 +944,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetCustomersGroups",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -953,7 +953,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -973,7 +973,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetDateTimeActiveOrdersUpdated",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -982,7 +982,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1002,7 +1002,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetDeletedItemsByEmployeeReport",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1011,7 +1011,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1031,7 +1031,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetDeletedItemsReport",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1040,7 +1040,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1060,7 +1060,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetDeliveryOrders",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1069,7 +1069,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1089,7 +1089,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetDriver",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1098,7 +1098,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1118,7 +1118,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetDriverCostsReport",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1127,7 +1127,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1147,7 +1147,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetDriversDetails",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1156,7 +1156,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1176,7 +1176,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetEvents",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1185,7 +1185,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1205,7 +1205,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetFilteredCustomers",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1214,7 +1214,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1234,7 +1234,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetFloorPlans",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1243,7 +1243,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1263,7 +1263,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetLastCashierShift",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1272,7 +1272,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1292,7 +1292,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetLocalStoreDateTime",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1301,7 +1301,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1321,7 +1321,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetMenus",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1330,7 +1330,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1350,7 +1350,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetMenus2",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1359,7 +1359,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1379,7 +1379,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetMenuUpdated",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1388,7 +1388,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1408,7 +1408,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetPagedActiveOrders",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1417,7 +1417,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1437,7 +1437,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetPagedCashDrawerItems",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1446,7 +1446,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1466,7 +1466,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetPagedClosedOrders",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1475,7 +1475,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1495,7 +1495,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetReportById",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1504,7 +1504,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1524,7 +1524,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetReservation",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1533,7 +1533,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1553,7 +1553,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetReservations",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1562,7 +1562,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1582,7 +1582,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetSalesByCategoryWithModifiersReport",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1591,7 +1591,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1611,7 +1611,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetSalesByEmployeeReport",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1620,7 +1620,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1640,7 +1640,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetSalesByHoursReport",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1649,7 +1649,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1669,7 +1669,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetSalesByMenuItemsReport",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1678,7 +1678,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1698,7 +1698,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetSalesByOrderCreatorReport",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1707,7 +1707,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1727,7 +1727,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetStoreByStoreId",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1736,7 +1736,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1756,7 +1756,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetSystemSettings",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1765,7 +1765,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1785,7 +1785,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetTenantLogo",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1794,7 +1794,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1814,7 +1814,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetTerminal",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1823,7 +1823,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1843,7 +1843,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetTerminals",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1852,7 +1852,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1872,7 +1872,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetTerminalsByStoreId",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1881,7 +1881,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1901,7 +1901,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "GetXReport",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1910,7 +1910,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1930,7 +1930,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "LogManualCustomerVerifications",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1939,7 +1939,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1959,7 +1959,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "Logout",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1968,7 +1968,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -1988,7 +1988,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "RemoveCustomerAddress",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -1997,7 +1997,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -2017,7 +2017,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "RemoveReservation",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -2026,7 +2026,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -2046,7 +2046,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "SavePaymentsenseData",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -2055,7 +2055,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -2075,7 +2075,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "SendReport",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -2084,7 +2084,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -2104,7 +2104,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "SetEgaisIdCodeShiftId",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -2113,7 +2113,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -2133,7 +2133,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "SetStopMenuItem",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -2142,7 +2142,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -2162,7 +2162,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "StartShift",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -2171,7 +2171,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -2191,7 +2191,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "UpdateCustomer",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -2200,7 +2200,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -2220,7 +2220,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "UpdateDriverDetails",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -2229,7 +2229,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {
@@ -2249,7 +2249,7 @@ namespace YumaPos.Tests.Load.Client.API {
                 MethodName = "UpdateReservation",
                 Created = DateTime.UtcNow,
             };
-			var stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
@@ -2258,7 +2258,7 @@ namespace YumaPos.Tests.Load.Client.API {
             catch (Exception ex)
             {
                 reportItem.ExceptionMessage = ex.ToString();
-				throw;
+                throw;
             }
             finally
             {

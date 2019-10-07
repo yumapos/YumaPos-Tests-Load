@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using YumaPos.Shared.API;
 using YumaPos.Shared.API.Models.Ordering;
@@ -64,7 +65,7 @@ namespace YumaPos.Tests.Load.Server.Services
             var roles = await _backOfficeApi.GetAllRoles();
             foreach (var role in roles)
             {
-                role.StoresId = new Guid[] {storeId};
+                role.Stores = new List<StoreDto>() {new StoreDto() {StoreId = storeId}};
             }
             var rnd = (new Random()).Next(Int32.MaxValue);
             var employeeDto = new EmployeeDto()

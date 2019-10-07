@@ -1,9 +1,10 @@
-using System.Configuration;
+
+using System.Data.Entity.Infrastructure;
 using YumaPos.Tests.Load.Server.Data.Interfaces;
 
 namespace YumaPos.Tests.Load.Server.Data
 {
-    public class EntityContainer : IEntityContainer
+    public class EntityContainer : IEntityContainer, IDbContextFactory<LoadTestDbContext>
     {
         private LoadTestDbContext _context;
 
@@ -11,16 +12,13 @@ namespace YumaPos.Tests.Load.Server.Data
         {
             get
             {
-                return _context ?? (_context = new LoadTestDbContext(ConnectionString));
+                return _context ?? (_context = Create());
             }
         }
 
-        public string ConnectionString
+        public LoadTestDbContext Create()
         {
-            get
-            {
-                return ConfigurationManager.ConnectionStrings["POSTestLoad"].ConnectionString;
-            }
+            return new LoadTestDbContext("POSTestLoad");
         }
     }
 }
