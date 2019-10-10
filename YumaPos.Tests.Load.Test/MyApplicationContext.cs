@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YumaPos.Tests.Load.Client.Forms;
 
 namespace YumaPos.Tests.Load.Client
 {
@@ -12,6 +13,8 @@ namespace YumaPos.Tests.Load.Client
         private NotifyIcon TrayIcon;
         private ContextMenuStrip TrayIconContextMenu;
         private ToolStripMenuItem CloseMenuItem;
+        private ToolStripMenuItem ShowMenuItem;
+        private MainForm MainWindow;
 
         public MyApplicationContext()
         {
@@ -31,23 +34,27 @@ namespace YumaPos.Tests.Load.Client
                 Icon = Resources.Resource.TrayIcon
             };
 
-
+            MainWindow = new MainForm();
+            MainWindow.Show();
+            MainWindow.Model.Stopped += OnApplicationExit;
 
             //The icon is added to the project resources.
             //Here I assume that the name of the file is 'TrayIcon.ico'
 
             //Optional - handle doubleclicks on the icon:
+            TrayIcon.Click += TrayIcon_Click;
             TrayIcon.DoubleClick += TrayIcon_DoubleClick;
 
             //Optional - Add a context menu to the TrayIcon:
             TrayIconContextMenu = new ContextMenuStrip();
             CloseMenuItem = new ToolStripMenuItem();
+            ShowMenuItem = new ToolStripMenuItem();
             TrayIconContextMenu.SuspendLayout();
 
             // 
             // TrayIconContextMenu
             // 
-            this.TrayIconContextMenu.Items.AddRange(new ToolStripItem[] {CloseMenuItem});
+            this.TrayIconContextMenu.Items.AddRange(new ToolStripItem[] {ShowMenuItem, new ToolStripSeparator(), CloseMenuItem});
             this.TrayIconContextMenu.Name = "TrayIconContextMenu";
             this.TrayIconContextMenu.Size = new Size(153, 70);
             // 
@@ -57,11 +64,19 @@ namespace YumaPos.Tests.Load.Client
             this.CloseMenuItem.Size = new Size(152, 22);
             this.CloseMenuItem.Text = "Exit";
             this.CloseMenuItem.Click += new EventHandler(this.CloseMenuItem_Click);
+            // 
+            // ShowMenuItem
+            // 
+            this.ShowMenuItem.Name = "ShowMenuItem";
+            this.ShowMenuItem.Size = new Size(152, 22);
+            this.ShowMenuItem.Text = "Open window";
+            this.ShowMenuItem.Click += new EventHandler(this.ShowMenuItem_Click);
 
             TrayIconContextMenu.ResumeLayout(false);
             TrayIcon.ContextMenuStrip = TrayIconContextMenu;
 
             App = Bootstrapper.GetObjectInstance<App>();
+            App.WindowModel = MainWindow.Model;
             TaskScheduler.UnobservedTaskException += ErrorHandler;
             Task.Factory.StartNew(App.Start, TaskCreationOptions.LongRunning);
         }
@@ -81,18 +96,26 @@ namespace YumaPos.Tests.Load.Client
             TrayIcon.Visible = false;
         }
 
+        private void TrayIcon_Click(object sender, EventArgs e)
+        {
+            //TrayIcon.ShowBalloonTip(10000);
+        }
         private void TrayIcon_DoubleClick(object sender, EventArgs e)
         {
-            //Here you can do stuff if the tray icon is doubleclicked
-            TrayIcon.ShowBalloonTip(10000);
+            MainWindow.Show();
         }
 
+        private void ShowMenuItem_Click(object sender, EventArgs e)
+        {
+            MainWindow.Show();
+        }
         private void CloseMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you really want to close me?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            //if (MessageBox.Show("Do you really want to close me?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                Application.Exit();
+                MainWindow.Model.Stop();
                 App.Stop();
+                Application.Exit();
             }
         }
     }

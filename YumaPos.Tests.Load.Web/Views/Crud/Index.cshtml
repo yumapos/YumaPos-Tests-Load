@@ -1,0 +1,25 @@
+﻿@using System.Data
+@model DataTable
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<table cellpadding="0" cellspacing="0">
+    <tr>
+        @foreach (DataColumn col in Model.Columns)
+        {
+            <th>@col.ColumnName</th>
+        }
+
+    </tr>
+    @foreach (DataRow row in Model.Rows)
+    {
+        <tr>
+            @foreach (DataColumn col in Model.Columns)
+            {
+                <td>@row[col.ColumnName]</td>
+            }
+        </tr>
+    }
+</table>

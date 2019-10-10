@@ -9,6 +9,7 @@ using NLog;
 using YumaPos.Shared.Exceptions;
 using YumaPos.Tests.Load.Client.Data.Interfaces;
 using YumaPos.Tests.Load.Client.Data.Models;
+using YumaPos.Tests.Load.Client.Forms;
 using YumaPos.Tests.Load.Client.Interfaces;
 using YumaPos.Tests.Load.Client.Logic;
 using YumaPos.Tests.Load.Infrastructure.Dto;
@@ -22,7 +23,6 @@ namespace YumaPos.Tests.Load.Client
         private readonly ITestApi _testApi;
         private readonly ITaskRepository _taskRepository;
         private readonly List<TestEngine> _runningInstances = new List<TestEngine>();
-        private CancellationTokenSource _cancellationTokenSource;
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
         public App(IConfig config, ITestApi testApi, ITaskRepository taskRepository)
@@ -32,10 +32,11 @@ namespace YumaPos.Tests.Load.Client
             _taskRepository = taskRepository;
         }
 
+        public MainWindowModel WindowModel { get; set; }
+
         public void Stop()
         {
             _run = false;
-            _cancellationTokenSource.Cancel();
             foreach (var testEngine in _runningInstances)
             {
                 testEngine.Stop();
@@ -46,19 +47,27 @@ namespace YumaPos.Tests.Load.Client
         {
             try
             {
-                _cancellationTokenSource = new CancellationTokenSource();
                 if (!_config.ClientIsRegistered)
                 {
                     var token = await _testApi.RegisterClient(_config.ClientId, System.Environment.MachineName);
                     _config.ClientToken = token;
                     _config.ClientIsRegistered = true;
                 }
-                await _testApi.CancelMyTasks(_config.ClientToken);
+                try
+                {
+                    await _testApi.CancelMyTasks(_config.ClientToken);
+                    WindowModel.Status = "Waiting for test tasks";
+                }
+                catch (FaultException e)
+                {
+                    WindowModel.Status = e.Message;
+                    _run = false;
+                }
                 while (_run)
                 {
                     await CheckNewTask();
                     await CheckTaskForExecute();
-                    await Task.Delay(TimeSpan.FromSeconds(0.2), _cancellationTokenSource.Token);
+                    await Task.Delay(TimeSpan.FromSeconds(0.2));
                 }
             }
             catch (Exception exception)
@@ -70,9 +79,7 @@ namespace YumaPos.Tests.Load.Client
             }
             finally
             {
-                _cancellationTokenSource.Cancel();
                 _run = false;
-                Stop();
             }
         }
 

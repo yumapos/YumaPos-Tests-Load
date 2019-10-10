@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.Wcf;
@@ -37,8 +38,9 @@ namespace YumaPos.Tests.Load.Web
                 AutoFacHelper.Register(Builder, registration);
             }
             Builder.RegisterControllers(typeof(MvcApplication).Assembly);
-
             Container = Builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(Container));
+
             // in the future - one named scope per window/client, several command controllers with different sets of commands
             MainScope = Container; //.BeginLifetimeScope(NamedScopes.MainScope);
             AutofacHostFactory.Container = Container;
