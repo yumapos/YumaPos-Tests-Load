@@ -35,5 +35,10 @@ namespace YumaPos.Tests.Load.Client.Data.Repositories
             task.IsStarting = true;
             await _dbContext.SaveChangesAsync().ConfigureAwait(false);
         }
+
+        public async Task Clear()
+        {
+            await _dbContext.Database.ExecuteSqlCommandAsync("DELETE FROM [TestTasks]");
+        }
     }
 }

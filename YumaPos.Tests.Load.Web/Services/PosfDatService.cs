@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using YumaPos.Shared.API;
 using YumaPos.Shared.API.Models.Ordering;
@@ -63,9 +64,11 @@ namespace YumaPos.Tests.Load.Web.Services
             var userToken = await _authorizationApi.Login(_login, _password);
             _backOfficeApi.SetUserToken(userToken);
             var roles = await _backOfficeApi.GetAllRoles();
+            var stores = await _backOfficeApi.GetAllStores();
+            var languages = await _backOfficeApi.GetAllLanguages();
             foreach (var role in roles)
             {
-                role.Stores = new List<StoreDto>() {new StoreDto() {StoreId = storeId}};
+                role.Stores = stores.Where(p => p.StoreId == storeId).ToList();
             }
             var rnd = (new Random()).Next(Int32.MaxValue);
             var employeeDto = new EmployeeDto()
@@ -75,7 +78,8 @@ namespace YumaPos.Tests.Load.Web.Services
                 Login = "empl" + rnd,
                 CashierPassword = rnd,
                 Roles = roles,
-                UserId = Guid.NewGuid()
+                UserId = Guid.NewGuid(),
+                LanguageCode = languages.Single(p => p.IsMain).LanguageCode,
             };
             int employeeId = await _backOfficeApi.AddEmployee(employeeDto);
             await _backOfficeApi.ChangeEmployeePassword(new EmployeePasswordDto()

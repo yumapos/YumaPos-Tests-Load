@@ -24,6 +24,7 @@ namespace YumaPos.Tests.Load.Web.Controllers
                 TenantsCount = _db.Tenants.Count(),
                 JobsCount = _db.Jobs.Count(),
                 StoresCount = _db.Stores.Count(),
+                TerminalsCount = _db.Terminals.Count(),
                 TestTasksCount = _db.TestTasks.Count(),
                 ClientsCount = _db.Clients.Count(),
                 EmployeesCount = _db.Employees.Count(),

@@ -36,7 +36,7 @@ namespace YumaPos.Tests.Load.Client
 
             MainWindow = new MainForm();
             MainWindow.Show();
-            MainWindow.Model.Stopped += OnApplicationExit;
+            MainWindow.MainWindowModel.Stopped += OnApplicationExit;
 
             //The icon is added to the project resources.
             //Here I assume that the name of the file is 'TrayIcon.ico'
@@ -76,7 +76,7 @@ namespace YumaPos.Tests.Load.Client
             TrayIcon.ContextMenuStrip = TrayIconContextMenu;
 
             App = Bootstrapper.GetObjectInstance<App>();
-            App.WindowModel = MainWindow.Model;
+            App.WindowModel = MainWindow.MainWindowModel;
             TaskScheduler.UnobservedTaskException += ErrorHandler;
             Task.Factory.StartNew(App.Start, TaskCreationOptions.LongRunning);
         }
@@ -92,7 +92,7 @@ namespace YumaPos.Tests.Load.Client
         private void OnApplicationExit(object sender, EventArgs e)
         {
             //Cleanup so that the icon will be removed when the application is closed
-            App.Stop();
+            App.Stop().Wait();
             TrayIcon.Visible = false;
         }
 
@@ -109,12 +109,12 @@ namespace YumaPos.Tests.Load.Client
         {
             MainWindow.Show();
         }
-        private void CloseMenuItem_Click(object sender, EventArgs e)
+        private async void CloseMenuItem_Click(object sender, EventArgs e)
         {
             //if (MessageBox.Show("Do you really want to close me?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                MainWindow.Model.Stop();
-                App.Stop();
+                MainWindow.MainWindowModel.Stop();
+                await App.Stop();
                 Application.Exit();
             }
         }

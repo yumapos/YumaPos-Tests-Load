@@ -22,7 +22,7 @@ namespace YumaPos.Tests.Load.Scenarios
         {
             _context.FullMenu = (await _terminalApi.GetMenus2(new MenuRequestDto())).Value.First();
             IMenuCacheModel menuCache = CacheTree.Map<MenuCacheModel, Availability, CommonModifier, Language, MenuCategory, MenuItem, ModifierGroup, RelatedModifier, MenuCategory2Availability, MenuItem2Availability, ModifierGroup2MenuItem>(_context.FullMenu);
-            _context.TreeMenu = CacheTree.CreateTree(menuCache, "en");
+            _context.TreeMenu = CacheTree.CreateTree(menuCache, menuCache.Language.First().Key);
         }
 
     }

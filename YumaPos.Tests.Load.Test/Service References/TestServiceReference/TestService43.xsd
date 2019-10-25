@@ -47,8 +47,7 @@
   <xs:element name="Report">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="clientToken" type="q6:guid" />
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/YumaPos.Tests.Load.Infrastructure.Dto" minOccurs="0" name="report" nillable="true" type="q7:ReportDto" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/YumaPos.Tests.Load.Infrastructure.Dto" minOccurs="0" name="report" nillable="true" type="q6:ReportDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -60,7 +59,7 @@
   <xs:element name="Finish">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="clientToken" type="q8:guid" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="clientToken" type="q7:guid" />
         <xs:element minOccurs="0" name="taskId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>

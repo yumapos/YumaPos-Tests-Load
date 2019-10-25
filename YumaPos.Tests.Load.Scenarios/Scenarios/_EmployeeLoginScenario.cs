@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using YumaPos.FrontEnd.Infrastructure.CommandProcessing;
 using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Shared.API;
 using YumaPos.Shared.API.Enums;
@@ -51,12 +53,48 @@ namespace YumaPos.Tests.Load.Scenarios
 
         private async Task ShiftStart()
         {
-            await _terminalApi.StartShift(0);
-            await _terminalApi.AddCashDrawerCheckItem(new CashDrawerItemDto
+            var lastActivity = await _terminalApi.GetCurrentCashierLastActivity();
+            Assert.AreEqual(null, lastActivity.PostprocessingType);
+            if (lastActivity.Value.Activity == CashDrawerActivity.ShiftStart)
             {
-                Activity = CashDrawerActivity.CashierIn,
-                Amount = 0,
-            });
+                var cashDrawerInfo = await _terminalApi.GetCashDrawerInfoTotal();
+                Assert.AreEqual(null, cashDrawerInfo.PostprocessingType);
+
+                var response3 = await _terminalApi.AddCashDrawerCheckItem(new CashDrawerItemDto()
+                {
+                    Id = Guid.NewGuid(),
+                    Activity = CashDrawerActivity.CashierOut,
+                    Amount = cashDrawerInfo.Value.CalculatedBalance,
+                });
+                Assert.AreEqual(null, response3.PostprocessingType);
+                lastActivity.Value.Activity = CashDrawerActivity.CashierOut;
+            }
+            if (lastActivity.Value.Activity == CashDrawerActivity.CashierOut)
+            {
+                var cashDrawerInfo = await _terminalApi.GetCashDrawerInfoTotal();
+                Assert.AreEqual(null, cashDrawerInfo.PostprocessingType);
+                var response4 = await _terminalApi.EndShift(cashDrawerInfo.Value.CalculatedBalance);
+                Assert.AreEqual(null, response4.PostprocessingType);
+                lastActivity.Value.Activity = CashDrawerActivity.CashierOut;
+            }
+            if (lastActivity.Value.Activity == CashDrawerActivity.ShiftEnd)
+            {
+                var response5 = await _terminalApi.StartShift(0);
+                Assert.AreEqual(null, response5.PostprocessingType);
+                lastActivity.Value.Activity = CashDrawerActivity.ShiftStart;
+            }
+            if (lastActivity.Value.Activity == CashDrawerActivity.ShiftStart)
+            {
+                var response6 = await _terminalApi.AddCashDrawerCheckItem(new CashDrawerItemDto
+                {
+                    Activity = CashDrawerActivity.CashierIn,
+                    Amount = 0,
+                });
+                Assert.AreEqual(null, response6.PostprocessingType);
+            }
+            lastActivity = await _terminalApi.GetCurrentCashierLastActivity();
+            Assert.AreEqual(null, lastActivity.PostprocessingType);
+            Assert.AreEqual(CashDrawerActivity.CashierIn, lastActivity.Value.Activity);
         }
 
         public async Task ThenIAmAuthennticated()

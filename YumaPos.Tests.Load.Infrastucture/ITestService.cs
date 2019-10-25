@@ -20,7 +20,7 @@ namespace YumaPos.Tests.Load.Infrastructure
         Task CancelMyTasks(Guid clientToken);
 
         [OperationContract]
-        Task Report(Guid clientToken, ReportDto report);
+        Task Report(ReportDto report);
 
         [OperationContract]
         Task Finish(Guid clientToken, int taskId);

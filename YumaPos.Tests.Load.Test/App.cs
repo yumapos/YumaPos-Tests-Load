@@ -34,13 +34,14 @@ namespace YumaPos.Tests.Load.Client
 
         public MainWindowModel WindowModel { get; set; }
 
-        public void Stop()
+        public async Task Stop()
         {
             _run = false;
             foreach (var testEngine in _runningInstances)
             {
                 testEngine.Stop();
             }
+            await _testApi.CancelMyTasks(_config.ClientToken);
         }
 
         public async void Start()
@@ -55,6 +56,7 @@ namespace YumaPos.Tests.Load.Client
                 }
                 try
                 {
+                    await _taskRepository.Clear();
                     await _testApi.CancelMyTasks(_config.ClientToken);
                     WindowModel.Status = "Waiting for test tasks";
                 }
@@ -102,6 +104,7 @@ namespace YumaPos.Tests.Load.Client
                 {
                     var engine = new TestEngine();
                     _runningInstances.Add(engine);
+                    WindowModel.AddRunning(testTask);
                     engine.Finished += OnTestEngineFinished;
                     engine.Reported += OnTestEngineReported;
                     engine.TestTask = testTask;
@@ -119,6 +122,7 @@ namespace YumaPos.Tests.Load.Client
             engine.Reported -= OnTestEngineReported;
             await _testApi.Report(_config.ClientToken, engine.GetReport());
             await _testApi.Finish(_config.ClientToken, engine.TestTask.TaskId);
+            WindowModel.RemoveRunning(engine.TestTask.JobId);
             engine.Dispose();
         }
         private async void OnTestEngineReported(object sender, EventArgs e)

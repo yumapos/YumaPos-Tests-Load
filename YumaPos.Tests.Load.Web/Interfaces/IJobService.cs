@@ -32,4 +32,8 @@ namespace YumaPos.Tests.Load.Web.Interfaces
     {
         Task Add(ReportDto report);
     }
+    public interface ITenantService
+    {
+        Task Import(Guid tenantId);
+    }
 }

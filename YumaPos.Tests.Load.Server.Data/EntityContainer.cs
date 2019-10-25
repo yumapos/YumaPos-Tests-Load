@@ -18,7 +18,7 @@ namespace YumaPos.Tests.Load.Server.Data
 
         public LoadTestDbContext Create()
         {
-            return new LoadTestDbContext("POSTestLoad");
+            return new LoadTestDbContext("LoadTestData");
         }
     }
 }

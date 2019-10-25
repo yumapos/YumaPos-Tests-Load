@@ -14,11 +14,13 @@
       <xs:element minOccurs="0" name="Duration" type="ser:duration" />
       <xs:element minOccurs="0" name="EmployeeLogin" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EmployeePassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JobId" type="xs:int" />
       <xs:element minOccurs="0" name="MaxInterval" type="ser:duration" />
       <xs:element minOccurs="0" name="MinInterval" type="ser:duration" />
       <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Scenarios" nillable="true" type="q1:ArrayOfstring" />
       <xs:element minOccurs="0" name="ServiceAddress" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Start" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StoreId" type="ser:guid" />
       <xs:element minOccurs="0" name="TaskId" type="xs:int" />
       <xs:element minOccurs="0" name="TenantAlias" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TerminalId" type="ser:guid" />
@@ -29,6 +31,7 @@
   <xs:element name="TestTaskDto" nillable="true" type="tns:TestTaskDto" />
   <xs:complexType name="ReportDto">
     <xs:sequence>
+      <xs:element minOccurs="0" name="ClientToken" type="ser:guid" />
       <xs:element minOccurs="0" name="ReportItems" nillable="true" type="tns:ArrayOfReportItem" />
       <xs:element minOccurs="0" name="TaskId" type="xs:int" />
     </xs:sequence>

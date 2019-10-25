@@ -9,5 +9,6 @@ namespace YumaPos.Tests.Load.Client.Data.Interfaces
         Task AddRange(IEnumerable<TestTask> tasks);
         Task<IEnumerable<TestTask>> GetReadyTasks();
         Task SetIsStarting(int taskId);
+        Task Clear();
     }
 }

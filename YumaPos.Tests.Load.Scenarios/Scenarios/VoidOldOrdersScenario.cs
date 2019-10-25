@@ -24,12 +24,19 @@ namespace YumaPos.Tests.Load.Scenarios
         }
         public async Task StartAsync()
         {
-            var response1 = await _terminalApi.GetPagedActiveOrders(new OrderFilterDto() {Statuses = new []{OrderStatus.New}, DateStart = DateTime.UtcNow.AddDays(-1), DateEnd = DateTime.UtcNow.AddMinutes(-15), Count = 1});
+            var response1 = await _terminalApi.GetPagedActiveOrders(new OrderFilterDto() {Statuses = new []{OrderStatus.New}, DateStart = DateTime.UtcNow.AddDays(-10), DateEnd = DateTime.UtcNow.AddMinutes(-15), Count = 10});
             IList<TerminalOrderDto> orders = response1.Value.Results;
             foreach (TerminalOrderDto orderDto in orders)
             {
                 _orderServiceApi.ExecutionContext.OrderId = orderDto.OrderId;
-                await _orderServiceApi.UpdateOrderStatusByOrderId(null, orderDto.OrderId, (int) OrderStatus.Void);
+                if (orderDto.PaymentStatus == PayStatus.NotPaidNotRefunded)
+                {
+                    await _orderServiceApi.UpdateOrderStatusByOrderId(null, orderDto.OrderId, (int) OrderStatus.Void);
+                }
+                else
+                {
+                    await _orderServiceApi.UpdateOrderStatusByOrderId(null, orderDto.OrderId, (int) OrderStatus.Closed);
+                }
             }
         }
     }

@@ -20,7 +20,7 @@ namespace YumaPos.Tests.Load.Client.Logic
         {
             using (var client = new TestServiceReference.TestServiceClient())
             {
-                return await client.GetTasksAsync(clientToken, maxInstanceCount);
+                return client.GetTasks(clientToken, maxInstanceCount);
             }
         }
         public async Task CancelMyTasks(Guid clientToken)
@@ -32,9 +32,10 @@ namespace YumaPos.Tests.Load.Client.Logic
         }
         public async Task Report(Guid clientToken, ReportDto report)
         {
+            report.ClientToken = clientToken;
             using (var client = new TestServiceReference.TestServiceClient())
             {
-                await client.ReportAsync(clientToken, report);
+                client.Report(report);
             }
         }
         public async Task Finish(Guid clientToken, int taskId)

@@ -1,0 +1,43 @@
+﻿@model YumaPos.Tests.Load.Server.Data.DataObjects.Tenant
+
+<h2>Edit tenant @Model.TenantAlias</h2>
+@using (@Html.BeginForm("Save"))
+{
+    @Html.HiddenFor(p => p.TenantId);
+
+    <table>
+        <tr><td></td><td></td></tr>
+        <tr>
+            <td>Alias</td>
+            <td>
+                @Html.TextBoxFor(p => p.TenantAlias);
+            </td>
+        </tr>
+        <tr>
+            <td>Login</td>
+            <td>
+                @Html.TextBoxFor(p => p.Login);
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>
+                @Html.TextBoxFor(p => p.Password);
+            </td>
+        </tr>
+        <tr>
+            <td>Job:</td>
+            <td>
+                @Html.TextBoxFor(p => p.JobId);
+            </td>
+        </tr>
+        <tr>
+            <td>Server</td>
+            <td>
+                @Html.TextBoxFor(p => p.ServerId);
+            </td>
+        </tr>
+        <tr><td></td><td>@Html.ActionLink("Import Employes and terminals", "Import", new {id = Model.TenantId})</td></tr>
+        <tr><td></td><td></td></tr>
+    </table>
+}

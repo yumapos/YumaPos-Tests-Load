@@ -4,7 +4,7 @@ namespace YumaPos.Tests.Load.Scenarios
 {
     public class ApiConfig : IAPIConfig
     {
-        public string ApiVersion { get; }
+        public string ApiVersion { get; set; }
         public string TerminalServiceAddress { get; set; }
         public string TerminalId { get; set; }
         public string Tenant { get; set; }

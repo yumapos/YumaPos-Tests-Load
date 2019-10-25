@@ -36,7 +36,7 @@ namespace YumaPos.Tests.Load.Web
             if (!client.IsActive) throw new FaultException(ErrorStrings.ClientNotActivated);
             // check available job to do
             var job = await jobService.GetNextJob();
-            if (job != null && client.TasksCount < maxInstance)
+            if (job != null && job.MaxTasksCount > job.TasksCount && client.TasksCount < maxInstance)
             {
                 var res = new List<TestTaskDto>();
                 // check free terminals and employees
@@ -51,10 +51,12 @@ namespace YumaPos.Tests.Load.Web
                 res.Add(new TestTaskDto()
                 {
                     TaskId = tt.TestId,
+                    JobId = job.JobId,
                     TerminalIsRegistered = false,
                     AuthorizationAddress = job.Server.AuthorizationAddress,
                     ServiceAddress = job.Server.ServiceAddress,
                     TenantAlias = terminal.Tenant.TenantAlias,
+                    StoreId = terminal.StoreId,
                     TerminalId = terminal.TerminalId,
                     TerminalToken = terminal.Token,
                     EmployeeLogin = employee.Login,
@@ -84,10 +86,10 @@ namespace YumaPos.Tests.Load.Web
             await jobService.CancelByClientId(client.ClientId);
         }
 
-        public async Task Report(Guid clientToken, ReportDto report)
+        public async Task Report(ReportDto report)
         {
             var clientService = Scope.Resolve<IClientService>();
-            var client = await clientService.GetByToken(clientToken);
+            var client = await clientService.GetByToken(report.ClientToken);
             if (client == null) throw new FaultException(ErrorStrings.ClientNotFound);
             if (!client.IsActive) throw new FaultException(ErrorStrings.ClientNotActivated);
 

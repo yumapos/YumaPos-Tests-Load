@@ -7,10 +7,12 @@ namespace YumaPos.Tests.Load.Infrastructure.Dto
     public class TestTaskDto
     {
         public int TaskId { get; set; }
+        public int JobId { get; set; }
         public bool TerminalIsRegistered { get; set; }
         public string AuthorizationAddress { get; set; }
         public string ServiceAddress { get; set; }
         public string TenantAlias { get; set; }
+        public Guid StoreId { get; set; }
         public Guid TerminalId { get; set; }
         public Guid TerminalToken { get; set; }
         public string EmployeeLogin { get; set; }

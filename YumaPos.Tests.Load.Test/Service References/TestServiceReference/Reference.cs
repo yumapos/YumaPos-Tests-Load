@@ -34,10 +34,10 @@ namespace YumaPos.Tests.Load.Client.TestServiceReference {
         System.Threading.Tasks.Task CancelMyTasksAsync(System.Guid clientToken);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Report", ReplyAction="http://tempuri.org/ITestService/ReportResponse")]
-        void Report(System.Guid clientToken, [System.ServiceModel.MessageParameterAttribute(Name="report")] YumaPos.Tests.Load.Infrastructure.Dto.ReportDto report1);
+        void Report([System.ServiceModel.MessageParameterAttribute(Name="report")] YumaPos.Tests.Load.Infrastructure.Dto.ReportDto report1);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Report", ReplyAction="http://tempuri.org/ITestService/ReportResponse")]
-        System.Threading.Tasks.Task ReportAsync(System.Guid clientToken, YumaPos.Tests.Load.Infrastructure.Dto.ReportDto report);
+        System.Threading.Tasks.Task ReportAsync(YumaPos.Tests.Load.Infrastructure.Dto.ReportDto report);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITestService/Finish", ReplyAction="http://tempuri.org/ITestService/FinishResponse")]
         void Finish(System.Guid clientToken, int taskId);
@@ -97,12 +97,12 @@ namespace YumaPos.Tests.Load.Client.TestServiceReference {
             return base.Channel.CancelMyTasksAsync(clientToken);
         }
         
-        public void Report(System.Guid clientToken, YumaPos.Tests.Load.Infrastructure.Dto.ReportDto report1) {
-            base.Channel.Report(clientToken, report1);
+        public void Report(YumaPos.Tests.Load.Infrastructure.Dto.ReportDto report1) {
+            base.Channel.Report(report1);
         }
         
-        public System.Threading.Tasks.Task ReportAsync(System.Guid clientToken, YumaPos.Tests.Load.Infrastructure.Dto.ReportDto report) {
-            return base.Channel.ReportAsync(clientToken, report);
+        public System.Threading.Tasks.Task ReportAsync(YumaPos.Tests.Load.Infrastructure.Dto.ReportDto report) {
+            return base.Channel.ReportAsync(report);
         }
         
         public void Finish(System.Guid clientToken, int taskId) {

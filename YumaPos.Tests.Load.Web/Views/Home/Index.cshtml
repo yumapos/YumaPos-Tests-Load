@@ -20,12 +20,16 @@
             <td>@Model.ServersCount</td>
         </tr>
         <tr>
-            <td>@Html.ActionLink("Tenants", "Index", "Crud", new RouteValueDictionary() { { "name", "Tenants" } }, null) Count:</td>
+            <td>@Html.ActionLink("Tenants", "Index", "Tenant") Count:</td>
             <td>@Model.TenantsCount</td>
         </tr>
         <tr>
             <td>@Html.ActionLink("Stores", "Index", "Crud", new RouteValueDictionary() { { "name", "Stores" } }, null) Count:</td>
             <td>@Model.StoresCount</td>
+        </tr>
+        <tr>
+            <td>@Html.ActionLink("Terminals", "Index", "Crud", new RouteValueDictionary() { { "name", "Terminals" } }, null) Count:</td>
+            <td>@Model.TerminalsCount</td>
         </tr>
         <tr>
             <td>@Html.ActionLink("Employees", "Index", "Crud", new RouteValueDictionary(){{"name", "Employees" } }, null) Count:</td>

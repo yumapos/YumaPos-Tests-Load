@@ -1,0 +1,14 @@
+﻿@model System.Data.Entity.DbSet<YumaPos.Tests.Load.Server.Data.DataObjects.Tenant>
+
+<h2>@ViewBag.Titile</h2>
+<table>
+    <tr>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(item.TenantAlias, "Edit", new {id = item.TenantId})</td>
+        </tr>
+    }
+</table>

@@ -14,6 +14,7 @@ namespace YumaPos.Tests.Load.Web
             Register<JobService, IJobService>(Lifecycles.PerScope);
             Register<TaskService, ITaskService>(Lifecycles.PerScope);
             Register<ReportService, IReportService>(Lifecycles.PerScope);
+            Register<TenantService, ITenantService>(Lifecycles.PerScope);
         }
     }
 }

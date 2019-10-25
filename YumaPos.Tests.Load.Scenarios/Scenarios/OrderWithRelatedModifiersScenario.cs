@@ -10,6 +10,7 @@ using YumaPos.Shared.Terminal.Infrastructure;
 using YumaPos.Shared.Terminal.Infrastructure.API.Models.Ordering;
 using YumaPos.Tests.Load.Scenarios.Interfaces;
 using YumaPos.Tests.Load.Scenarios.MenuHelper;
+using YumaPos.Tests.Load.Scenarios.Steps;
 
 namespace YumaPos.Tests.Load.Scenarios
 {
@@ -17,11 +18,13 @@ namespace YumaPos.Tests.Load.Scenarios
     {
         private readonly IOrderServiceApi _orderServiceApi;
         private readonly IMenuAvailabilityHelper _menuAvailabilityHelper;
+        private readonly TerminalContext _context;
 
-        public OrderWithRelatedModifiersScenario(IOrderServiceApi orderServiceApi, IMenuAvailabilityHelper menuAvailabilityHelper)
+        public OrderWithRelatedModifiersScenario(IOrderServiceApi orderServiceApi, IMenuAvailabilityHelper menuAvailabilityHelper, TerminalContext context)
         {
             _orderServiceApi = orderServiceApi;
             _menuAvailabilityHelper = menuAvailabilityHelper;
+            _context = context;
         }
         public async Task StartAsync()
         {
@@ -32,10 +35,7 @@ namespace YumaPos.Tests.Load.Scenarios
             Assert.IsTrue(menuItemsCount > 0, "Menuitems with related modifiers not found");
 
             var orderId = Guid.NewGuid();
-            _orderServiceApi.ExecutionContext.OrderId = orderId;
-            var response1 = await _orderServiceApi.AddOrder(orderId, OrderType.Quick);
-            var order = response1.Value;
-
+            var order = await OrderSteps.CreateOrder(_orderServiceApi, orderId, _context.StoreId);
 
             var i = new Random().Next(menuItemsCount);
 
@@ -48,6 +48,11 @@ namespace YumaPos.Tests.Load.Scenarios
             {
                 OrderItemId = orderItemId,
                 MenuItemId = menuitem.MenuItemId,
+                MenuItemVersionIds = new VersionIdsDto()
+                {
+                    ItemVersionId = menuitem.MenuItemVersionId,
+                    PriceListItemVersionId = menuitem.PriceListItemVersionId,
+                },
                 OrderId = order.OrderId,
                 CommonModifiers = new List<OrderItemCommonModifierDto>(),
                 RelatedModifiers = relatedModifiers.Select(a => new OrderItemRelatedModifierDto
@@ -55,47 +60,29 @@ namespace YumaPos.Tests.Load.Scenarios
                     OrderId = orderId,
                     OrderItemId = orderItemId,
                     Quantity = 1,
-                    RelatedModifierId = a.Id
+                    RelatedModifierId = a.Id,
+                    RelatedModifierVersionIds = new VersionIdsDto()
+                    {
+                        ItemVersionId = a.VersionId,
+                        PriceListItemVersionId = a.PriceListItemVersionId,
+                    },
                 }).ToList(),
-                Qty = 1,
+                Quantity = 1,
                 CalculatedPrice = menuitem.Price + relatedModifiers.Sum(a => a.Price)
             };
 
             var response2 = await _orderServiceApi.AddOrderItem(orderitem);
             Assert.IsNull(response2.PostprocessingType, response2.PostprocessingType.ToString());
-            var response3 = await _orderServiceApi.GetOrderItemsCosts(order.OrderId);
+            var response3 = await _orderServiceApi.GetOrderInfo(order.OrderId);
 
-            Assert.AreEqual(1, response3.Value.Count);
+            Assert.AreEqual(1, response3.Value.OrderItemsCosts.Count);
 
-            var cost = response3.Value.Sum(p => p.Value);
+            var cost = response3.Value.OrderItemsCosts.Sum(p => p.Value);
 
             Assert.IsTrue(cost > 0);
 
-            var requestTransaction = new RequestTransactionDto
-            {
-                PaymentInfo = new TransactionInfoDto()
-                {
-                    OrderId = order.OrderId,
-                    SplittingNumber = 0
-                },
-                Transaction = new PaymentTransactionParamsDto
-                {
-                    TransType = PaymentTransactionType.Payment,
-                    Tenders = new List<TenderParamsDto>
-                    {
-                        new TenderParamsDto
-                        {
-                            Amount = cost.ToString("F"),
-                            TipAmount = 0.ToString("F"),
-                            TenderType = TenderType.Ca
-                        }
-                    }
-                }
-            };
-            await Task.Delay(100);
-            var response4 = await _orderServiceApi.PaymentTransaction(requestTransaction);
+            await OrderSteps.PayAndClose(_orderServiceApi, order.OrderId, cost);
 
-            Assert.IsNull(response4.PostprocessingType);
         }
     }
 }

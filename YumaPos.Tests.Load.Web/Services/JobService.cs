@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -50,42 +51,34 @@ namespace YumaPos.Tests.Load.Web.Services
                 }
                 else
                 {
-                    if (posDataService == null) posDataService = CreatePosfDatService(job.Server, tenant.TenantAlias);
+                    if (posDataService == null) posDataService = CreatePosfDatService(job.Server, tenant);
                     // TODO: create new tenant
                     throw new NotImplementedException();
                 }
             }
 
             // Get free store for this tenant
-            var store = await _db.Stores.AsNoTracking().FirstOrDefaultAsync(s => s.TenantId == tenant.TenantId && s.JobId == job.JobId);
-            if (store == null)
+            var stores = await _db.Stores.AsNoTracking().Where(s => s.TenantId == tenant.TenantId && s.JobId == job.JobId).ToListAsync();
+            var storeIds = stores.Select(s => s.StoreId).ToArray();
+            if (!stores.Any())
             {
-                store = await _db.Stores.FirstOrDefaultAsync(s => s.TenantId == tenant.TenantId && s.JobId == null);
-                if (store != null)
-                {
-                    store.JobId = job.JobId;
-                    await _db.SaveChangesAsync();
-                }
-                else
-                {
-                    if (posDataService == null) posDataService = CreatePosfDatService(job.Server, tenant.TenantAlias);
-                    // TODO: create new store
-                    throw new NotImplementedException();
-                }
+                if (posDataService == null) posDataService = CreatePosfDatService(job.Server, tenant);
+                // TODO: create new store
+                throw new NotImplementedException();
             }
 
             // get free terminal and employee
-            var terminal = await _db.Terminals.Include(p=>p.Tenant).FirstOrDefaultAsync(t => t.StoreId == store.StoreId && t.ClientId == null);
+            var terminal = await _db.Terminals.Include(p=>p.Tenant).FirstOrDefaultAsync(t => storeIds.Contains( t.StoreId) && t.ClientId == null);
             if (terminal == null)
             {
-                if (posDataService == null) posDataService = CreatePosfDatService(job.Server, tenant.TenantAlias);
-                terminal = await posDataService.CreateNewTerminal(tenant.TenantId, store.StoreId);
+                if (posDataService == null) posDataService = CreatePosfDatService(job.Server, tenant);
+                terminal = await posDataService.CreateNewTerminal(tenant.TenantId, storeIds.Random() );
             }
-            var employee = await _db.Employees.FirstOrDefaultAsync(e => e.StoreId == store.StoreId && e.ClientId == null);
+            var employee = await _db.Employees.FirstOrDefaultAsync(e => storeIds.Contains(e.StoreId.Value) && e.ClientId == null);
             if (employee == null)
             {
-                if (posDataService == null) posDataService = CreatePosfDatService(job.Server, tenant.TenantAlias);
-                employee = await posDataService.CreateNewEmployee(tenant.TenantId, store.StoreId);
+                if (posDataService == null) posDataService = CreatePosfDatService(job.Server, tenant);
+                employee = await posDataService.CreateNewEmployee(tenant.TenantId, storeIds.Random());
             }
             terminal.ClientId = clientId;
             employee.ClientId = clientId;
@@ -97,21 +90,22 @@ namespace YumaPos.Tests.Load.Web.Services
 
         }
 
-        private IPosDataService CreatePosfDatService(Server.Data.DataObjects.Server server, string tenantAlias)
+        private IPosDataService CreatePosfDatService(Server.Data.DataObjects.Server server, Tenant tenant)
         {
             IAPIConfig apiConfig = new ApiConfig()
             {
-                Tenant = tenantAlias,
+                Tenant = tenant.TenantAlias,
                 TerminalId = Guid.NewGuid().ToString(),
                 AuthorizationAddress = server.AuthorizationAddress,
                 BackOfficeAddress = server.BackofficeAddress,
                 OrderServiceAddress = server.ServiceAddress.ToLowerInvariant().Replace("/terminalservice.svc", "/orderservice.svc"),
-                TerminalServiceAddress = server.ServiceAddress
+                TerminalServiceAddress = server.ServiceAddress,
+                ApiVersion = "6.0.0"
             };
             IBackOfficeApi b = new BackOfficeApi(apiConfig);
             IAuthorizationApi a = new AuthorizationApi(apiConfig);
             ITerminalApi t = new TerminalApi(apiConfig, new SerializationService(), new CheckServerConnectionService());
-            var posfDatService = new PosDataService(_container, b, a, t, server.Login, server.Password);
+            var posfDatService = new PosDataService(_container, b, a, t, tenant.Login, tenant.Password);
             return posfDatService;
         }
 
@@ -124,13 +118,14 @@ namespace YumaPos.Tests.Load.Web.Services
         public async Task CancelByClientId(Guid clientId)
         {
             var tasks = await _db.TestTasks.Where(p => p.ClientId == clientId).ToListAsync();
-            foreach (TestTask task in tasks)
-            {
-                (await _db.Jobs.FindAsync(task.JobId)).TasksCount--;
-            }
             (await _db.Employees.Where(p => p.ClientId == clientId).ToListAsync()).ForEach(p => p.ClientId = null);
             (await _db.Terminals.Where(p => p.ClientId == clientId).ToListAsync()).ForEach(p => p.ClientId = null);
             _db.TestTasks.RemoveRange(tasks);
+            await _db.SaveChangesAsync();
+            foreach (var job in (await _db.Jobs.ToListAsync()))
+            {
+                job.TasksCount = ( await _db.TestTasks.CountAsync(p => p.JobId == job.JobId));
+            }
             await _db.SaveChangesAsync();
         }
 
@@ -150,6 +145,8 @@ namespace YumaPos.Tests.Load.Web.Services
             _db.Database.ExecuteSqlCommand("UPDATE Terminals SET ClientId = null ");
             _db.Database.ExecuteSqlCommand("UPDATE Clients SET TasksCount = 0 ");
             _db.Database.ExecuteSqlCommand("UPDATE Jobs SET TasksCount = 0 ");
+            _db.Database.ExecuteSqlCommand("TRUNCATE TABLE TestTasks ");
         }
     }
+
 }

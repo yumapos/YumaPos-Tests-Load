@@ -34,6 +34,7 @@ namespace YumaPos.Tests.Load.Client.Logic
             _terminalContext.AuthServer         = TestTask.AuthorizationAddress;
             _terminalContext.TerminalServer     = TestTask.ServiceAddress;
             _terminalContext.TenantAlias        = TestTask.TenantAlias;
+            _terminalContext.StoreId            = TestTask.StoreId;
             _terminalContext.TerminalId         = TestTask.TerminalId;
             _terminalContext.TerminalToken      = TestTask.TerminalToken;
             _terminalContext.EmployeeLogin      = TestTask.EmployeeLogin;
@@ -47,6 +48,7 @@ namespace YumaPos.Tests.Load.Client.Logic
             config.AuthorizationAddress         = TestTask.AuthorizationAddress;
             config.TerminalServiceAddress       = TestTask.ServiceAddress;
             config.OrderServiceAddress          = TestTask.ServiceAddress.ToLowerInvariant().Replace("/terminalservice.svc", "/orderservice.svc");
+            config.ApiVersion                   = "6.0.0";
 
             var api = _scope.Resolve<TerminalApiWrapper>();
             api.MaxInterval = TestTask.MaxInterval;
@@ -86,9 +88,9 @@ namespace YumaPos.Tests.Load.Client.Logic
             {
                 foreach (string scenarioTypeName in TestTask.Scenarios)
                 {
-                    IScenario scenario = _scope.ResolveKeyed<IScenario>(scenarioTypeName);
                     try
                     {
+                        IScenario scenario = _scope.ResolveKeyed<IScenario>(scenarioTypeName);
                         await scenario.StartAsync();
                     }
                     catch (Exception exception)

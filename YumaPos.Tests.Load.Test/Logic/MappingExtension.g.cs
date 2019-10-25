@@ -43,9 +43,11 @@ namespace YumaPos.Tests.Load.Client.Logic
             
             var itemDto = new YumaPos.Tests.Load.Infrastructure.Dto.TestTaskDto ();
                 itemDto.TaskId = item.TaskId;
+                itemDto.JobId = item.JobId;
                 itemDto.AuthorizationAddress = item.AuthorizationAddress;
                 itemDto.ServiceAddress = item.ServiceAddress;
                 itemDto.TenantAlias = item.TenantAlias;
+                itemDto.StoreId = item.StoreId;
                 itemDto.TerminalId = item.TerminalId;
                 itemDto.TerminalToken = item.TerminalToken;
                 itemDto.EmployeeLogin = item.EmployeeLogin;
@@ -66,9 +68,11 @@ namespace YumaPos.Tests.Load.Client.Logic
             
             var item = new YumaPos.Tests.Load.Client.Data.Models.TestTask ();
                 item.TaskId = itemDto.TaskId;
+                item.JobId = itemDto.JobId;
                 item.AuthorizationAddress = itemDto.AuthorizationAddress;
                 item.ServiceAddress = itemDto.ServiceAddress;
                 item.TenantAlias = itemDto.TenantAlias;
+                item.StoreId = itemDto.StoreId;
                 item.TerminalId = itemDto.TerminalId;
                 item.TerminalToken = itemDto.TerminalToken;
                 item.EmployeeLogin = itemDto.EmployeeLogin;

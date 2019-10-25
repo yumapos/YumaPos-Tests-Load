@@ -18,7 +18,8 @@ namespace YumaPos.Tests.Load.Server.Data.Helpers
             foreach (var prop in properties)
             {
                 var t = prop.PropertyType;
-                if (prop.PropertyType.Name.StartsWith("Nullable")) t = prop.PropertyType.GenericTypeArguments[0];
+                if (t.FullName.Contains("YumaPos.Tests.Load.Server.Data")) continue;
+                if (t.Name.StartsWith("Nullable")) t = t.GenericTypeArguments[0];
                 result.Columns.Add(prop.Name, t);
             }
 
@@ -30,7 +31,11 @@ namespace YumaPos.Tests.Load.Server.Data.Helpers
                 foreach (var prop in properties)
                 {
                     var itemValue = prop.GetValue(item, new object[] { });
-                    if (itemValue != null) row[prop.Name] = itemValue;
+                    if (itemValue != null)
+                    {
+                        if (itemValue.GetType().FullName.Contains("YumaPos.Tests.Load.Server.Data")) continue;
+                        row[prop.Name] = itemValue;
+                    }
                 }
 
                 result.Rows.Add(row);

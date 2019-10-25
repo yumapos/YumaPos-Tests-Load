@@ -9,6 +9,8 @@ namespace YumaPos.Tests.Load.Server.Data.DataObjects
         [Key]
         public Guid TenantId { get; set; }
         public string TenantAlias { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
         public int? JobId { get; set; }
         public int ServerId { get; set; }
 

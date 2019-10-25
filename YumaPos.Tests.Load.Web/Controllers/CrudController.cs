@@ -35,6 +35,10 @@ namespace YumaPos.Tests.Load.Web.Controllers
                     ViewBag.Title = "Stores";
                     model = _db.Stores.CopyGenericToDataTable();
                     break;
+                case "terminals":
+                    ViewBag.Title = "Terminals";
+                    model = _db.Terminals.CopyGenericToDataTable();
+                    break;
                 case "employees":
                     ViewBag.Title = "Employees";
                     model = _db.Employees.CopyGenericToDataTable();

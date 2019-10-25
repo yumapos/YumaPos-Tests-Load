@@ -7,6 +7,7 @@ namespace YumaPos.Tests.Load.Infrastructure.Dto
     [Map]
     public class ReportDto
     {
+        public Guid ClientToken { get; set; }
         public int TaskId { get; set; }
         public List<ReportItem> ReportItems { get; set; }
     }
